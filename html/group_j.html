@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Group J | FIFA World Cup 2026 AI Predictions</title>
+<style>
+:root{
+  --blue:#0033A0;--red:#C8102E;--gold:#F0A500;--dark:#1A1A2E;
+  --light:#F4F7FC;--grey:#6B7280;--green:#16A34A;--white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--light);color:var(--dark)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,var(--blue) 0%,#001f6b 100%);
+  color:#fff;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.site-header h1{font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.site-header .subtitle{font-size:.85rem;opacity:.8}
+.badge{background:var(--red);color:#fff;padding:.2rem .6rem;border-radius:4px;
+  font-size:.72rem;font-weight:700;text-transform:uppercase}
+.badge.gold{background:var(--gold);color:var(--dark)}
+
+/* NAV */
+nav{background:var(--dark);padding:.5rem 1.5rem;overflow-x:auto;white-space:nowrap}
+nav a{color:#cbd5e1;font-size:.82rem;margin-right:1rem;padding:.3rem .5rem;border-radius:4px}
+nav a:hover,nav a.active{background:var(--blue);color:#fff;text-decoration:none}
+
+/* MAIN LAYOUT */
+main{max-width:1100px;margin:0 auto;padding:1.5rem}
+h2{font-size:1.2rem;font-weight:700;margin:1.5rem 0 .8rem;padding-bottom:.4rem;
+   border-bottom:3px solid var(--blue);color:var(--dark)}
+h3{font-size:1rem;font-weight:600;margin:1rem 0 .5rem;color:var(--grey)}
+
+/* CARDS */
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08);
+  padding:1.2rem;margin-bottom:1rem}
+.card-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.card-header h2{margin:0;border:none;padding:0;font-size:1rem}
+
+/* FLAGS */
+.flag{width:28px;height:21px;object-fit:cover;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.flag-lg{width:40px;height:30px}
+
+/* MATCH ROW */
+.match-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.match-table th{background:var(--blue);color:#fff;padding:.45rem .6rem;text-align:left;font-weight:600}
+.match-table td{padding:.5rem .6rem;border-bottom:1px solid #e5e7eb;vertical-align:middle}
+.match-table tr:last-child td{border-bottom:none}
+.match-table tr:hover td{background:#f0f4ff}
+.team-cell{display:flex;align-items:center;gap:.45rem;min-width:130px}
+.score-cell{text-align:center;font-family:monospace;font-weight:700;
+  white-space:nowrap;min-width:100px;font-size:.95rem}
+.pred{color:var(--grey);font-style:italic;font-weight:400}
+.actual{color:var(--dark)}
+.date-cell{color:var(--grey);font-size:.8rem;white-space:nowrap}
+.venue-cell{color:var(--grey);font-size:.78rem}
+
+/* STANDINGS TABLE */
+.stand-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.stand-table th{background:var(--blue);color:#fff;padding:.4rem .6rem;text-align:center}
+.stand-table th:first-child,.stand-table th:nth-child(2){text-align:left}
+.stand-table td{padding:.45rem .6rem;border-bottom:1px solid #e5e7eb;text-align:center}
+.stand-table td:nth-child(2){text-align:left}
+.stand-table tr.qualify-1 td,.stand-table tr.qualify-2 td{border-left:4px solid var(--blue)}
+.stand-table tr.qualify-3rd td{border-left:4px solid var(--gold)}
+.stand-table td.pts{font-weight:700}
+.stand-table tr:hover td{background:#f0f4ff}
+
+/* TITLE ODDS BARS */
+.odds-bar-wrap{margin:.3rem 0}
+.odds-team{display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem}
+.odds-bar{height:20px;background:linear-gradient(90deg,var(--blue),#3b5fc0);
+  border-radius:0 4px 4px 0;min-width:2px;transition:width .4s ease}
+.odds-pct{font-size:.8rem;font-weight:700;color:var(--blue);min-width:38px;text-align:right}
+.odds-team-name{font-size:.82rem;min-width:110px}
+
+/* GROUP GRID */
+.group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.group-card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08);
+  padding:1rem;transition:transform .15s}
+.group-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.group-label{font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--blue);
+  letter-spacing:.08em;margin-bottom:.5rem}
+.group-team{display:flex;align-items:center;gap:.4rem;padding:.25rem 0;
+  font-size:.84rem;border-bottom:1px solid #f3f4f6}
+.group-team:last-child{border-bottom:none}
+.group-team.top1{font-weight:700;color:var(--blue)}
+.group-team.top2{font-weight:600}
+.group-team .qual-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-q{background:var(--blue)}.dot-q3{background:var(--gold)}.dot-out{background:#e5e7eb}
+
+/* KNOCKOUT BRACKET */
+.bracket-wrap{overflow-x:auto;padding-bottom:1rem}
+.bracket{display:flex;gap:0;min-width:900px}
+.bracket-round{display:flex;flex-direction:column;min-width:170px}
+.bracket-round-label{text-align:center;font-size:.72rem;font-weight:700;text-transform:uppercase;
+  color:#fff;background:var(--blue);padding:.3rem;letter-spacing:.06em}
+.bracket-matches{display:flex;flex-direction:column;padding:.5rem .3rem;
+  justify-content:space-around;flex:1;gap:.3rem}
+.b-match{background:#fff;border-radius:7px;box-shadow:0 1px 4px rgba(0,0,0,.1);
+  overflow:hidden;border:1px solid #e5e7eb}
+.b-match.champion{border:2px solid var(--gold)}
+.b-team{display:flex;align-items:center;gap:.4rem;padding:.35rem .5rem;font-size:.78rem}
+.b-team.winner{background:#f0f4ff;font-weight:700}
+.b-team-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.b-score{font-family:monospace;font-size:.78rem;color:var(--grey);font-style:italic}
+.b-score.actual{color:var(--dark);font-weight:700;font-style:normal}
+.b-divider{height:1px;background:#f3f4f6}
+.champion-box{background:linear-gradient(135deg,#fff8e1,#fffbf0);border:2px solid var(--gold);
+  border-radius:10px;padding:1rem;text-align:center;margin:1rem 0}
+.champion-box .ch-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700}
+.champion-box .ch-team{font-size:1.5rem;font-weight:700;color:var(--dark);margin:.3rem 0}
+.champion-box .ch-score{font-size:.9rem;color:var(--grey)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--blue) 0%,#001f6b 60%,#0a0a2e 100%);
+  color:#fff;padding:2.5rem 1.5rem;text-align:center}
+.hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em}
+.hero .tagline{opacity:.8;font-size:.9rem;margin:.5rem 0 1rem}
+.hero .meta-row{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.hero .meta-item{font-size:.82rem;opacity:.85}
+.hero .meta-item span{font-weight:700;opacity:1}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.stat-box{background:#fff;border-radius:10px;padding:1rem 1.5rem;
+  box-shadow:0 1px 6px rgba(0,0,0,.07);flex:1;min-width:120px;text-align:center}
+.stat-box .sv{font-size:1.8rem;font-weight:800;color:var(--blue)}
+.stat-box .sl{font-size:.78rem;color:var(--grey);margin-top:.2rem}
+
+/* SECTION LABEL */
+.section-pill{display:inline-block;background:var(--blue);color:#fff;
+  font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:10px;
+  text-transform:uppercase;letter-spacing:.07em;margin-right:.5rem}
+
+/* TABLES generic */
+table{width:100%}
+
+/* RESULTS FEED */
+.result-feed{list-style:none}
+.result-item{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;
+  border-bottom:1px solid #f3f4f6;font-size:.84rem}
+.result-item:last-child{border-bottom:none}
+.upset-tag{background:#FEF3C7;color:#92400E;font-size:.68rem;font-weight:700;
+  padding:.1rem .35rem;border-radius:3px;text-transform:uppercase}
+
+/* UPCOMING */
+.upcoming-list{display:flex;flex-direction:column;gap:.5rem}
+.upcoming-item{background:#fff;border-radius:8px;padding:.6rem .8rem;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);display:flex;align-items:center;gap:.5rem;font-size:.84rem}
+.upcoming-date{font-size:.75rem;color:var(--grey);min-width:45px}
+.upcoming-pred{font-family:monospace;font-weight:700;color:var(--grey);
+  font-style:italic;margin:0 .3rem}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem 1rem;color:var(--grey);font-size:.78rem;
+  border-top:1px solid #e5e7eb;margin-top:2rem}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:1.4rem}
+  .group-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row .stat-box .sv{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <span style="font-size:2rem">⚽</span>
+  <div>
+    <h1>FIFA World Cup 2026 — AI Predictions</h1>
+    <div class="subtitle">Elo · Poisson · Dixon-Coles · Monte Carlo · 10,000 simulations</div>
+  </div>
+  <span class="badge gold">Jun 11 – Jul 19, 2026</span>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="group_a.html">A</a><a href="group_b.html">B</a>
+  <a href="group_c.html">C</a><a href="group_d.html">D</a>
+  <a href="group_e.html">E</a><a href="group_f.html">F</a>
+  <a href="group_g.html">G</a><a href="group_h.html">H</a>
+  <a href="group_i.html">I</a><a href="group_j.html" class="active">J</a>
+  <a href="group_k.html">K</a><a href="group_l.html">L</a>
+  <a href="knockout.html">🏆 Bracket</a>
+</nav>
+<main>
+
+<div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:1.5rem">
+  <span class="badge" style="font-size:1rem;padding:.3rem .8rem">Group J</span>
+  <span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/senegal.png" alt="senegal" loading="lazy"> <strong>Senegal</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/poland.png" alt="poland" loading="lazy"> <strong>Poland</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/costa-rica.png" alt="costa-rica" loading="lazy"> <strong>Costa Rica</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/new-zealand.png" alt="new-zealand" loading="lazy"> <strong>New Zealand</strong></span>
+</div>
+
+<h2>📋 Match Schedule & Predictions</h2>
+<div class="card" style="padding:0;overflow:hidden"><table class="match-table">
+<thead><tr>
+  <th>Date</th><th>Home</th><th style="text-align:center">Score</th><th>Away</th><th>Venue</th>
+</tr></thead>
+<tbody><tr>
+  <td class="date-cell">Jun 16</td>
+  <td><div class="team-cell"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal</div></td>
+  <td class="score-cell"><span class="pred">2–1</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> Poland</div></td>
+  <td class="venue-cell">Gillette, Boston</td>
+</tr><tr>
+  <td class="date-cell">Jun 16</td>
+  <td><div class="team-cell"><img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy"> Costa Rica</div></td>
+  <td class="score-cell"><span class="pred">2–1</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy"> New Zealand</div></td>
+  <td class="venue-cell">Lumen, Seattle</td>
+</tr><tr>
+  <td class="date-cell">Jun 22</td>
+  <td><div class="team-cell"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal</div></td>
+  <td class="score-cell"><span class="pred">2–1</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy"> Costa Rica</div></td>
+  <td class="venue-cell">Mercedes-Benz, Atlanta</td>
+</tr><tr>
+  <td class="date-cell">Jun 22</td>
+  <td><div class="team-cell"><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> Poland</div></td>
+  <td class="score-cell"><span class="pred">1–0</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy"> New Zealand</div></td>
+  <td class="venue-cell">Hard Rock, Miami</td>
+</tr><tr>
+  <td class="date-cell">Jun 29</td>
+  <td><div class="team-cell"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal</div></td>
+  <td class="score-cell"><span class="pred">2–0</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy"> New Zealand</div></td>
+  <td class="venue-cell">Gillette, Boston</td>
+</tr><tr>
+  <td class="date-cell">Jun 29</td>
+  <td><div class="team-cell"><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> Poland</div></td>
+  <td class="score-cell"><span class="pred">2–1</span></td>
+  <td><div class="team-cell"><img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy"> Costa Rica</div></td>
+  <td class="venue-cell">AT&T, Dallas</td>
+</tr></tbody>
+</table></div>
+<p style="font-size:.78rem;color:var(--grey);margin-top:.3rem">
+  Scores shown in <em style="color:var(--grey)">grey italic</em> = AI prediction (not yet played)
+</p>
+
+<h2>📊 Predicted Final Standings</h2>
+<div class="card" style="padding:0;overflow:hidden"><table class="stand-table">
+<thead><tr>
+  <th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th>
+  <th>GF</th><th>GA</th><th>GD</th><th>Pts</th>
+</tr></thead>
+<tbody><tr class="qualify-1">
+  <td>1</td>
+  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal <span class="section-pill" style="background:var(--blue);font-size:.65rem">✅</span></div></td>
+  <td>3</td><td>3</td><td>0</td><td>0</td>
+  <td>6</td><td>2</td><td>+4</td><td class="pts">9</td>
+</tr><tr class="qualify-2">
+  <td>2</td>
+  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> Poland <span class="section-pill" style="background:var(--blue);font-size:.65rem">✅</span></div></td>
+  <td>3</td><td>2</td><td>0</td><td>1</td>
+  <td>4</td><td>3</td><td>+1</td><td class="pts">6</td>
+</tr><tr class="qualify-3rd">
+  <td>3</td>
+  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy"> Costa Rica <span class="section-pill" style="background:var(--gold);font-size:.65rem">🟡</span></div></td>
+  <td>3</td><td>1</td><td>0</td><td>2</td>
+  <td>4</td><td>5</td><td>-1</td><td class="pts">3</td>
+</tr><tr class="">
+  <td>4</td>
+  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy"> New Zealand <span class="section-pill" style="background:#9ca3af;font-size:.65rem">❌</span></div></td>
+  <td>3</td><td>0</td><td>0</td><td>3</td>
+  <td>1</td><td>5</td><td>-4</td><td class="pts">0</td>
+</tr></tbody>
+</table></div>
+<p style="font-size:.8rem;color:var(--grey);margin-top:.5rem">🔵 Qualifies &nbsp; 🟡 Potential best 3rd-place qualifier &nbsp; ❌ Eliminated</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+  <div class="card">
+    <h3>⚡ Elo Strength</h3>
+    <div class="odds-team">
+  <img class="flag" src="images/senegal.png" alt="senegal" loading="lazy">
+  <span class="odds-team-name">Senegal</span>
+  <div class="odds-bar" style="width:200px"></div>
+  <span class="odds-pct" style="color:var(--grey)">1850</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/poland.png" alt="poland" loading="lazy">
+  <span class="odds-team-name">Poland</span>
+  <div class="odds-bar" style="width:181px"></div>
+  <span class="odds-pct" style="color:var(--grey)">1770</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy">
+  <span class="odds-team-name">Costa Rica</span>
+  <div class="odds-bar" style="width:160px"></div>
+  <span class="odds-pct" style="color:var(--grey)">1680</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy">
+  <span class="odds-team-name">New Zealand</span>
+  <div class="odds-bar" style="width:117px"></div>
+  <span class="odds-pct" style="color:var(--grey)">1500</span>
+</div>
+  </div>
+  <div class="card">
+    <h3>🏆 Title Odds</h3>
+    <div class="odds-team">
+  <img class="flag" src="images/senegal.png" alt="senegal" loading="lazy">
+  <span class="odds-team-name">Senegal</span>
+  <div class="odds-bar" style="width:22px"></div>
+  <span class="odds-pct">2.2%</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/poland.png" alt="poland" loading="lazy">
+  <span class="odds-team-name">Poland</span>
+  <div class="odds-bar" style="width:6px"></div>
+  <span class="odds-pct">0.6%</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/costa-rica.png" alt="costa-rica" loading="lazy">
+  <span class="odds-team-name">Costa Rica</span>
+  <div class="odds-bar" style="width:2px"></div>
+  <span class="odds-pct">0.1%</span>
+</div><div class="odds-team">
+  <img class="flag" src="images/new-zealand.png" alt="new-zealand" loading="lazy">
+  <span class="odds-team-name">New Zealand</span>
+  <div class="odds-bar" style="width:2px"></div>
+  <span class="odds-pct">0.0%</span>
+</div>
+  </div>
+</div>
+
+</main>
+<footer>
+  Predictions by Elo + Poisson + Dixon-Coles model (tools/predict.py) &nbsp;|&nbsp;
+  10,000-run Monte Carlo · SEED=2026 &nbsp;|&nbsp;
+  Sources: Dixon &amp; Coles 1997 · Maher 1982 · eloratings.net &nbsp;|&nbsp;
+  <a href="https://github.com/yoyokits/WorldCup26AI">GitHub</a>
+</footer>
+</body>
+</html>
