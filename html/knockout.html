@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Knockout Bracket | FIFA World Cup 2026 AI Predictions</title>
+<style>
+:root{
+  --blue:#0033A0;--red:#C8102E;--gold:#F0A500;--dark:#1A1A2E;
+  --light:#F4F7FC;--grey:#6B7280;--green:#16A34A;--white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--light);color:var(--dark)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,var(--blue) 0%,#001f6b 100%);
+  color:#fff;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.site-header h1{font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.site-header .subtitle{font-size:.85rem;opacity:.8}
+.badge{background:var(--red);color:#fff;padding:.2rem .6rem;border-radius:4px;
+  font-size:.72rem;font-weight:700;text-transform:uppercase}
+.badge.gold{background:var(--gold);color:var(--dark)}
+
+/* NAV */
+nav{background:var(--dark);padding:.5rem 1.5rem;overflow-x:auto;white-space:nowrap}
+nav a{color:#cbd5e1;font-size:.82rem;margin-right:1rem;padding:.3rem .5rem;border-radius:4px}
+nav a:hover,nav a.active{background:var(--blue);color:#fff;text-decoration:none}
+
+/* MAIN LAYOUT */
+main{max-width:1100px;margin:0 auto;padding:1.5rem}
+h2{font-size:1.2rem;font-weight:700;margin:1.5rem 0 .8rem;padding-bottom:.4rem;
+   border-bottom:3px solid var(--blue);color:var(--dark)}
+h3{font-size:1rem;font-weight:600;margin:1rem 0 .5rem;color:var(--grey)}
+
+/* CARDS */
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08);
+  padding:1.2rem;margin-bottom:1rem}
+.card-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.card-header h2{margin:0;border:none;padding:0;font-size:1rem}
+
+/* FLAGS */
+.flag{width:28px;height:21px;object-fit:cover;border-radius:2px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.flag-lg{width:40px;height:30px}
+
+/* MATCH ROW */
+.match-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.match-table th{background:var(--blue);color:#fff;padding:.45rem .6rem;text-align:left;font-weight:600}
+.match-table td{padding:.5rem .6rem;border-bottom:1px solid #e5e7eb;vertical-align:middle}
+.match-table tr:last-child td{border-bottom:none}
+.match-table tr:hover td{background:#f0f4ff}
+.team-cell{display:flex;align-items:center;gap:.45rem;min-width:130px}
+.score-cell{text-align:center;font-family:monospace;font-weight:700;
+  white-space:nowrap;min-width:100px;font-size:.95rem}
+.pred{color:var(--grey);font-style:italic;font-weight:400}
+.actual{color:var(--dark)}
+.date-cell{color:var(--grey);font-size:.8rem;white-space:nowrap}
+.venue-cell{color:var(--grey);font-size:.78rem}
+
+/* STANDINGS TABLE */
+.stand-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.stand-table th{background:var(--blue);color:#fff;padding:.4rem .6rem;text-align:center}
+.stand-table th:first-child,.stand-table th:nth-child(2){text-align:left}
+.stand-table td{padding:.45rem .6rem;border-bottom:1px solid #e5e7eb;text-align:center}
+.stand-table td:nth-child(2){text-align:left}
+.stand-table tr.qualify-1 td,.stand-table tr.qualify-2 td{border-left:4px solid var(--blue)}
+.stand-table tr.qualify-3rd td{border-left:4px solid var(--gold)}
+.stand-table td.pts{font-weight:700}
+.stand-table tr:hover td{background:#f0f4ff}
+
+/* TITLE ODDS BARS */
+.odds-bar-wrap{margin:.3rem 0}
+.odds-team{display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem}
+.odds-bar{height:20px;background:linear-gradient(90deg,var(--blue),#3b5fc0);
+  border-radius:0 4px 4px 0;min-width:2px;transition:width .4s ease}
+.odds-pct{font-size:.8rem;font-weight:700;color:var(--blue);min-width:38px;text-align:right}
+.odds-team-name{font-size:.82rem;min-width:110px}
+
+/* GROUP GRID */
+.group-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.group-card{background:#fff;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08);
+  padding:1rem;transition:transform .15s}
+.group-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.group-label{font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--blue);
+  letter-spacing:.08em;margin-bottom:.5rem}
+.group-team{display:flex;align-items:center;gap:.4rem;padding:.25rem 0;
+  font-size:.84rem;border-bottom:1px solid #f3f4f6}
+.group-team:last-child{border-bottom:none}
+.group-team.top1{font-weight:700;color:var(--blue)}
+.group-team.top2{font-weight:600}
+.group-team .qual-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-q{background:var(--blue)}.dot-q3{background:var(--gold)}.dot-out{background:#e5e7eb}
+
+/* KNOCKOUT BRACKET */
+.bracket-wrap{overflow-x:auto;padding-bottom:1rem}
+.bracket{display:flex;gap:0;min-width:900px}
+.bracket-round{display:flex;flex-direction:column;min-width:170px}
+.bracket-round-label{text-align:center;font-size:.72rem;font-weight:700;text-transform:uppercase;
+  color:#fff;background:var(--blue);padding:.3rem;letter-spacing:.06em}
+.bracket-matches{display:flex;flex-direction:column;padding:.5rem .3rem;
+  justify-content:space-around;flex:1;gap:.3rem}
+.b-match{background:#fff;border-radius:7px;box-shadow:0 1px 4px rgba(0,0,0,.1);
+  overflow:hidden;border:1px solid #e5e7eb}
+.b-match.champion{border:2px solid var(--gold)}
+.b-team{display:flex;align-items:center;gap:.4rem;padding:.35rem .5rem;font-size:.78rem}
+.b-team.winner{background:#f0f4ff;font-weight:700}
+.b-team-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.b-score{font-family:monospace;font-size:.78rem;color:var(--grey);font-style:italic}
+.b-score.actual{color:var(--dark);font-weight:700;font-style:normal}
+.b-divider{height:1px;background:#f3f4f6}
+.champion-box{background:linear-gradient(135deg,#fff8e1,#fffbf0);border:2px solid var(--gold);
+  border-radius:10px;padding:1rem;text-align:center;margin:1rem 0}
+.champion-box .ch-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700}
+.champion-box .ch-team{font-size:1.5rem;font-weight:700;color:var(--dark);margin:.3rem 0}
+.champion-box .ch-score{font-size:.9rem;color:var(--grey)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--blue) 0%,#001f6b 60%,#0a0a2e 100%);
+  color:#fff;padding:2.5rem 1.5rem;text-align:center}
+.hero h1{font-size:2rem;font-weight:800;letter-spacing:-.03em}
+.hero .tagline{opacity:.8;font-size:.9rem;margin:.5rem 0 1rem}
+.hero .meta-row{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.hero .meta-item{font-size:.82rem;opacity:.85}
+.hero .meta-item span{font-weight:700;opacity:1}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.stat-box{background:#fff;border-radius:10px;padding:1rem 1.5rem;
+  box-shadow:0 1px 6px rgba(0,0,0,.07);flex:1;min-width:120px;text-align:center}
+.stat-box .sv{font-size:1.8rem;font-weight:800;color:var(--blue)}
+.stat-box .sl{font-size:.78rem;color:var(--grey);margin-top:.2rem}
+
+/* SECTION LABEL */
+.section-pill{display:inline-block;background:var(--blue);color:#fff;
+  font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:10px;
+  text-transform:uppercase;letter-spacing:.07em;margin-right:.5rem}
+
+/* TABLES generic */
+table{width:100%}
+
+/* RESULTS FEED */
+.result-feed{list-style:none}
+.result-item{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;
+  border-bottom:1px solid #f3f4f6;font-size:.84rem}
+.result-item:last-child{border-bottom:none}
+.upset-tag{background:#FEF3C7;color:#92400E;font-size:.68rem;font-weight:700;
+  padding:.1rem .35rem;border-radius:3px;text-transform:uppercase}
+
+/* UPCOMING */
+.upcoming-list{display:flex;flex-direction:column;gap:.5rem}
+.upcoming-item{background:#fff;border-radius:8px;padding:.6rem .8rem;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);display:flex;align-items:center;gap:.5rem;font-size:.84rem}
+.upcoming-date{font-size:.75rem;color:var(--grey);min-width:45px}
+.upcoming-pred{font-family:monospace;font-weight:700;color:var(--grey);
+  font-style:italic;margin:0 .3rem}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem 1rem;color:var(--grey);font-size:.78rem;
+  border-top:1px solid #e5e7eb;margin-top:2rem}
+
+/* MOBILE */
+@media(max-width:600px){
+  .hero h1{font-size:1.4rem}
+  .group-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-row .stat-box .sv{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <span style="font-size:2rem">⚽</span>
+  <div>
+    <h1>FIFA World Cup 2026 — AI Predictions</h1>
+    <div class="subtitle">Elo · Poisson · Dixon-Coles · Monte Carlo · 10,000 simulations</div>
+  </div>
+  <span class="badge gold">Jun 11 – Jul 19, 2026</span>
+</header>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="group_a.html">A</a><a href="group_b.html">B</a>
+  <a href="group_c.html">C</a><a href="group_d.html">D</a>
+  <a href="group_e.html">E</a><a href="group_f.html">F</a>
+  <a href="group_g.html">G</a><a href="group_h.html">H</a>
+  <a href="group_i.html">I</a><a href="group_j.html">J</a>
+  <a href="group_k.html">K</a><a href="group_l.html">L</a>
+  <a href="knockout.html" class="active">🏆 Bracket</a>
+</nav>
+<main>
+
+
+<div class="champion-box">
+  <div class="ch-label">🏆 Predicted World Cup Champion</div>
+  <div class="ch-team"><img class="flag-lg" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div>
+  <div class="ch-score">Predicted final: Argentina 2–1 Germany &nbsp;|&nbsp; July 19, MetLife Stadium</div>
+  <div style="font-size:.8rem;color:var(--grey);margin-top:.4rem">Monte Carlo title probability: <strong>15.1%</strong> (highest of 48 teams)</div>
+</div>
+
+<h2>🏆 Knockout Bracket</h2>
+<div class="bracket-wrap">
+  <div class="bracket"><div class="bracket-round">
+  <div class="bracket-round-label">Round of 32</div>
+  <div class="bracket-matches"><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> <span class="b-team-name">Argentina</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/slovenia.png" alt="slovenia" loading="lazy"> <span class="b-team-name">Slovenia</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 1</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/france.png" alt="france" loading="lazy"> <span class="b-team-name">France</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/wales.png" alt="wales" loading="lazy"> <span class="b-team-name">Wales</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 1</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> <span class="b-team-name">Spain</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/turkey.png" alt="turkey" loading="lazy"> <span class="b-team-name">Turkey</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 2</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/england.png" alt="england" loading="lazy"> <span class="b-team-name">England</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> <span class="b-team-name">Poland</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 2</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> <span class="b-team-name">Brazil</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/canada.png" alt="canada" loading="lazy"> <span class="b-team-name">Canada</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 2</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/netherlands.png" alt="netherlands" loading="lazy"> <span class="b-team-name">Netherlands</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/paraguay.png" alt="paraguay" loading="lazy"> <span class="b-team-name">Paraguay</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 2</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> <span class="b-team-name">Portugal</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/sweden.png" alt="sweden" loading="lazy"> <span class="b-team-name">Sweden</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 3</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/italy.png" alt="italy" loading="lazy"> <span class="b-team-name">Italy</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/serbia.png" alt="serbia" loading="lazy"> <span class="b-team-name">Serbia</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 3</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> <span class="b-team-name">Germany</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/ukraine.png" alt="ukraine" loading="lazy"> <span class="b-team-name">Ukraine</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 3</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/uruguay.png" alt="uruguay" loading="lazy"> <span class="b-team-name">Uruguay</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/ecuador.png" alt="ecuador" loading="lazy"> <span class="b-team-name">Ecuador</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 3</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> <span class="b-team-name">Croatia</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/nigeria.png" alt="nigeria" loading="lazy"> <span class="b-team-name">Nigeria</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 4</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/morocco.png" alt="morocco" loading="lazy"> <span class="b-team-name">Morocco</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> <span class="b-team-name">South Korea</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 4</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> <span class="b-team-name">Senegal</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/japan.png" alt="japan" loading="lazy"> <span class="b-team-name">Japan</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 4</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> <span class="b-team-name">Switzerland</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/iran.png" alt="iran" loading="lazy"> <span class="b-team-name">Iran</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 4</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> <span class="b-team-name">Colombia</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/egypt.png" alt="egypt" loading="lazy"> <span class="b-team-name">Egypt</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 5</span>
+</div><div class="b-match">
+  <div class="b-team "><img class="flag" src="images/mexico.png" alt="mexico" loading="lazy"> <span class="b-team-name">Mexico</span> <span class="b-score">1-2</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team winner"><img class="flag" src="images/usa.png" alt="usa" loading="lazy"> <span class="b-team-name">USA</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 5</span>
+</div></div>
+</div><div class="bracket-round">
+  <div class="bracket-round-label">Round of 16</div>
+  <div class="bracket-matches"><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> <span class="b-team-name">Argentina</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/france.png" alt="france" loading="lazy"> <span class="b-team-name">France</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 6</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> <span class="b-team-name">Spain</span> <span class="b-score">1-1 (3-2p)</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/england.png" alt="england" loading="lazy"> <span class="b-team-name">England</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 6</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> <span class="b-team-name">Brazil</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/netherlands.png" alt="netherlands" loading="lazy"> <span class="b-team-name">Netherlands</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 7</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> <span class="b-team-name">Portugal</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/italy.png" alt="italy" loading="lazy"> <span class="b-team-name">Italy</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 7</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> <span class="b-team-name">Germany</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/uruguay.png" alt="uruguay" loading="lazy"> <span class="b-team-name">Uruguay</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 7</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> <span class="b-team-name">Croatia</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/morocco.png" alt="morocco" loading="lazy"> <span class="b-team-name">Morocco</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 7</span>
+</div><div class="b-match">
+  <div class="b-team "><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> <span class="b-team-name">Senegal</span> <span class="b-score">1-2</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team winner"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> <span class="b-team-name">Switzerland</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 8</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> <span class="b-team-name">Colombia</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/usa.png" alt="usa" loading="lazy"> <span class="b-team-name">USA</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 8</span>
+</div></div>
+</div><div class="bracket-round">
+  <div class="bracket-round-label">Quarterfinals</div>
+  <div class="bracket-matches"><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> <span class="b-team-name">Argentina</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> <span class="b-team-name">Brazil</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 9</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> <span class="b-team-name">Spain</span> <span class="b-score">1-1 (4-3p)</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> <span class="b-team-name">Portugal</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 9</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> <span class="b-team-name">Germany</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> <span class="b-team-name">Croatia</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 10</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> <span class="b-team-name">Switzerland</span> <span class="b-score">1-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> <span class="b-team-name">Colombia</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 10</span>
+</div></div>
+</div><div class="bracket-round">
+  <div class="bracket-round-label">Semifinals</div>
+  <div class="bracket-matches"><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> <span class="b-team-name">Argentina</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> <span class="b-team-name">Spain</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 14</span>
+</div><div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> <span class="b-team-name">Germany</span> <span class="b-score">2-0</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> <span class="b-team-name">Switzerland</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 14</span>
+</div></div>
+</div><div class="bracket-round">
+  <div class="bracket-round-label" style="background:var(--gold);color:var(--dark)">Final · Jul 19</div>
+  <div class="bracket-matches">
+    <div class="b-match champion">
+  <div class="b-team winner"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> <span class="b-team-name">Argentina</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> <span class="b-team-name">Germany</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 19</span>
+</div>
+    <div style="margin-top:.5rem;font-size:.72rem;color:var(--grey);text-align:center">MetLife Stadium, NJ</div>
+    <div style="margin-top:1rem">
+      <div class="bracket-round-label" style="font-size:.65rem;background:#6B7280">3rd Place · Jul 18</div>
+      <div class="b-match">
+  <div class="b-team winner"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> <span class="b-team-name">Spain</span> <span class="b-score">2-1</span></div>
+  <div class="b-divider"></div>
+  <div class="b-team "><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> <span class="b-team-name">Switzerland</span></div>
+  <span style="font-size:.65rem;color:var(--grey);padding:.1rem .4rem;display:block;text-align:right">Jul 18</span>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+
+<h2>📋 All Knockout Predictions</h2>
+<div class="card" style="padding:0;overflow:hidden"><table style="width:100%;border-collapse:collapse;font-size:.84rem">
+<thead style="background:var(--blue);color:#fff">
+  <tr>
+    <th style="padding:.4rem .6rem;text-align:left">Round</th>
+    <th style="padding:.4rem .6rem;text-align:left">Date</th>
+    <th style="padding:.4rem .6rem;text-align:left">Team A</th>
+    <th style="padding:.4rem .6rem;text-align:center">Pred. Score</th>
+    <th style="padding:.4rem .6rem;text-align:left">Team B</th>
+    <th style="padding:.4rem .6rem;text-align:left">Pred. Winner</th>
+  </tr>
+</thead>
+<tbody><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-1</td>
+  <td style="padding:.4rem .6rem">Jul 1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/slovenia.png" alt="slovenia" loading="lazy"> Slovenia</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Argentina</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-2</td>
+  <td style="padding:.4rem .6rem">Jul 1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/france.png" alt="france" loading="lazy"> France</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/wales.png" alt="wales" loading="lazy"> Wales</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">France</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-3</td>
+  <td style="padding:.4rem .6rem">Jul 2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> Spain</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/turkey.png" alt="turkey" loading="lazy"> Turkey</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Spain</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-4</td>
+  <td style="padding:.4rem .6rem">Jul 2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/england.png" alt="england" loading="lazy"> England</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/poland.png" alt="poland" loading="lazy"> Poland</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">England</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-5</td>
+  <td style="padding:.4rem .6rem">Jul 2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/canada.png" alt="canada" loading="lazy"> Canada</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Brazil</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-6</td>
+  <td style="padding:.4rem .6rem">Jul 2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/netherlands.png" alt="netherlands" loading="lazy"> Netherlands</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/paraguay.png" alt="paraguay" loading="lazy"> Paraguay</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Netherlands</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-7</td>
+  <td style="padding:.4rem .6rem">Jul 3</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> Portugal</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/sweden.png" alt="sweden" loading="lazy"> Sweden</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Portugal</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-8</td>
+  <td style="padding:.4rem .6rem">Jul 3</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/italy.png" alt="italy" loading="lazy"> Italy</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/serbia.png" alt="serbia" loading="lazy"> Serbia</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Italy</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-9</td>
+  <td style="padding:.4rem .6rem">Jul 3</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> Germany</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/ukraine.png" alt="ukraine" loading="lazy"> Ukraine</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Germany</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-10</td>
+  <td style="padding:.4rem .6rem">Jul 3</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/uruguay.png" alt="uruguay" loading="lazy"> Uruguay</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/ecuador.png" alt="ecuador" loading="lazy"> Ecuador</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Uruguay</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-11</td>
+  <td style="padding:.4rem .6rem">Jul 4</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> Croatia</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/nigeria.png" alt="nigeria" loading="lazy"> Nigeria</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Croatia</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-12</td>
+  <td style="padding:.4rem .6rem">Jul 4</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/morocco.png" alt="morocco" loading="lazy"> Morocco</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> South Korea</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Morocco</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-13</td>
+  <td style="padding:.4rem .6rem">Jul 4</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/japan.png" alt="japan" loading="lazy"> Japan</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Senegal</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-14</td>
+  <td style="padding:.4rem .6rem">Jul 4</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/iran.png" alt="iran" loading="lazy"> Iran</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Switzerland</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-15</td>
+  <td style="padding:.4rem .6rem">Jul 5</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> Colombia</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/egypt.png" alt="egypt" loading="lazy"> Egypt</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Colombia</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R32-16</td>
+  <td style="padding:.4rem .6rem">Jul 5</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/mexico.png" alt="mexico" loading="lazy"> Mexico</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/usa.png" alt="usa" loading="lazy"> USA</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">USA</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-1</td>
+  <td style="padding:.4rem .6rem">Jul 6</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/france.png" alt="france" loading="lazy"> France</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Argentina</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-2</td>
+  <td style="padding:.4rem .6rem">Jul 6</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> Spain</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-1 (3-2p)</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/england.png" alt="england" loading="lazy"> England</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Spain</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-3</td>
+  <td style="padding:.4rem .6rem">Jul 7</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/netherlands.png" alt="netherlands" loading="lazy"> Netherlands</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Brazil</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-4</td>
+  <td style="padding:.4rem .6rem">Jul 7</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> Portugal</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/italy.png" alt="italy" loading="lazy"> Italy</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Portugal</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-5</td>
+  <td style="padding:.4rem .6rem">Jul 7</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> Germany</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/uruguay.png" alt="uruguay" loading="lazy"> Uruguay</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Germany</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-6</td>
+  <td style="padding:.4rem .6rem">Jul 7</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> Croatia</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/morocco.png" alt="morocco" loading="lazy"> Morocco</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Croatia</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-7</td>
+  <td style="padding:.4rem .6rem">Jul 8</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/senegal.png" alt="senegal" loading="lazy"> Senegal</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-2</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Switzerland</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">R16-8</td>
+  <td style="padding:.4rem .6rem">Jul 8</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> Colombia</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/usa.png" alt="usa" loading="lazy"> USA</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Colombia</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">QF-1</td>
+  <td style="padding:.4rem .6rem">Jul 9</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Argentina</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">QF-2</td>
+  <td style="padding:.4rem .6rem">Jul 9</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> Spain</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-1 (4-3p)</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/portugal.png" alt="portugal" loading="lazy"> Portugal</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Spain</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">QF-3</td>
+  <td style="padding:.4rem .6rem">Jul 10</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> Germany</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/croatia.png" alt="croatia" loading="lazy"> Croatia</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Germany</td>
+</tr><tr style="">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">QF-4</td>
+  <td style="padding:.4rem .6rem">Jul 10</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">1-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/colombia.png" alt="colombia" loading="lazy"> Colombia</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Switzerland</td>
+</tr><tr style="background:#f0f4ff">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">SF-1</td>
+  <td style="padding:.4rem .6rem">Jul 14</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> Spain</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Argentina</td>
+</tr><tr style="background:#f0f4ff">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">SF-2</td>
+  <td style="padding:.4rem .6rem">Jul 14</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> Germany</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-0</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Germany</td>
+</tr><tr style="background:#f8fafc">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">3rd Place</td>
+  <td style="padding:.4rem .6rem">Jul 18</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/spain.png" alt="spain" loading="lazy"> Spain</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Spain</td>
+</tr><tr style="background:#fff8e1;font-weight:700">
+  <td style="padding:.4rem .6rem;font-size:.75rem;color:var(--grey)">🏆 FINAL</td>
+  <td style="padding:.4rem .6rem">Jul 19</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/argentina.png" alt="argentina" loading="lazy"> Argentina</div></td>
+  <td style="padding:.4rem .6rem;text-align:center;font-family:monospace;font-style:italic;color:var(--grey)">2-1</td>
+  <td style="padding:.4rem .6rem"><div class="team-cell"><img class="flag" src="images/germany.png" alt="germany" loading="lazy"> Germany</div></td>
+  <td style="padding:.4rem .6rem;font-weight:600">Argentina</td>
+</tr></tbody>
+</table></div>
+<p style="font-size:.78rem;color:var(--grey);margin-top:.5rem">
+  All scores shown are AI predictions. Bracket seeded by Elo rating after group stage.
+  Draws resolved by win-expectancy penalty model.
+</p>
+
+</main>
+<footer>
+  Predictions by Elo + Poisson + Dixon-Coles model (tools/predict.py) &nbsp;|&nbsp;
+  10,000-run Monte Carlo · SEED=2026 &nbsp;|&nbsp;
+  Sources: Dixon &amp; Coles 1997 · Maher 1982 · eloratings.net &nbsp;|&nbsp;
+  <a href="https://github.com/yoyokits/WorldCup26AI">GitHub</a>
+</footer>
+</body>
+</html>
