@@ -1,0 +1,49 @@
+team,slug,group,confederation,fifa_rank,elo,host
+Argentina,argentina,A,CONMEBOL,1,2140,0
+Jamaica,jamaica,A,CONCACAF,20,1680,0
+Morocco,morocco,A,CAF,18,1870,0
+Egypt,egypt,A,CAF,39,1770,0
+Spain,spain,B,UEFA,2,2080,0
+Japan,japan,B,AFC,13,1850,0
+USA,usa,B,CONCACAF,14,1820,1
+Ghana,ghana,B,CAF,48,1720,0
+Brazil,brazil,C,CONMEBOL,3,2050,0
+South Korea,south-korea,C,AFC,29,1790,0
+Switzerland,switzerland,C,UEFA,10,1860,0
+Cameroon,cameroon,C,CAF,57,1710,0
+France,france,D,UEFA,4,2100,0
+Canada,canada,D,CONCACAF,47,1730,1
+Uruguay,uruguay,D,CONMEBOL,16,1900,0
+Saudi Arabia,saudi-arabia,D,AFC,65,1650,0
+Portugal,portugal,E,UEFA,5,2000,0
+Croatia,croatia,E,UEFA,12,1900,0
+Tunisia,tunisia,E,CAF,44,1700,0
+Ecuador,ecuador,E,CONMEBOL,26,1830,0
+Germany,germany,F,UEFA,6,1965,0
+Colombia,colombia,F,CONMEBOL,15,1880,0
+Nigeria,nigeria,F,CAF,34,1780,0
+Honduras,honduras,F,CONCACAF,85,1600,0
+Netherlands,netherlands,G,UEFA,7,1990,0
+Serbia,serbia,G,UEFA,27,1820,0
+Mexico,mexico,G,CONCACAF,19,1790,1
+Australia,australia,G,AFC,30,1720,0
+England,england,H,UEFA,8,2010,0
+Slovenia,slovenia,H,UEFA,33,1720,0
+Paraguay,paraguay,H,CONMEBOL,35,1760,0
+Tonga,tonga,H,OFC,180,1100,0
+Italy,italy,I,UEFA,9,1950,0
+Wales,wales,I,UEFA,28,1760,0
+Qatar,qatar,I,AFC,36,1680,0
+Fiji,fiji,I,OFC,135,1250,0
+Senegal,senegal,J,CAF,17,1850,0
+Poland,poland,J,UEFA,25,1770,0
+Costa Rica,costa-rica,J,CONCACAF,40,1680,0
+New Zealand,new-zealand,J,OFC,89,1500,0
+Iran,iran,K,AFC,21,1810,0
+Sweden,sweden,K,UEFA,24,1780,0
+Panama,panama,K,CONCACAF,41,1690,0
+Bolivia,bolivia,K,CONMEBOL,75,1620,0
+Ukraine,ukraine,L,UEFA,22,1790,0
+Turkey,turkey,L,UEFA,23,1800,0
+South Africa,south-africa,L,CAF,42,1700,0
+Guinea,guinea,L,CAF,70,1660,0
