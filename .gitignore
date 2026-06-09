@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Personal / local tooling (not part of the project)
+ChooseClaudeCode.bat
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
