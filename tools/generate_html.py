@@ -353,7 +353,7 @@ def html_footer():
   <a href="index.html">Home</a> &middot;
   <a href="{GITHUB_URL}" target="_blank" rel="noopener">GitHub</a> &middot;
   <a href="prediction_method.html">Methodology</a></p>
-  <p>Built with Python + Claude AI &middot; Not affiliated with FIFA</p>
+  <p>By <strong>Yohanes Wahyu Nurcahyo</strong> &middot; Built with Python + Claude AI &middot; Not affiliated with FIFA</p>
 </footer>"""
 
 
@@ -504,7 +504,17 @@ def standings_html(standings):
         '<table class="standings-table"><thead><tr>'
         "<th>Pos</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th>"
         "<th>GF</th><th>GA</th><th>GD</th><th>Pts</th>"
-        f"</tr></thead><tbody>{rows}</tbody></table></div>"
+        f"</tr></thead><tbody>{rows}</tbody></table>"
+        '<div class="standings-legend">'
+        "<strong>P</strong> = Played &middot; "
+        "<strong>W</strong> = Won &middot; "
+        "<strong>D</strong> = Drawn &middot; "
+        "<strong>L</strong> = Lost &middot; "
+        "<strong>GF</strong> = Goals For &middot; "
+        "<strong>GA</strong> = Goals Against &middot; "
+        "<strong>GD</strong> = Goal Difference &middot; "
+        "<strong>Pts</strong> = Points"
+        "</div></div>"
     )
 
 
@@ -564,44 +574,43 @@ def _build_bracket_tree():
 
 
 def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule):
-    cal_data = {}
-    for date_str, matches in by_date.items():
+    gs_matches_by_key = {}
+    for gd in groups_data.values():
+        for m in gd.get("matches", []):
+            key = frozenset({_norm(m["home"]), _norm(m["away"])})
+            gs_matches_by_key[key] = m
+
+    ko_match_data = {}
+    for fn in ["RoundOf32.md", "RoundOf16.md", "Quarterfinals.md", "Semifinals.md", "ThirdPlace.md", "Final.md"]:
+        for m in parse_knockout_file(fn):
+            ko_match_data[m["num"]] = m
+
+    cal_cards_html = {}
+    for date_str, sched_matches in by_date.items():
         d = _date_to_iso(date_str)
-        cal_data[d] = [
-            {
-                "home": m["home"],
-                "away": m["away"],
-                "h_slug": get_slug(m["home"]),
-                "a_slug": get_slug(m["away"]),
-                "time_et": m["time_et"],
-                "venue": m["venue"],
-                "time_utc": m["date_iso"] + m["time_utc"],
-            }
-            for m in matches
-        ]
-    ko_labels = {
-        "R32": "Round of 32",
-        "R16": "Round of 16",
-        "QF": "Quarterfinals",
-        "SF": "Semifinals",
-        "3rd": "Third Place",
-        "Final": "Final",
-    }
+        cards = ""
+        for sm in sched_matches:
+            key = frozenset({_norm(sm["home"]), _norm(sm["away"])})
+            gm = gs_matches_by_key.get(key)
+            if gm:
+                sinfo = {"date": sm["date"], "date_iso": sm["date_iso"],
+                         "time_utc": sm["time_utc"], "venue": sm["venue"]}
+                cards += match_card_html(gm, teams, sinfo)
+        if cards:
+            cal_cards_html[d] = cards
+
     for label, matches in ko_schedule.items():
         for m in matches:
             d = m["date_iso"]
-            cal_data.setdefault(d, []).append(
-                {
-                    "home": ko_labels.get(label, label),
-                    "away": f"Match {m['match_num']}",
-                    "h_slug": "",
-                    "a_slug": "",
-                    "time_et": m["time_et"],
-                    "venue": m["venue"],
-                    "time_utc": m["date_iso"] + m["time_utc"],
-                    "knockout": True,
-                }
-            )
+            km = ko_match_data.get(m["match_num"])
+            if km:
+                sinfo = {"date": m["date"], "date_iso": m["date_iso"],
+                         "time_utc": m["time_utc"], "venue": m["venue"]}
+                card = match_card_html(km, teams, sinfo)
+                cal_cards_html.setdefault(d, "")
+                cal_cards_html[d] += card
+
+    cal_cards_json = {k: v for k, v in cal_cards_html.items()}
 
     group_cards = ""
     for g in GROUPS:
@@ -652,12 +661,14 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
     html += '<h2 class="section-title">Match Calendar</h2>'
     html += (
         '<div class="calendar">'
+        '<div class="calendar-left">'
         '<div class="calendar-nav">'
         '<button class="cal-nav-btn" onclick="switchMonth(-1)">&#9664; Prev</button>'
         '<span class="calendar-title" id="calMonthTitle">June 2026</span>'
         '<button class="cal-nav-btn" onclick="switchMonth(1)">Next &#9654;</button>'
         '</div>'
         '<div id="calendarGrid"></div>'
+        '</div>'
         '<div id="calendarMatches" class="calendar-matches"></div>'
         "</div>"
     )
@@ -668,7 +679,7 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
     html += html_disclaimer()
     html += "</div>"
     html += html_footer()
-    html += f"<script>\nvar calData={json.dumps(cal_data)};\n"
+    html += f"<script>\nvar calCards={json.dumps(cal_cards_json)};\n"
     html += _calendar_js()
     html += _shared_js()
     html += "\n</script></body></html>"
@@ -695,9 +706,12 @@ function renderCalendar(month){
     var iso='2026-'+(month<10?'0':'')+month+'-'+(day<10?'0':'')+day;
     var cls='cal-day';
     var attr='';
-    if(iso==='2026-07-19'){cls+=' has-match final';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
-    else if(iso>='2026-06-28'&&iso<='2026-07-18'){cls+=' has-match knockout';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
-    else if(iso>='2026-06-11'&&iso<='2026-06-27'){cls+=' has-match';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
+    if(calCards[iso]){
+      if(iso==='2026-07-19') cls+=' has-match final';
+      else if(iso>='2026-06-28') cls+=' has-match knockout';
+      else cls+=' has-match';
+      attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';
+    }
     h+='<div class="'+cls+'"'+attr+'>'+day+'</div>';
   }
   h+='</div>';
@@ -715,25 +729,18 @@ function showCalMatches(el){
   el.classList.add('active');
   var date=el.getAttribute('data-date');
   var panel=document.getElementById('calendarMatches');
-  var matches=calData[date];
-  if(!matches||matches.length===0){
+  var cards=calCards[date];
+  if(!cards){
     panel.innerHTML='<p style="text-align:center;color:var(--wc-gray);padding:12px">No matches on this date.</p>';
     panel.classList.add('active');return;
   }
   var hdr=new Date(date+'T12:00:00Z').toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-  var h='<div class="calendar-date-header">'+hdr+'</div>';
-  matches.forEach(function(m){
-    var lt='';
-    if(m.time_utc){try{lt=new Date(m.time_utc).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'});}catch(e){}}
-    if(m.knockout){
-      h+='<div class="match-card" style="cursor:default"><div class="match-header" style="justify-content:space-between;padding:10px 14px"><span style="font-weight:700;font-size:0.85rem">'+m.home+'</span><span style="font-size:0.75rem;color:var(--wc-gray)">'+m.away+'</span><span style="font-size:0.75rem">'+lt+'</span></div><div class="match-meta"><span>'+m.venue+'</span><span>'+m.time_et+' ET</span></div></div>';
-    } else {
-      h+='<div class="match-card" style="cursor:default"><div class="match-header"><div class="match-team home"><span class="team-name">'+m.home+'</span>'+(m.h_slug?'<img src="images/'+m.h_slug+'.png" alt="">':'')+'</div><div class="match-score" style="font-size:0.9rem">vs</div><div class="match-team away">'+(m.a_slug?'<img src="images/'+m.a_slug+'.png" alt="">':'')+'<span class="team-name">'+m.away+'</span></div></div><div class="match-meta"><span>'+lt+' local</span><span>'+m.time_et+' ET</span><span>'+m.venue+'</span></div></div>';
-    }
-  });
-  panel.innerHTML=h;
+  panel.innerHTML='<div class="calendar-date-header">'+hdr+'</div>'+cards;
   panel.classList.add('active');
-  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  panel.querySelectorAll('.local-time').forEach(function(el){
+    var u=el.getAttribute('data-utc');
+    if(u){try{el.textContent=new Date(u).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'})+' local';}catch(e){}}
+  });
 }
 """
 
