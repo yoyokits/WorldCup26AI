@@ -1,5 +1,8 @@
 <div align="center">
 
+#This is still under development, there are still failure. But you can see the environment, data, and find out how AI predict the World Cup 2026 Matchs.
+
+
 # 🌎 FIFA World Cup 2026 — AI Predictions
 
 **Every game, every scoreline** — modelled with Elo ratings, Poisson goals, the Dixon-Coles correction, and 10,000 Monte-Carlo simulations.
