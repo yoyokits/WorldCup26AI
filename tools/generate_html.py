@@ -511,6 +511,58 @@ def standings_html(standings):
 # ── Page generators ───────────────────────────────────────────────────────
 
 
+def _build_bracket_tree():
+    rounds = [
+        ("R32", "Round of 32", "RoundOf32.md"),
+        ("R16", "Round of 16", "RoundOf16.md"),
+        ("QF", "Quarterfinals", "Quarterfinals.md"),
+        ("SF", "Semifinals", "Semifinals.md"),
+        ("Final", "Final", "Final.md"),
+    ]
+    bracket_data = {}
+    for key, label, fn in rounds:
+        matches = parse_knockout_file(fn)
+        bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in matches]
+
+    html = '<div class="bracket-wrap"><div class="bracket">'
+    for key, label, _ in rounds:
+        matches = bracket_data.get(key, [])
+        html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
+        for home, away, sa, sb, winner, note in matches:
+            h_slug, a_slug = get_slug(home), get_slug(away)
+            score = f"{sa}-{sb}"
+            if note:
+                score += f" ({note})"
+            h_cls = " bracket-winner" if winner == home else ""
+            a_cls = " bracket-winner" if winner == away else ""
+            html += (
+                f'<div class="bracket-match">'
+                f'<div class="bracket-team{h_cls}">'
+                f'<img src="images/{h_slug}.png" alt="">'
+                f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
+                f'<div class="bracket-team{a_cls}">'
+                f'<img src="images/{a_slug}.png" alt="">'
+                f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
+                f'</div>'
+            )
+        html += '</div>'
+
+    final = bracket_data.get("Final", [])
+    if final:
+        champ = final[0][4]
+        ch_slug = get_slug(champ)
+        html += (
+            f'<div class="bracket-round bracket-champion">'
+            f'<div class="bracket-round-title">Champion</div>'
+            f'<div class="bracket-match champion-match">'
+            f'<img src="images/{ch_slug}.png" alt="{champ}" class="champion-flag">'
+            f'<span class="champion-name">{champ}</span></div></div>'
+        )
+
+    html += '</div></div>'
+    return html
+
+
 def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule):
     cal_data = {}
     for date_str, matches in by_date.items():
@@ -580,7 +632,7 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
             f'<div class="rank">Champion probability</div></div>'
         )
 
-    cal_html = _build_calendar_html()
+    bracket_html = _build_bracket_tree()
 
     html = html_head("Home")
     html += html_nav("home")
@@ -595,11 +647,17 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
         '<a href="prediction_method.html" class="btn btn-outline" style="border-color:white;color:white">Prediction Method</a>'
         "</div></div>"
     )
+    html += '<h2 class="section-title">Predicted Knockout Bracket</h2>'
+    html += bracket_html
     html += '<h2 class="section-title">Match Calendar</h2>'
     html += (
         '<div class="calendar">'
-        '<div class="calendar-title">June – July 2026</div>'
-        f"{cal_html}"
+        '<div class="calendar-nav">'
+        '<button class="cal-nav-btn" onclick="switchMonth(-1)">&#9664; Prev</button>'
+        '<span class="calendar-title" id="calMonthTitle">June 2026</span>'
+        '<button class="cal-nav-btn" onclick="switchMonth(1)">Next &#9654;</button>'
+        '</div>'
+        '<div id="calendarGrid"></div>'
         '<div id="calendarMatches" class="calendar-matches"></div>'
         "</div>"
     )
@@ -618,37 +676,40 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
     _write_html("index.html", html)
 
 
-def _build_calendar_html():
-    html = ""
-    for mn, mname in [(6, "June"), (7, "July")]:
-        html += f'<div class="calendar-title" style="margin-top:12px;font-size:0.85rem">{mname} 2026</div>'
-        html += '<div class="calendar-grid">'
-        for dn in ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]:
-            html += f'<div class="cal-header">{dn}</div>'
-        cal = calendar.Calendar(6)
-        for day in cal.itermonthdays(2026, mn):
-            if day == 0:
-                html += '<div class="cal-day empty"></div>'
-                continue
-            iso = f"2026-{mn:02d}-{day:02d}"
-            cls = "cal-day"
-            attr = ""
-            if iso == "2026-07-19":
-                cls += " has-match final"
-                attr = f' data-date="{iso}" onclick="showCalMatches(this)"'
-            elif "2026-06-28" <= iso <= "2026-07-18" and iso >= "2026-06-28":
-                cls += " has-match knockout"
-                attr = f' data-date="{iso}" onclick="showCalMatches(this)"'
-            elif "2026-06-11" <= iso <= "2026-06-27":
-                cls += " has-match"
-                attr = f' data-date="{iso}" onclick="showCalMatches(this)"'
-            html += f'<div class="{cls}"{attr}>{day}</div>'
-        html += "</div>"
-    return html
-
-
 def _calendar_js():
     return """
+var calMonth=6;
+function renderCalendar(month){
+  calMonth=month;
+  var names=['','January','February','March','April','May','June','July'];
+  document.getElementById('calMonthTitle').textContent=names[month]+' 2026';
+  var grid=document.getElementById('calendarGrid');
+  var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var h='<div class="calendar-grid">';
+  for(var i=0;i<7;i++) h+='<div class="cal-header">'+days[i]+'</div>';
+  var d=new Date(2026,month-1,1);
+  var startDay=d.getDay();
+  for(var i=0;i<startDay;i++) h+='<div class="cal-day empty"></div>';
+  var daysInMonth=new Date(2026,month,0).getDate();
+  for(var day=1;day<=daysInMonth;day++){
+    var iso='2026-'+(month<10?'0':'')+month+'-'+(day<10?'0':'')+day;
+    var cls='cal-day';
+    var attr='';
+    if(iso==='2026-07-19'){cls+=' has-match final';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
+    else if(iso>='2026-06-28'&&iso<='2026-07-18'){cls+=' has-match knockout';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
+    else if(iso>='2026-06-11'&&iso<='2026-06-27'){cls+=' has-match';attr=' data-date="'+iso+'" onclick="showCalMatches(this)"';}
+    h+='<div class="'+cls+'"'+attr+'>'+day+'</div>';
+  }
+  h+='</div>';
+  grid.innerHTML=h;
+  document.getElementById('calendarMatches').innerHTML='';
+  document.getElementById('calendarMatches').classList.remove('active');
+}
+function switchMonth(dir){
+  var next=calMonth+dir;
+  if(next>=6&&next<=7) renderCalendar(next);
+}
+renderCalendar(6);
 function showCalMatches(el){
   document.querySelectorAll('.cal-day.active').forEach(function(d){d.classList.remove('active');});
   el.classList.add('active');

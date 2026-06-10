@@ -144,7 +144,8 @@ Structure:
 
 ### `html/index.html`
 - Tournament header with dates and host info
-- **Interactive calendar view:** A visual calendar spanning June 11 – July 19, 2026. Each date with matches is highlighted/clickable. When a user clicks a date, the matches scheduled for that day appear below the calendar (or in a popup/panel) showing teams, flags, kickoff times (local timezone), venue, and predicted score. Uses vanilla JavaScript.
+- **Tournament bracket tree:** Above the calendar, display a visual bracket/tree showing the predicted path from Round of 32 through the Final, with the champion highlighted. This gives visitors an immediate overview of the knockout predictions — teams, scores, and the winner — in a compact tree layout that is horizontally scrollable on mobile.
+- **Interactive calendar view:** A month-at-a-time calendar (not the full tournament span at once). Default to June 2026. Users can switch between June and July via prev/next buttons or month tabs. Each date with matches is highlighted/clickable. When a user clicks a date, the matches scheduled for that day appear below the calendar (or in a popup/panel) showing teams, flags, kickoff times (local timezone), venue, and predicted score. Uses vanilla JavaScript.
 - Group grid (A–L) showing teams with flag images from `html/images/`
 - Top contenders section
 - Link to knockout bracket
