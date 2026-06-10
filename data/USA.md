@@ -1,27 +1,43 @@
-# USA 🇺🇸 — Historical Tournament Analysis & Trends
+# USA 🇺🇸 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-The United States' World Cup history is defined by periods of rapid development, hosting advantages, and a consistent struggle to translate youth potential into knockout results.
-- **1930–1950:** Founding era. Best result: Runner-up 1930 (lost to Argentina). Early squads featured immigrant-heavy rosters with strong European technical foundations that gradually diluted as domestic development lagged.
-- **1990–2006:** Transition period. Qualified consistently but struggled tactically against elite sides. Breakthrough: Quarter-finals 2002 (co-hosted with South Korea). Notable wins over Portugal and Mexico; losses to Germany and Italy. Identity established: athletic, high-intensity pressing, reliance on set-pieces and counter-attacks.
-- **2014–Present:** Golden generation era. Reached Round of 16 in 2014 & 2022 (lost to Spain both times). Pattern: strong qualifying campaigns under Jurgen Klinsmann/Bernd Schwarz → tactical rigidity in knockouts vs European/South American technical sides.
-- **Current Trajectory:** Host nation advantage combined with a deep pool of MLS + European-based talent. Coach Mauricio Pochettino has implemented a high-pressing, possession-adjacent system emphasizing vertical transitions. Key figures: Christian Pulisic (AC Milan), Tyler Adams (Leeds United/Chelsea), Weston McKennie (Juventus), Sergiño Dest/Tim Weah (wingers).
+## Tournament Position
+**Group B:** USA, Spain, Japan, Egypt
+**Home Co-Host:** Co-hosts tournament with Canada and Mexico; automatic berth
 
-## Tactical Evolution & Style
-- **1990s–2000s:** Direct 4-4-2 / 3-5-2 hybrid. Emphasis on physicality, aerial duels, and long balls to target forwards (Landon Donovan era).
-- **2010s–2020s:** Shift toward possession-based build-up under European coaches. Increased emphasis on technical midfielders (Kellyn Acosta, Yunus Musah) and inverted full-backs. Vulnerable to compact low-block defenses that exploit transition gaps.
-- **Current Identity:** Pochettino's high-pressing 4-2-3-1 / 4-3-3 hybrid. Full-backs push high to create overloads; midfield focuses on ball recovery and rapid vertical distribution to Pulisic/McKennie. Defensive line sits higher than historical US norms, accepting transitional risk for territorial dominance.
+## Historical Arc
+USA's World Cup journey: 1930 (semifinals as hosts, early era), then sporadic appearances, 1994 (hosted, group stage), 2006-2014 (consistent qualification), 2018 (shocking group-stage exit under interim coach), 2022 (round of 16 under Berhalter). Now under Mauricio Pochettino with home co-host advantage.
+
+## 2026 Squad & Key Players
+- **Mauricio Pochettino (Coach)** — Spurs/PSG/Chelsea legend; modern tactical approach
+- **Goalkeeper:** Zack Steffen (Colorado Rapids, leading GK option)
+- **Defenders:** Sergiño Dest (AC Milan, on loan from Barcelona, fullback/forward versatility), young fullback corps
+- **Midfield:** Tyler Adams (FC Dallas, captain), Weston McKennie (Juventus, dynamic midfielder), Luca de la Torre (midfielder option)
+- **Forwards:** Christian Pulisic (AC Milan, 84 caps, 32 goals, most accomplished player), Folarin Balogun (possible call-up, England-eligible), Anthony Gordon (Liverpool forward)
+
+## Recent Form & Qualifying
+- CONCACAF qualifying: Qualified as home co-host; automatic berth
+- Squad composition: 13 returnees from 2022 WC + 13 first-timers (balanced mix)
+- Squad announcement: May 26, 2026 (5th youngest squad USA ever sent)
+- Notable omission: Diego Luna (snub for Pochettino's system), Tanner Tessman (omitted)
+
+## Tactical Setup
+**Formation:** 4-3-3/4-2-3-1 possession-intense under Pochettino
+- **Attack:** Pulisic as creative leader (AC Milan form elite), Gordon Liverpool form, pressing-focused
+- **Midfield:** Adams (captain, control), McKennie (Juventus dynamic), De la Torre options
+- **Defense:** Dest fullback versatility (AC Milan loan), young defensive corps, possession-dominant approach
+- **Possession:** 54-58% typically — Pochettino's signature possession intensity
 
 ## Psychological & Narrative Profile
-Host nations historically perform above their FIFA ranking (1966 England, 2018 Russia, 2002 South Korea). The "Golden Generation" carries weight of expectation but also freedom from qualifying pressure. Historical weakness: knockout-stage nerves against technically superior opponents (repeated R16 exits in 2014 & 2022). Current squad plays with modern confidence and tactical discipline, reducing historical "overwhelm" tendency.
+USA enters as **home co-host with Pochettino's transformational appointment** elevating tactical sophistication. The narrative is "Can Pochettino finally deliver World Cup success after Berhalter's chaos?" Home advantage is significant (crowd, no travel). Pulisic's AC Milan excellence (leading American abroad) validates squad quality. Young squad (5th youngest USA ever) provides future pipeline but inexperience in knockouts is concern.
 
-## Matchup History & Tendencies
-- **vs Spain:** 2014 (L), 2022 (L on pens). Pattern: US dominates early pressing but fades as Spanish technical control and midfield rotation exploit transition gaps. Penalties expose psychological fragility in high-stakes moments.
-- **vs Japan/Korea:** Strong historical record. US physicality + set-pieces neutralize Asian technical sides, though rapid vertical counters can punish advanced defensive positioning.
-- **vs African/CONCACAF rivals:** Dominant via athleticism and depth. Vulnerable to organized counter-attacks from physically strong sides (e.g., Ghana's wing play).
+## Group Stage Outlook
+- **vs Spain:** Likely loss (Spain Euro 2024 champions, dominant). Expect 0-1 or 0-2 Spain.
+- **vs Japan:** Moderate contest (similar Elo level, Japan hurt by Mitoma/Minamino injuries). Expect 1-0 or 1-1 draw.
+- **vs Egypt:** Moderate favorites (Egypt weaker, returning AFCON power). Expect 1-0 or 1-1.
 
-## Analyst Verdict / What to Watch
-USA enters as a dark horse with genuine group-stage dominance potential, leveraging home crowd support and Pochettino's modern pressing system. Historical data shows US teams struggle in knockouts against elite technical sides but consistently advance past groups via physical superiority and set-piece execution. Key risk: defensive transition vulnerability if full-backs commit forward too aggressively. Watch for Pulisic's role as primary chance creator; his ability to draw double-teams will dictate whether US midfield can exploit space behind opposition lines. Host advantage + deep squad rotation = consistent Round of 16 contender, with QF possible if transition defense tightens.
+## Analyst Verdict for 2026
+USA are **tournament participants** (Elo-ranked #17). Home co-host advantage is significant; Pochettino's tactical sophistication elevates past Berhalter chaos. **Key strength:** Home co-host advantage (crowd, travel), Pulisic AC Milan excellence (most accomplished American), Pochettino tactical genius, McKennie Juventus form, young squad (5th youngest ever, future pipeline). **Key risk:** Spain dominance in group (likely heavy loss), young squad inexperience in knockouts, limited elite strikers (Pulisic is midfielder), home pressure amplifies expectations. **Ceiling:** Round of 16 (with home luck). **Floor:** Group stage. **Verdict:** Home co-hosts with Pochettino's attacking transformation. Pulisic's AC Milan form + McKennie's Juventus quality provide baseline; young squad (13 first-timers) offers growth but not immediate elite ceiling. Group stage likely; home advantage could elevate to round of 16 if group luck favors (Japan/Egypt competitive matches). Spain dominance expected; Pochettino must deploy tactical mastery to minimize damage.
 
 ---
-*Data sources: FIFA archives, CONCACAF tactical reports, UEFA/AFC match analyses (2018–2025)*
+
+*Sources: CONCACAF qualifying 2024-25, AC Milan/Juventus 2024-25 data, Pochettino appointment details, eloratings.net, FIFA rankings June 2026*

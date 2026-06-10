@@ -1,32 +1,42 @@
-# New_Zealand 🇳🇿 — Historical Tournament Analysis & Trends
+# New Zealand 🇳🇿 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-New Zealand's World Cup history is defined by a remarkable rise from Oceanian underdogs to consistent tournament qualifiers, driven by a systematic development program that has produced players capable of competing at Europe's highest levels. However, recent years have seen a transition away from the Chris Wood era toward a new generation of talent built around European club players.
+## Tournament Position
+**Group G:** New Zealand, Belgium, Egypt, Iran
+**Historical Context:** Oceania's primary representative
 
-- **1982:** The debut. First World Cup appearance in Spain. Lost all three group matches: 0–5 Argentina, 3–2 Italy (a stunning upset), 2–3 Belgium. Finished bottom of Group 4 with 2 points from 5 goals scored and 10 conceded. A generation of world-class talent (Ricki Herbert, Simon Elliott) that produced consistent tournament success but fell short in finals against Argentina and Belgium.
-- **2010:** The breakthrough. Qualified for their second consecutive World Cup after a dramatic playoff run. Beat Australia on penalties in the Round of 32 — a stunning upset that established New Zealand as a competitive force in Oceanian football. A generation of players (Herbert, Elliott) that produced consistent tournament success but fell short in finals against Australia and South Korea.
-- **Current Trajectory (2025/26):** A transitional squad blending experienced veterans with emerging young talent developed through New Zealand's elite youth system, many of whom play in the Australian A-League or have moved to European second-tier clubs. Chris Wood remains one of Oceania's most clinical finishers — pace, strength, aerial ability, and finishing all at elite level. The team's identity is built around technical quality in attack, wing play, and set-piece execution. Coach Ricki Herbert brings extensive experience from Oceanian club football (Auckland City, Wellington Phoenix) and international management, emphasizing possession-based build-up with rapid vertical transitions.
+## Historical Arc
+New Zealand's World Cup journey: 1982 (debut, group stage), missed 28 years, returned 2010 (group stage), 2022 (group stage). Oceania's strongest team, but typically outmatched vs elite nations. Now under coach (TBD) competing through FIFA qualification.
 
-## Tactical Evolution & Style
-- **1982s–2010s:** Direct 4-4-2 / 3-5-2 hybrid emphasizing individual brilliance from wingers (Wood, Elliott) and a prolific center-forward (Wood). Limited tactical sophistication but exceptional defensive talent relative to development infrastructure. Relied on individual moments from stars like Chris Wood (striker) and Simon Elliott (midfielder).
-- **Current Identity:** 4-3-3 / 4-2-3-1 hybrid emphasizing possession-based build-up, rapid vertical transitions via wing play, and set-piece threat from wide areas. Chris Wood operates as a mobile #9 who drops into midfield to link play and runs in behind defensive lines. The full-backs push high to stretch opposition defenses, while the double pivot of a defensive midfielder and a ball-winning CM provides structural stability. Set pieces are well-rehearsed but not a primary scoring method — New Zealand prefers to create through open-play combinations initiated by wing overloads from full-backs and wingers.
+## 2026 Squad & Key Players
+- **Coach:** TBD (squad building in progress)
+- **Goalkeeper:** TBD
+- **Defenders:** Young fullback corps; technical defenders
+- **Midfield:** Creating organization; possession emphasis possible
+- **Forwards:** Limited striker depth; youth development focus
+
+## Recent Form & Qualifying
+- FIFA qualifying: Secured berth (Oceania route)
+- Squad announcement: Final squad May 14, 2026
+- Tactical philosophy: Technical possession-based approach (typical Oceania style)
+
+## Tactical Setup
+**Formation:** 4-3-3 possession-dominant
+- **Attack:** Organized buildup, set-piece focus
+- **Midfield:** Technical control
+- **Defense:** Compact shape
+- **Possession:** 55-60% typically
 
 ## Psychological & Narrative Profile
-New Zealand carries the "so close yet so far" narrative from the Herbert era — consistent tournament appearances but persistent group-stage exits that have become embedded in New Zealand football culture, compounded by geographic isolation challenges at home. The psychological barrier of knockout matches finally began to break in 2010 when New Zealand beat Australia on penalties (their first shootout win at a World Cup). Now, under Herbert's management with young talent emerging from the New Zealand football system despite displacement and hardship, there is genuine optimism that New Zealand can finally deliver on their potential — but the weight of past disappointments remains. Wood' emergence as one of Oceania's most clinical finishers provides a positive narrative shift — suggesting that under Herbert's management, New Zealand may be rediscovering the tactical cohesion and collective belief that defined their golden era.
+New Zealand enters as **Oceania's isolated representative** in tough European-heavy group (Belgium, Egypt, Iran). The narrative is "survive against elite teams while fighting for group stage exit." Geographic isolation (Oceania teams always travel far) creates jetlag/fatigue disadvantage. Squad building is ongoing (coach TBD, squad announcement May 14).
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive in terms of physical dominance but outclassed technically against elite opposition. New Zealand's strength lies in Wood' clinical finishing, set-piece execution, and aerial duels — a combination that can trouble even top-tier opponents. However, their technical inferiority in midfield (compared to European/South American sides) means they struggle to maintain possession for extended periods, limiting their ability to control matches against top-tier opponents.
-- **vs Oceanian/Asian rivals:** Dominant over most Oceanian and Asian nations except Japan and Australia. New Zealand consistently dominates smaller OFC sides through physical superiority and set-piece execution.
-- **Set-piece dynamics:** New Zealand scores a significant percentage of goals from corners and free-kicks, leveraging their height advantage in the box. Defensively, they are organized on set pieces but occasionally vulnerable to quick short-corner routines and near-post runs by agile attackers.
+## Group Stage Outlook
+- **vs Belgium:** Likely heavy loss (Belgium much stronger, De Bruyne). Expect 0-2 or 0-3 Belgium dominance.
+- **vs Egypt:** Likely loss (similar level, Egypt experienced in World Cups). Expect 0-1 Egypt.
+- **vs Iran:** Likely draw or loss (Iran veteran squad, Taremi set-piece danger). Expect 0-1 or 1-1.
 
-## What to Watch in 2026
-1. **Chris Wood' tournament performance:** At 32+, Wood remains one of Oceania's most clinical finishers — pace, strength, aerial ability, and finishing all at elite level. If he maintains his club form (Nottingham Forest), he is New Zealand's most important player and a legitimate Golden Boot contender in OFC qualifiers. However, his physical decline is a genuine concern: watch for whether he can sustain his level across a full tournament.
-2. **The midfield gap:** New Zealand's greatest weakness is midfield creativity — they lack a world-class playmaker capable of unlocking compact defenses through incisive passing or dribbling. This means Wood often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Watch for whether the coaching staff deploys a more attacking midfield configuration to provide Wood with better service.
-3. **Defensive vulnerability to quick transitions:** New Zealand's low-block system works against teams that struggle to break down compact defenses. Against pacey wingers who can exploit space behind New Zealand's advanced full-backs (Netherlands, Brazil, Argentina), the challenge is maintaining defensive shape for 90 minutes without conceding from individual moments of brilliance.
-4. **Coach Ricki Herbert's pragmatic approach:** The New Zealander coach brings extensive experience from Oceanian club football (Auckland City, Wellington Phoenix) and international management. His tendency toward defensively solid, counter-attacking football could serve New Zealand well in group-stage matches against stronger opponents — but may limit attacking expression against similarly ranked teams where open-play creativity is essential.
-
-## Analyst Verdict
-New Zealand is not expected to advance past the group stage, but their physical dominance and Wood' clinical finishing make them dangerous on any given day — particularly against overconfident opponents who underestimate their set-piece execution and aerial threat. The midfield gap remains a genuine concern: without a world-class creative playmaker to unlock compact defenses, Wood often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Their best path forward: absorb pressure, hit on counters via Wood' pace and aerial ability, and rely on set-piece execution when open play breaks down. Against fellow Oceanian or Asian rivals, they have a genuine chance to secure points — but against top-tier European sides, the technical gap in midfield is likely decisive unless New Zealand can maintain flawless defensive discipline for 90 minutes.
+## Analyst Verdict for 2026
+New Zealand are **tournament participants** (Elo-ranked #25). Oceania's representative in tough group limits ceiling significantly. **Key strength:** Possession-based organization, technical approach. **Key risk:** Quality gap vs elite teams, geographic isolation/travel, limited attacking depth. **Ceiling:** Group stage (very unlikely to advance). **Floor:** Group stage exit (probable). **Verdict:** Oceania's best team but playing at World Cup level against elite. Group with Belgium is impossible to advance from; likely group stage exit with minimal points.
 
 ---
-*Data sources: FIFA archives, OFC qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: FIFA/OFC qualifying 2024-25, eloratings.net, FIFA rankings June 2026*

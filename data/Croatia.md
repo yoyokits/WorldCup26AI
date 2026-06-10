@@ -1,33 +1,42 @@
-# Croatia 🇭🇷 — Historical Tournament Analysis & Trends
+# Croatia 🇭🇷 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Croatia's World Cup history is one of the most remarkable narratives in football — a small nation with a population under 4 million producing two consecutive tournament runs that defied all logical expectations.
-- **1998:** The emergence. Third place in their first-ever World Cup appearance (France '98). Davor Šuker won the Golden Boot with 6 goals. Established Croatia as a footballing force despite being a newly independent nation (independence declared 1991). Identity established: technical midfield control, set-piece threat, and exceptional individual talent relative to population size.
-- **2002–2014:** Transition period. Group stage exits in 2002 and 2014. Qualified for 2006 (Round of 16), 2010 (group stage). The post-Šuker generation struggled to replicate the 1998 magic, though Croatia consistently remained a top-20 FIFA-ranked side.
-- **2018–2022:** The miracle era. Runner-up 2018 (lost to France in final), Fourth place 2022 (lost to Morocco in semi-final, beat Argentina in quarter-final). Two consecutive tournament runs that redefined what a small nation could achieve at the World Cup. Luka Modrić won the Golden Ball in 2018 — the first midfielder to win it since Zinedine Zidane in 2006.
-- **Current Trajectory (2025/26):** The aging core from the 2018–2022 runs faces a critical juncture. Modrić (40+), Rakitić (retired), Livaković (GK, still in form). Coach Zlatko Dalić has begun integrating younger talent but remains cautious about abandoning the system that delivered two historic tournament runs. The question is whether Croatia can sustain their level with a generational transition underway.
+## Tournament Position
+**Group L:** Croatia, England, Ghana, Panama
+**Recent Success:** 2022 World Cup quarterfinalists (lost to Brazil)
 
-## Tactical Evolution & Style
-- **1990s:** Direct 4-4-2 / 3-5-2 hybrid emphasizing individual brilliance from wingers and a prolific center-forward (Šuker). Limited tactical structure but exceptional attacking talent relative to population size.
-- **2000s–2010s:** Shift toward possession-based build-up under European coaches. Increased emphasis on technical midfielders and inverted wingers. The post-Šuker generation struggled to find consistent identity, oscillating between defensive solidity and attacking ambition.
-- **Current Identity:** 4-3-3 / 4-2-3-1 hybrid emphasizing midfield control, set-piece execution, and rapid vertical transitions. Modrić operates as the tactical engine — dropping deep to collect the ball from center-backs, then progressing it through incisive passing or dribbling into final third spaces. The double pivot of Modrić and a defensive midfielder provides ball recovery and quick distribution to attacking wingers. Set pieces are heavily rehearsed; Croatia consistently ranks among the top teams for goals scored from corners and free-kicks in World Cup tournaments.
+## Historical Arc
+Croatia's World Cup journey: historic 1998 semifinal (lost to France), 2002 group stage, missed 2006, then return 2018 (finalists, lost to France), 2022 quarterfinal. Core of 1998 semifinalists (Modrić, Perišić) still active or recently retired. Now transitioning with young talent while maintaining experience.
+
+## 2026 Squad & Key Players
+- **Zlatko Dalić (Coach)** — Continuity from 2022; tactical stability
+- **Goalkeeper:** Dominik Livaković (Fenerbahçe) — 2022 World Cup hero (penalties vs Japan)
+- **Defenders:** Joško Gvardiol (Manchester City, young star, recovered from broken shin), Dejan Lovren (Zenit, veteran), Borna Sosa (Stuttgart, left-back)
+- **Midfield:** Luka Modrić (AC Milan, 40 years old, captain, 5th World Cup, 196 caps, potential final tournament), Mateo Kovačić (Manchester City), Mario Pašalić (Atalanta)
+- **Forwards:** Ivan Perišić (likely retired from international football), Andrej Kramarić (Hoffenheim, veteran striker, 10+ World Cup goals)
+
+## Recent Form & Qualifying
+- UEFA qualifying: Strong campaign; direct qualification (Modrić leader throughout)
+- 2022 World Cup: Quarterfinalists (respectable performance)
+- Generational shift: Modrić (40) core remains; young fullbacks (Gvardiol, Sosa) emerging
+
+## Tactical Setup
+**Formation:** 4-3-1-2 with creative midfield emphasis
+- **Attack:** Kramarić as main striker, Perišić on left (if still active) or young winger
+- **Midfield:** Modrić orchestrating (captain, experience), Kovačić (Manchester City form), Pašalić (Serie A success)
+- **Defense:** Gvardiol young star at CB, Sosa left-back, Livaković commanding GK
+- **Possession:** 50-54% typically — balanced midfield-centric approach
 
 ## Psychological & Narrative Profile
-Croatia carries the "miracle nation" narrative — two consecutive tournament runs (2018 runner-up, 2022 fourth place) that defied all logical expectations for a country of under 4 million people. The 2018 final and 2022 semi-final runs created lasting psychological weight: expectations are now higher than ever, but so is the pressure to replicate success with an aging core. Modrić's presence adds a unique dimension — he has won everything at club level (5x Champions League) and carries the weight of a nation's footballing hopes on his shoulders. The "garra charrúa" spirit that defines Uruguay has its Croatian equivalent in "borbeni duh" — a fighting spirit that refuses to surrender, even when outplayed.
+Croatia enters with **Modrić's potential final World Cup narrative.** At 40, his leadership (196 caps, captain) is invaluable, but physical decline is inevitable. The 2022 quarterfinal proved they can still compete at elite level. Kovačić's Manchester City form provides a contemporary attacking midfielder. The psychological narrative: "Can Modrić's leadership carry a transitional squad?" Gvardiol's emergence (Manchester City, young) signals future competence.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive against top-tier opposition. Croatia's strength lies in midfield control and set-piece execution — two areas where they consistently excel regardless of opponent quality. Weakness exposed by quick combination play that bypasses their midfield press, particularly against teams with elite technical wingers who can exploit the space behind Croatia's advanced full-backs.
-- **vs African/Asian sides:** Dominant record. Croatia's technical superiority over most African and Asian nations is significant, though physicality and pace can create challenges (see: 2022 Morocco quarter-final exit). Set-piece vulnerability against taller opponents remains a recurring theme in knockout matches.
-- **Set-piece dynamics:** Croatia scores a high proportion of goals from corners and free-kicks — Modrić's delivery from dead-ball situations is among the most dangerous in world football. Defensively, they are organized on set pieces but occasionally vulnerable to quick near-post runs and second-ball scenarios.
+## Group Stage Outlook
+- **vs England:** Likely loss (England stronger, Bellingham World Cup-form threat). Expect 0-1 or 0-2 England.
+- **vs Ghana:** Moderate favorites (Ghana returning after absence, organized). Expect 1-0 or 2-1 Croatia.
+- **vs Panama:** Dominant expected (Panama WC debutants). Expect 3-0 or 4-0 Croatia.
 
-## What to Watch in 2026
-1. **Luka Modrić's final World Cup:** At 40+, this may be Modrić's last tournament. His ability to dictate tempo, progress the ball under pressure, and create chances from deep positions will determine whether Croatia can compete against elite opposition. If he maintains his club form (Real Madrid), he is still one of the top 5 midfielders in world football — but physical decline is a genuine concern.
-2. **The aging core vs young talent:** Croatia's 2018–2022 squad was built around Modrić, Rakitić, and Šimić. The current generation blends these veterans with younger players like Joško Gvardiol (Man City, one of Europe's best young center-backs) and Martin Erlić (Bologna, emerging playmaker). The balance between experience and youth will determine whether Croatia can sustain their level.
-3. **Set-piece execution:** Croatia's set-piece routines are among the most dangerous in world football. Modrić's delivery, combined with the aerial presence of center-backs and target forwards, makes them a constant threat from dead-ball situations. In tight group-stage matches, set pieces often decide outcomes.
-4. **Zlatko Dalić's tactical flexibility:** The Croatian coach has shown remarkable adaptability across two tournament runs. His ability to adjust formations mid-tournament (switching between 4-3-3 and 3-5-2) has been a key factor in Croatia's success. Watch for how he manages the transition from the aging core to younger talent.
-
-## Analyst Verdict
-Croatia enters as a dangerous underdog with genuine upset potential, but the writing may be on the wall for their golden generation. Modrić's final World Cup is a storyline that transcends football — whether Croatia can deliver one more miracle depends on his physical condition and the readiness of younger players to step up. Their greatest strengths are midfield control (Modrić), set-piece execution, and psychological resilience in high-stakes matches. However, the physical toll of two consecutive tournament runs shows in their squad's age profile. If Modrić is at 80%+ of his club form and Croatia can neutralize opponents' attacking threats through midfield dominance, they have a realistic path to the Quarter-finals — but a Semi-final run like 2018 or 2022 would require an extraordinary combination of fitness, luck, and opponent errors.
+## Analyst Verdict for 2026
+Croatia are **tournament participants** (Elo-ranked #13). Modrić's leadership remains valuable, but aging core (Modrić 40, Lovren veteran) limits ceiling. **Key strength:** Midfield experience (Modrić, Kovačić) + Gvardiol's elite defense. **Key risk:** Modrić's age (decline inevitable), attacking depth (Kramarić only elite striker). **Ceiling:** Quarterfinal (if Modrić stays healthy). **Floor:** Group stage exit. **Verdict:** Transitional squad relying on Modrić's experience to compete. Gvardiol's emergence is bright spot, but without Modrić's magic, Croatia lacks attacking penetration vs elite teams.
 
 ---
-*Data sources: FIFA archives, UEFA qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: UEFA qualifying 2024-25, 2022 World Cup records, AC Milan/Manchester City data, eloratings.net, FIFA rankings June 2026*

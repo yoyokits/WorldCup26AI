@@ -1,26 +1,43 @@
-# South Korea 🇰🇷 — Historical Tournament Analysis & Trends
+# South Korea 🇰🇷 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-South Korea's World Cup history is defined by rapid tactical modernization, hosting advantages, and a consistent struggle to translate youth potential into knockout results against elite opposition.
-- **1954–1986:** Founding era. First appearance 1954 (group stage exit). Best result: Quarter-finals 2002 (co-hosted with Japan). Notable wins over Italy and Spain; losses to Turkey in semi-final. Identity established: physical discipline, direct long balls, reliance on individual brilliance from Park Ji-sung/Lee Chung-yong era.
-- **2014–Present:** Transition period. Group stage exits in 2014 & 2022 despite competitive performances against top sides (beat Germany 2–1 in 2022). Pattern: strong qualifying campaigns under Park Hang-seo → tactical rigidity in knockouts vs technically superior opponents.
-- **Current Trajectory:** Hugo Simoes era post-Park Hang-seo departure. Squad blends experienced European-based players with emerging domestic talent. Key figures: Son Heung-min (Tottenham Hotspur, captain), Kim Min-jae (Bayern Munich), Hwang Hee-chan (Wolfsburg), Gwon Kyu-sung (GK).
+## Tournament Position
+**Group A:** South Korea, Mexico, South Africa, Czechia
+**Historic Streak:** 11th consecutive World Cup appearance (since 1986)
 
-## Tactical Evolution & Style
-- **1980s–2000s:** Direct 4-4-2 / 3-5-2 hybrid. Emphasis on physicality, aerial duels, and long balls to target forwards. Reliant on individual moments from stars like Park Ji-sung and Lee Chung-yong.
-- **2010s–2020s:** Shift toward possession-based build-up under European coaches. Increased emphasis on technical midfielders and inverted wingers. Vulnerable to compact low-block defenses that exploit transition gaps.
-- **Current Identity:** High-intensity pressing 4-3-3 / 4-2-3-1 hybrid. Full-backs push high to create overloads; midfield focuses on ball recovery and rapid vertical distribution to Son/Hwang. Defensive line sits higher than historical Korean norms, accepting transitional risk for territorial dominance. Set-piece routines heavily utilized given physical advantages in aerial duels.
+## Historical Arc
+South Korea's World Cup journey: 1986 (group stage), then consistent qualification (11 consecutive appearances). Best: 2002 (semifinals as co-hosts), 2010 (quarterfinal). Recent: 2018 (group stage), 2022 (group stage). AFC's most consistent performer; technical development focus under coach Hong Myung-bo.
+
+## 2026 Squad & Key Players
+- **Hong Myung-bo (Coach)** — South Korean legend; tactical flexibility
+- **Goalkeeper:** Jo Hyeon-woo (Al-Wehda, Gulf league shift from domestic)
+- **Defenders:** Young fullback corps; Kim Min-jae (Bayern Munich, elite center-back)
+- **Midfield:** Lee Kang-in (PSG, young creative threat, UCL winner), technical core emphasis
+- **Forwards:** Son Heung-min (LAFC, captain, 4th World Cup, 40+ international goals), Hwang Hee-chan (Wolverhampton, elite striker), Cho Gue-sung (emerging striker), Oh Hyeon-gyu (striker option)
+
+## Recent Form & Qualifying
+- AFC qualifying: Strong campaign; 11th consecutive WC appearance (since 1986)
+- Squad announcement: May 16, 2026 (injury replacement May 31)
+- Son Heung-min: Recently left Tottenham for LAFC (MLS); fitness for June 2026 question
+- Kim Min-jae: Bayern Munich elite center-back; recently won Bundesliga
+
+## Tactical Setup
+**Formation:** 4-3-3/4-2-3-1 technical possession
+- **Attack:** Son Heung-min as captain/creative leader, Hwang Hee-chan striker penetration, Lee Kang-in young creative talent
+- **Midfield:** Lee Kang-in (PSG) creating, midfield organizing possession
+- **Defense:** Kim Min-jae (Bayern) elite center-back, young fullbacks with technical ability
+- **Possession:** 54-58% typically
 
 ## Psychological & Narrative Profile
-South Korea carries the "systematic underdog" narrative — repeatedly knocking on the door but lacking knockout experience against elite sides. The 2002 semi-final run created lasting psychological weight in high-stakes moments. Current squad plays with modern tactical discipline, reducing historical "overwhelm" tendency. Diaspora support across Europe/Asia creates massive away-day momentum.
+South Korea enters as **11-time consecutive World Cup veteran with experienced leadership (Son 4th World Cup, Hong coach)** and young talent (Lee Kang-in 21-year-old PSG star). Son's MLS move creates fitness question — is LAFC physical standard sufficient for World Cup sharpness? The narrative is "Can South Korea finally advance past group stage (first time since 2010)?" Kim Min-jae's Bayern form provides defensive confidence.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive but struggle against technical midfield control. Weakness exposed by quick combination play that bypasses physical pressing traps.
-- **vs CONCACAF rivals:** Strong historical record. Beat USA in 2014 WC; consistently dominate Central American sides via athleticism and set-pieces. Vulnerable to organized counter-attacks from pacey wingers (e.g., Jamaica's wing play).
-- **Set-piece vulnerability:** Concede significant goals from corners/free-kicks against taller European/South American sides. Need improved aerial marking organization in defensive transitions.
+## Group Stage Outlook
+- **vs Mexico:** Likely draw (similar Elo level, CONCACAF neighbor, Mexico co-host home advantage). Expect 1-0 or 1-1.
+- **vs South Africa:** Likely draw or win (similar level, South Korea slightly favored). Expect 1-0 or 1-1.
+- **vs Czechia:** Likely draw (Czechia returning after absence, organized). Expect 1-0 or 1-1.
 
-## Analyst Verdict / What to Watch
-South Korea enters as a dangerous group-stage contender with genuine upset potential, leveraging Kim Min-jae's defensive leadership and Son Heung-min's creative influence. Historical data shows South Korean teams excel in knockout football when they sit deep and hit on counters via Hwang's pace, but struggle against elite technical sides that control possession. Key risk: midfield creativity gap if Son is marked out of the game. Watch for set-piece execution — Korea's physicality gives them a clear advantage in dead-ball situations, which often decide tight group-stage matches. Host-free environment + experienced core = consistent Round of 16 contender, with QF possible if transition defense tightens.
+## Analyst Verdict for 2026
+South Korea are **tournament contenders** (Elo-ranked #11). 11-time consecutive appearance proves consistency; Kim Min-jae elite, Lee Kang-in emerging talent provide modern edge. **Key strength:** Son experience (4th WC, 40+ goals), Kim Min-jae elite defense (Bayern), Lee Kang-in youth creativity. **Key risk:** Son's LAFC fitness (MLS step-down question), group (Mexico co-host, Czechia organized), advancement past group stage (only 2010 precedent). **Ceiling:** Round of 16 (possible with group luck). **Floor:** Group stage. **Verdict:** Consistent veteran squad with elite center-back (Kim) and creative youth (Lee). Son's fitness post-LAFC is question, but experience + defensive confidence provides baseline. If Son sharp and group luck favors, South Korea could finally advance past group stage for second time since 2010.
 
 ---
-*Data sources: FIFA archives, AFC tactical reports, Opta match analyses (2018–2025)*
+
+*Sources: AFC qualifying 2024-25, Bayern Munich data, PSG 2024-25, LAFC fitness concerns, eloratings.net, FIFA rankings June 2026*

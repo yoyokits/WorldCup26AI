@@ -1,32 +1,43 @@
-# Tunisia 🇹🇳 — Historical Tournament Analysis & Trends
+# Tunisia 🇹🇳 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Tunisia's World Cup history is defined by consistent qualification but persistent group-stage exits — a pattern of "boring but difficult to beat" that has kept them competitive without delivering breakthrough results.
-- **1978:** The debut. First World Cup appearance in Argentina. Lost all three group matches: 0–3 Mexico, 0–1 Poland, 1–3 West Germany. Finished bottom of Group 4 with zero points. The squad was largely domestically based with minimal European experience.
-- **1998–2022:** The consistent qualifier era. Qualified for five consecutive World Cups (1998, 2002, 2006, 2018, 2022) — a remarkable achievement for an African nation with limited football infrastructure. Best result: Group Stage in all appearances. Never advanced past the group stage, but consistently produced competitive performances against top-tier opposition (notably drawing 1–1 with Mexico in 2018 and pushing Spain to penalties in 2022).
-- **Current Trajectory (2025/26):** A transitional squad blending experienced European-based players with emerging domestic talent. Ellyes Skhiri (Eintracht Frankfurt) provides defensive midfield stability, while Wahbi Khazri (Olympiacos) offers creativity from attacking midfield. Coach Jalel Kadri brings a pragmatic approach that emphasizes defensive organization and counter-attacking efficiency over open-play dominance.
+## Tournament Position
+**Group E:** Tunisia, Portugal, Croatia, Ecuador
+**Historical Context:** AFCON regular; World Cup consistent participant
 
-## Tactical Evolution & Style
-- **1970s–1990s:** Direct 4-4-2 / 3-5-2 hybrid emphasizing physicality, aerial duels, and long balls to target forwards. Relied on individual moments from stars like Radhi Jaïdi (defensive leader) and Trabelsi (winger). Limited tactical sophistication but strong defensive organization.
-- **2000s–2010s:** Shift toward more structured European-influenced systems under coaches like Georges Leekens and Nabil Maâloul. Attempted to blend North African physicality with European tactical discipline, though consistency remained elusive against top-tier opposition.
-- **Current Identity:** 4-2-3-1 / 5-4-1 defensive block in matches vs stronger opponents. Tunisia typically sits deep in two compact banks of four, absorbing pressure and hitting on the break via Khazri's creativity and pace from wide areas. Ellyes Skhiri operates as a ball-winning midfielder who breaks up opposition play and distributes quickly to counter-attacking wingers. Set pieces are a primary scoring method — the team rehearsed routines extensively under previous coaching staff, leveraging their height advantage in the box. The double pivot of Skhiri and a defensive midfielder provides ball recovery and quick distribution to counter-attacking channels.
+## Historical Arc
+Tunisia's World Cup journey: 1978 (debut, group stage), sporadic appearances, 1998 (group stage), 2002 (group stage), 2006 (group stage), 2018 (group stage), 2022 (group stage). AFCON regular (0 titles, but consistent semifinalist). CAF consistent qualifier; coach Sabri Lamouchi brings experience.
+
+## 2026 Squad & Key Players
+- **Sabri Lamouchi (Coach)** — French-Tunisian tactician; 2014 Ivory Coast World Cup coach experience
+- **Goalkeeper:** Aymen Dahmen or multiple domestic options
+- **Defenders:** Montassar Talbi (Lorient, center-back), Yassine Meriah (veteran defender), defensive focus
+- **Midfield:** Hannibal Mejbri (Burnley, young talent, 22 years old), Ellyes Skhiri (Eintracht Frankfurt, experienced midfielder), Anis Ben Slimane (Norwich, midfielder)
+- **Forwards:** Khalil Ayari (PSG, forward/midfielder), Ellias Saad (Hannover, forward), limited elite strikers
+
+## Recent Form & Qualifying
+- CAF qualifying: 7th World Cup appearance; Lamouchi second WC as coach (2014 Ivory Coast)
+- Squad announcement: May 15, 2026
+- Notable youth: Hannibal Mejbri (Burnley, 22 years old, emerging talent)
+- Squad composition: Primarily European league players
+
+## Tactical Setup
+**Formation:** 4-3-3/4-4-2 balanced organization
+- **Attack:** Ayari (PSG) creative option, Saad forward, limited elite strikers
+- **Midfield:** Mejbri (Burnley young talent), Skhiri (Eintracht experienced), Lamouchi's tactical organization
+- **Defense:** Talbi (Lorient), Meriah veteran, defensive solidity
+- **Possession:** 50-54% typically
 
 ## Psychological & Narrative Profile
-Tunisia carries the "boring but difficult to beat" narrative — consistently qualifying for World Cups but never advancing past the group stage. This pattern has created a psychological barrier: the team knows how to compete against top-tier opposition but lacks the knockout experience and belief that comes with progression. The 2022 AFCON quarter-final run under Nabil Maâloul provided a glimpse of what's possible, but the World Cup remains an unbroken group-stage streak. The current squad plays with more confidence than previous generations, thanks to increased European-based player representation and improved tactical coaching at the national team level.
+Tunisia enters as **AFCON regular with experienced coach (Lamouchi 2nd WC 2014).** The narrative is "Can Tunisia finally escape group stage after 6 consecutive group-stage exits?" Hannibal Mejbri's youth (22, Burnley) provides hope for modern talent emergence. Group with Portugal/Croatia is tough; Ecuador manageable. Lamouchi's 2014 Ivory Coast experience signals coaching capability.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive in terms of defensive organization but outclassed in open play against elite opposition. Tunisia's low-block system works against teams that struggle to break down compact defenses (see: 2018 Mexico match, where they drew 1–1). However, against technically superior opponents with elite playmakers (Spain, Germany, Brazil), the challenge is maintaining defensive shape for 90 minutes without conceding from individual moments of brilliance.
-- **vs African rivals:** Dominant over most African nations. Egypt and Morocco are the exceptions — more developed footballing nations with deeper European-based player pools. Tunisia consistently dominates Central and West African sides through tactical discipline and set-piece execution.
-- **Set-piece dynamics:** Tunisia scores a significant percentage of goals from corners and free-kicks, leveraging their height advantage in the box. Defensively, they are organized on set pieces but occasionally vulnerable to quick short-corner routines and near-post runs by agile attackers.
+## Group Stage Outlook
+- **vs Portugal:** Likely loss (Portugal stronger, Ronaldo/Bruno Fernandes). Expect 0-1 or 0-2 Portugal.
+- **vs Croatia:** Likely loss (Croatia more experienced). Expect 0-1 or 0-2 Croatia.
+- **vs Ecuador:** Moderate contest (similar Elo level). Expect 0-1 or 1-1 draw.
 
-## What to Watch in 2026
-1. **Ellyes Skhiri's defensive leadership:** Skhiri (Eintracht Frankfurt) is Tunisia's tactical heartbeat — breaking up opposition play, distributing quickly to counter-attacking channels, and providing defensive stability in front of the back four. If he is marked out of the game or suffers fatigue, Tunisia's transition play collapses.
-2. **Wahbi Khazri's creativity:** Khazri (Olympiacos) is Tunisia's primary creative outlet — capable of unlocking compact defenses through incisive passing, dribbling, and set-piece delivery. His consistency at club level has been variable, but in a World Cup environment where chances are scarce, one moment of brilliance can change a match.
-3. **Defensive organization vs elite presses:** Tunisia's low-block system works against teams that struggle to break down compact defenses. Against high-pressing sides like Spain or Germany, the challenge is maintaining possession long enough to trigger counter-attacks without being suffocated in their own half.
-4. **Coach Jalel Kadri's pragmatic approach:** The Tunisian coach brings extensive experience from African and Arab international football. His tendency toward defensively solid, counter-attacking football could serve Tunisia well in group-stage matches against stronger opponents — but may limit attacking expression against similarly ranked teams.
-
-## Analyst Verdict
-Tunisia is not expected to advance past the group stage, but their defensive organization and counter-attacking threat make them dangerous on any given day — particularly against overconfident opponents who underestimate their structure. The "boring but difficult to beat" identity has kept them competitive in World Cup environments for decades, even if it hasn't delivered breakthrough results. Their best path forward: absorb pressure, hit on counters via Khazri's creativity and Skhiri's distribution, and rely on set-piece execution. Against fellow African or Asian rivals, they have a genuine chance to secure points — but against top-tier European or South American sides, the technical gap is likely decisive unless Tunisia can maintain flawless defensive discipline for 90 minutes.
+## Analyst Verdict for 2026
+Tunisia are **tournament participants** (Elo-ranked #22). AFCON regular with group-stage exit history (6 consecutive). **Key strength:** Defensive organization (Talbi, Meriah), Lamouchi coaching experience (2014 WC), Mejbri youth potential. **Key risk:** Limited attacking depth (elite strikers absent), group with Portugal/Croatia tough, historical group-stage exits (0 advancement precedent in 6 tries). **Ceiling:** Group stage (unlikely to advance). **Floor:** Group stage exit. **Verdict:** AFCON regular punching slightly above weight vs elite European teams. Lamouchi's experience provides structure; Mejbri's youth offers hope. Historical group-stage exits (6 consecutive) suggest ceiling is group stage. Ecuador match is key — if Tunisia wins that, points accumulated could matter vs Croatia.
 
 ---
-*Data sources: FIFA archives, CAF qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: CAF qualifying 2024-25, Burnley/Eintracht data, Sabri Lamouchi 2014 coaching record, eloratings.net, FIFA rankings June 2026*

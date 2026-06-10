@@ -1,35 +1,42 @@
-# Spain 🇪🇸 — Historical Tournament Analysis & Trends
+# Spain 🇪🇸 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Spain's World Cup history is a masterclass in tactical evolution, transitioning from direct counter-attacking to possession dominance, then adapting to modern high-intensity football.
-- **1934–1978:** Early era marked by inconsistent performances and political isolation (Franco regime limited international development). Best result: Round of 16 in 1950 & 1954. Known for physical play but lacked technical cohesion.
-- **1982–2006:** Transition period. Hosted 1982 WC but exited early. Reached QF in 1986 (lost to Belgium), Round of 16 in 1994 & 1998. Tactical identity: direct 4-4-2, reliance on individual brilliance (Raúl, Figo, Luis Enrique).
-- **2008–2012:** Golden generation peak. Euro 2008 winners, WC 2010 champions (beat Netherlands in final), Euro 2012 winners (record 7 goals in group stage). Identity: tiki-taka possession mastery, positional rotation, Xavi/Iniesta/Mola triangle. Historical dominance: 65%+ avg possession, 0.8 goals conceded/game.
-- **2014–2022:** Post-golden generation decline. Group stage exit in 2014 (lost to Netherlands), Round of 16 loss to Italy in 2016 Euro, shock QF exit to Morocco in 2022 WC. Pattern: possession without penetration, vulnerability to high-press counters, aging core fatigue.
-- **2023–Present:** Young rebuild under Luis de la Fuente. Focus on physicality + technical control. Yamal (18), Rodri (27), Pedri (21) form terrifying young core. Identity evolved into hybrid possession/transition game with improved defensive solidity.
+## Tournament Position
+**Group B:** Spain, Cape Verde, Saudi Arabia, Uruguay
+**Recent Success:** Euro 2024 champions
 
-## Statistical Trends (Previous WCs)
-- **Goals Scored/Conceded:** 2010 WC: 8 scored, 2 conceded in 6 matches. 2022 WC: 9 scored, 3 conceded but lost to Morocco in QF. Historical trend: dominant group stage → knockout vulnerability under pressure.
-- **Possession Metrics:** Average 62% possession in WC finals (2010–2022). However, pass completion drops from 88% in qualifiers to 79% in knockouts due to increased pressing intensity.
-- **Set-Piece Efficiency:** Only 22% of goals come from corners/free-kicks historically — lowest among top contenders. Weakness exposed by taller sides (Morocco 2022, Germany 2014).
-- **Transition Defense:** Concede average 1.8 fast-break goals per WC tournament since 2014. Full-backs pushing high leaves space for pacey wingers (Yamal's defensive work rate mitigates this in current squad).
+## Historical Arc
+Spain's World Cup journey: transition from direct counter-attacking (1982, 1994) to tiki-taka possession dominance (2008-2012 golden generation: Euro 2008, World Cup 2010, Euro 2012). Recent decline (2014 group exit, 2022 Morocco shocker) followed by rebuild under Luis de la Fuente. Euro 2024 triumph signals new identity: young, physical, hybrid possession/transition.
 
-## Tactical Evolution Over Time
-- **1980s–2000s:** Direct 4-4-2/4-5-1, reliance on wing play and individual brilliance.
-- **2008–2012:** Tiki-taka 4-3-3 masterpiece. Positional rotation, short passing triangles, high press. Xavi/Iniesta controlled tempo; Puyol/Pique anchored defense.
-- **2014–2022:** Rigid possession without penetration. Over-reliance on central midfielders (Koke, Busquets) led to predictable buildup. Vulnerable to counters when full-backs advanced.
-- **Current Identity:** Hybrid 4-3-3/4-2-3-1. Rodri as single DM provides defensive cover; Yamal/Pedri/Gavi offer verticality. Full-backs (Carvajal, Llorente) stay deeper to prevent counters. High press with immediate counter-pressing triggers.
+## 2026 Squad & Key Players
+- **Luis de la Fuente (Coach)** — Euro 2024 champion coach; young squad builder
+- **Goalkeeper:** Unai Simón (Athletic Bilbao) — replacing Busquets era
+- **Defenders:** Alejandro Balde (Barcelona), Juanlu Sánchez (Sevilla), Marc Cucurella (Chelsea), Dani Carvajal (Real Madrid, excluded for Euro 2024, possible return)
+- **Midfield:** Rodri (Manchester City, Ballon d'Or 2024), Pedri (Barcelona), Gavi (Barcelona, 21 years old), Fabián Ruiz (PSG), Alejandro Balde
+- **Forwards:** Ferran Torres (Barcelona), Álvaro Morata (EXCLUDED, international retirement), Lamine Yamal (Barcelona, 17 years old, Euro 2024 hero), Alejandro Garnacho (Manchester United)
+
+## Recent Form & Qualifying
+- Euro 2024: Champions (beat England 2-1 in final with Yamal brilliance)
+- UEFA qualifying: Strong campaign; direct qualification
+- Generational shift: Old guard (Busquets, Carvajal, Morata) retired; young core (Yamal, Gavi, Pedri, Rodri) leading
+
+## Tactical Setup
+**Formation:** 4-3-3/4-2-3-1 possession-dominant with physicality
+- **Attack:** Ferran Torres wing + Yamal/Gavi creative freedom, direct vertical passes
+- **Midfield:** Rodri controlling tempo (best midfielder in world), Pedri/Gavi providing verticality
+- **Defense:** Full-backs (Balde, Sánchez) active in buildup; Dani Carvajal returning provides solidity
+- **Possession:** 60%+ avg — Spain still possession-centric but with modern pressing intensity
 
 ## Psychological & Narrative Profile
-Spain carries the "possession purist" identity but faces historical criticism for lacking knockout ruthlessness post-2012. The 2022 Morocco loss exposed psychological fragility when possession is disrupted. Current young squad (avg age 25) plays with freedom and modern physicality, reducing historical "overthinking" tendency in finals. Diaspora support across Europe creates massive away-day momentum.
+Spain enters as **Euro 2024 defending champions with renewed identity.** The young squad (Yamal, 17, Gavi 21, Pedri 21) plays with freedom and physicality absent from tiki-taka era. Rodri's Ballon d'Or validates their midfield control. The narrative: "Can the golden youth generation compete globally?" Euro success suggests yes. Psychological advantage: confidence from recent trophy.
 
-## Matchup History & Tendencies
-- **vs Argentina:** 1994 (W), 2014 (L final), 2022 (W final). Pattern: high-intensity midfield battle. Spain wins when they press high and exploit transitions; Argentina wins when they control tempo and hit on counters.
-- **vs Morocco:** 2022 (QF, L on pens). Historical note: Spain's possession was neutralized by Moroccan pressing traps and set-piece threat. Spanish technical superiority nullified by physical duels and tactical discipline.
-- **vs Japan/Korea:** Strong historical record. Spain dominates possession against Asian sides but struggles with rapid vertical counters if full-backs push high.
+## Group Stage Outlook
+- **vs Cape Verde:** Dominant expected (Cape Verde WC debutants). 5-0 or 6-0 likely.
+- **vs Saudi Arabia:** Dominant expected (Saudi Arabia weak Asian team). 4-0 or 4-1 likely.
+- **vs Uruguay:** Moderate favorites (Uruguay historical powerhouse, Bielsa coach, Darwin Núñez striker). Expect 2-0 or 2-1 Spain, contested match.
 
 ## Analyst Verdict for 2026
-Spain remains a top contender with tournament-winning potential due to youngest squad + Rodri's world-class DM play + Yamal's generational talent. Historical data shows they excel in group stages but require tactical adaptation for knockouts (improved set-piece execution, faster transition defense). Key risk: lack of WC knockout experience for core players. If De la Fuente maintains hybrid possession/transition structure and leverages Rodri's tempo control, Spain can consistently reach SF/QF. Watch for vulnerability against fast-paced counter-attacking sides (France, Brazil, USA) that exploit advanced full-back positioning.
+Spain are **tournament contenders** (Elo-ranked #2). Euro 2024 triumph validates their young squad, Rodri's control, and Yamal's emergence as a world-class winger. **Key strength:** Midfield dominance (Rodri + Pedri/Gavi), possession control. **Key risk:** Inexperience in World Cup knockouts (most young squad, no World Cup winners), Darwin Núñez's pace could trouble Spain's high line. **Ceiling:** Final (Rodri is world's best midfielder). **Floor:** Quarterfinal. **Verdict:** Dangerous young squad with elite midfield; Euro success is a proven blueprint. Watch for experience gaps in tight knockout matches — De la Fuente must integrate veterans (Carvajal) for stability.
 
 ---
-*Data sources: FIFA archives, UEFA tactical reports, Opta historical metrics (2018–2025)*
+
+*Sources: Euro 2024 records, UEFA qualifying 2024-25, Manchester City/Barcelona 2024-25 data, eloratings.net, FIFA rankings June 2026*

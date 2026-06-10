@@ -6,239 +6,239 @@
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Argentina | 1-0 | Morocco | Argentina |
-| 2 | Jamaica | 1-2 | Egypt | Egypt |
-| 3 | Argentina | 2-0 | Jamaica | Argentina |
-| 4 | Morocco | 2-1 | Egypt | Morocco |
-| 5 | Argentina | 2-0 | Egypt | Argentina |
-| 6 | Morocco | 2-1 | Jamaica | Morocco |
+| 1 | Mexico | 2-1 | South Korea | Mexico |
+| 2 | Czechia | 1-1 | South Africa | Draw |
+| 3 | Mexico | 1-0 | Czechia | Mexico |
+| 4 | South Korea | 2-1 | South Africa | South Korea |
+| 5 | Mexico | 2-1 | South Africa | Mexico |
+| 6 | South Korea | 1-1 | Czechia | Draw |
 
 ### Group A — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Argentina | 3 | 3 | 0 | 0 | 5 | 0 | +5 | 9 |
-| 2 ✅ | Morocco | 3 | 2 | 0 | 1 | 4 | 3 | +1 | 6 |
-| 3 🟡 | Egypt | 3 | 1 | 0 | 2 | 3 | 5 | -2 | 3 |
-| 4 | Jamaica | 3 | 0 | 0 | 3 | 2 | 6 | -4 | 0 |
+| 1 ✅ | Mexico | 3 | 3 | 0 | 0 | 5 | 2 | +3 | 9 |
+| 2 ✅ | South Korea | 3 | 1 | 1 | 1 | 4 | 4 | +0 | 4 |
+| 3 🟡 | Czechia | 3 | 0 | 2 | 1 | 2 | 3 | -1 | 2 |
+| 4 | South Africa | 3 | 0 | 1 | 2 | 3 | 5 | -2 | 1 |
 
 ## Group B
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Spain | 1-0 | Japan | Spain |
-| 2 | USA | 2-1 | Ghana | USA |
-| 3 | Spain | 2-1 | USA | Spain |
-| 4 | Japan | 2-1 | Ghana | Japan |
-| 5 | Spain | 2-0 | Ghana | Spain |
-| 6 | Japan | 1-2 | USA | USA |
+| 1 | Switzerland | 1-0 | Canada | Switzerland |
+| 2 | Bosnia & Herzegovina | 2-1 | Qatar | Bosnia & Herzegovina |
+| 3 | Switzerland | 1-0 | Bosnia & Herzegovina | Switzerland |
+| 4 | Canada | 2-0 | Qatar | Canada |
+| 5 | Switzerland | 2-0 | Qatar | Switzerland |
+| 6 | Canada | 2-1 | Bosnia & Herzegovina | Canada |
 
 ### Group B — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Spain | 3 | 3 | 0 | 0 | 5 | 1 | +4 | 9 |
-| 2 ✅ | USA | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
-| 3 🟡 | Japan | 3 | 1 | 0 | 2 | 3 | 4 | -1 | 3 |
-| 4 | Ghana | 3 | 0 | 0 | 3 | 2 | 6 | -4 | 0 |
+| 1 ✅ | Switzerland | 3 | 3 | 0 | 0 | 4 | 0 | +4 | 9 |
+| 2 ✅ | Canada | 3 | 2 | 0 | 1 | 4 | 2 | +2 | 6 |
+| 3 🟡 | Bosnia & Herzegovina | 3 | 1 | 0 | 2 | 3 | 4 | -1 | 3 |
+| 4 | Qatar | 3 | 0 | 0 | 3 | 1 | 6 | -5 | 0 |
 
 ## Group C
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Brazil | 2-1 | Switzerland | Brazil |
-| 2 | South Korea | 2-1 | Cameroon | South Korea |
-| 3 | Brazil | 1-0 | South Korea | Brazil |
-| 4 | Switzerland | 2-1 | Cameroon | Switzerland |
-| 5 | Brazil | 2-0 | Cameroon | Brazil |
-| 6 | Switzerland | 2-1 | South Korea | Switzerland |
+| 1 | Brazil | 2-1 | Morocco | Brazil |
+| 2 | Scotland | 2-0 | Haiti | Scotland |
+| 3 | Brazil | 2-1 | Scotland | Brazil |
+| 4 | Morocco | 2-0 | Haiti | Morocco |
+| 5 | Brazil | 2-0 | Haiti | Brazil |
+| 6 | Morocco | 1-0 | Scotland | Morocco |
 
 ### Group C — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Brazil | 3 | 3 | 0 | 0 | 5 | 1 | +4 | 9 |
-| 2 ✅ | Switzerland | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
-| 3 🟡 | South Korea | 3 | 1 | 0 | 2 | 3 | 4 | -1 | 3 |
-| 4 | Cameroon | 3 | 0 | 0 | 3 | 2 | 6 | -4 | 0 |
+| 1 ✅ | Brazil | 3 | 3 | 0 | 0 | 6 | 2 | +4 | 9 |
+| 2 ✅ | Morocco | 3 | 2 | 0 | 1 | 4 | 2 | +2 | 6 |
+| 3 🟡 | Scotland | 3 | 1 | 0 | 2 | 3 | 3 | +0 | 3 |
+| 4 | Haiti | 3 | 0 | 0 | 3 | 0 | 6 | -6 | 0 |
 
 ## Group D
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | France | 1-0 | Uruguay | France |
-| 2 | Canada | 2-1 | Saudi Arabia | Canada |
-| 3 | France | 1-0 | Canada | France |
-| 4 | Uruguay | 1-0 | Saudi Arabia | Uruguay |
-| 5 | France | 2-0 | Saudi Arabia | France |
-| 6 | Uruguay | 2-1 | Canada | Uruguay |
+| 1 | USA | 2-1 | Türkiye | USA |
+| 2 | Australia | 1-1 | Paraguay | Draw |
+| 3 | USA | 2-1 | Australia | USA |
+| 4 | Türkiye | 2-1 | Paraguay | Türkiye |
+| 5 | USA | 2-1 | Paraguay | USA |
+| 6 | Türkiye | 2-1 | Australia | Türkiye |
 
 ### Group D — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | France | 3 | 3 | 0 | 0 | 4 | 0 | +4 | 9 |
-| 2 ✅ | Uruguay | 3 | 2 | 0 | 1 | 3 | 2 | +1 | 6 |
-| 3 🟡 | Canada | 3 | 1 | 0 | 2 | 3 | 4 | -1 | 3 |
-| 4 | Saudi Arabia | 3 | 0 | 0 | 3 | 1 | 5 | -4 | 0 |
+| 1 ✅ | USA | 3 | 3 | 0 | 0 | 6 | 3 | +3 | 9 |
+| 2 ✅ | Türkiye | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
+| 3 🟡 | Australia | 3 | 0 | 1 | 2 | 3 | 5 | -2 | 1 |
+| 4 | Paraguay | 3 | 0 | 1 | 2 | 3 | 5 | -2 | 1 |
 
 ## Group E
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Portugal | 2-1 | Croatia | Portugal |
-| 2 | Ecuador | 2-1 | Tunisia | Ecuador |
-| 3 | Portugal | 2-1 | Ecuador | Portugal |
-| 4 | Croatia | 1-0 | Tunisia | Croatia |
-| 5 | Portugal | 1-0 | Tunisia | Portugal |
-| 6 | Croatia | 2-1 | Ecuador | Croatia |
+| 1 | Germany | 1-0 | Ecuador | Germany |
+| 2 | Ivory Coast | 2-0 | Curaçao | Ivory Coast |
+| 3 | Germany | 2-1 | Ivory Coast | Germany |
+| 4 | Ecuador | 2-0 | Curaçao | Ecuador |
+| 5 | Germany | 2-0 | Curaçao | Germany |
+| 6 | Ecuador | 1-1 | Ivory Coast | Draw |
 
 ### Group E — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Portugal | 3 | 3 | 0 | 0 | 5 | 2 | +3 | 9 |
-| 2 ✅ | Croatia | 3 | 2 | 0 | 1 | 4 | 3 | +1 | 6 |
-| 3 🟡 | Ecuador | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | Tunisia | 3 | 0 | 0 | 3 | 1 | 4 | -3 | 0 |
+| 1 ✅ | Germany | 3 | 3 | 0 | 0 | 5 | 1 | +4 | 9 |
+| 2 ✅ | Ivory Coast | 3 | 1 | 1 | 1 | 4 | 3 | +1 | 4 |
+| 3 🟡 | Ecuador | 3 | 1 | 1 | 1 | 3 | 2 | +1 | 4 |
+| 4 | Curaçao | 3 | 0 | 0 | 3 | 0 | 6 | -6 | 0 |
 
 ## Group F
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Germany | 2-1 | Colombia | Germany |
-| 2 | Nigeria | 2-1 | Honduras | Nigeria |
-| 3 | Germany | 2-1 | Nigeria | Germany |
-| 4 | Colombia | 1-0 | Honduras | Colombia |
-| 5 | Germany | 2-0 | Honduras | Germany |
-| 6 | Colombia | 2-1 | Nigeria | Colombia |
+| 1 | Netherlands | 2-1 | Japan | Netherlands |
+| 2 | Sweden | 1-0 | Tunisia | Sweden |
+| 3 | Netherlands | 2-1 | Sweden | Netherlands |
+| 4 | Japan | 1-0 | Tunisia | Japan |
+| 5 | Netherlands | 2-0 | Tunisia | Netherlands |
+| 6 | Japan | 1-1 | Sweden | Draw |
 
 ### Group F — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Germany | 3 | 3 | 0 | 0 | 6 | 2 | +4 | 9 |
-| 2 ✅ | Colombia | 3 | 2 | 0 | 1 | 4 | 3 | +1 | 6 |
-| 3 🟡 | Nigeria | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | Honduras | 3 | 0 | 0 | 3 | 1 | 5 | -4 | 0 |
+| 1 ✅ | Netherlands | 3 | 3 | 0 | 0 | 6 | 2 | +4 | 9 |
+| 2 ✅ | Japan | 3 | 1 | 1 | 1 | 3 | 3 | +0 | 4 |
+| 3 🟡 | Sweden | 3 | 1 | 1 | 1 | 3 | 3 | +0 | 4 |
+| 4 | Tunisia | 3 | 0 | 0 | 3 | 0 | 4 | -4 | 0 |
 
 ## Group G
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Netherlands | 2-1 | Mexico | Netherlands |
-| 2 | Serbia | 2-1 | Australia | Serbia |
-| 3 | Netherlands | 2-1 | Serbia | Netherlands |
-| 4 | Mexico | 2-1 | Australia | Mexico |
-| 5 | Netherlands | 1-0 | Australia | Netherlands |
-| 6 | Mexico | 2-1 | Serbia | Mexico |
+| 1 | Belgium | 1-1 | Iran | Draw |
+| 2 | Egypt | 2-0 | New Zealand | Egypt |
+| 3 | Belgium | 1-1 | Egypt | Draw |
+| 4 | Iran | 1-0 | New Zealand | Iran |
+| 5 | Belgium | 2-0 | New Zealand | Belgium |
+| 6 | Iran | 0-1 | Egypt | Egypt |
 
 ### Group G — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Netherlands | 3 | 3 | 0 | 0 | 5 | 2 | +3 | 9 |
-| 2 ✅ | Mexico | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
-| 3 🟡 | Serbia | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | Australia | 3 | 0 | 0 | 3 | 2 | 5 | -3 | 0 |
+| 1 ✅ | Egypt | 3 | 2 | 1 | 0 | 4 | 1 | +3 | 7 |
+| 2 ✅ | Belgium | 3 | 1 | 2 | 0 | 4 | 2 | +2 | 5 |
+| 3 🟡 | Iran | 3 | 1 | 1 | 1 | 2 | 2 | +0 | 4 |
+| 4 | New Zealand | 3 | 0 | 0 | 3 | 0 | 5 | -5 | 0 |
 
 ## Group H
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | England | 1-0 | Slovenia | England |
-| 2 | Paraguay | 2-0 | Tonga | Paraguay |
-| 3 | England | 1-0 | Paraguay | England |
-| 4 | Slovenia | 2-0 | Tonga | Slovenia |
-| 5 | England | 3-0 | Tonga | England |
-| 6 | Slovenia | 1-2 | Paraguay | Paraguay |
+| 1 | Spain | 2-1 | Uruguay | Spain |
+| 2 | Saudi Arabia | 1-1 | Cape Verde | Draw |
+| 3 | Spain | 2-0 | Saudi Arabia | Spain |
+| 4 | Uruguay | 2-0 | Cape Verde | Uruguay |
+| 5 | Spain | 2-0 | Cape Verde | Spain |
+| 6 | Uruguay | 2-0 | Saudi Arabia | Uruguay |
 
 ### Group H — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | England | 3 | 3 | 0 | 0 | 5 | 0 | +5 | 9 |
-| 2 ✅ | Paraguay | 3 | 2 | 0 | 1 | 4 | 2 | +2 | 6 |
-| 3 🟡 | Slovenia | 3 | 1 | 0 | 2 | 3 | 3 | +0 | 3 |
-| 4 | Tonga | 3 | 0 | 0 | 3 | 0 | 7 | -7 | 0 |
+| 1 ✅ | Spain | 3 | 3 | 0 | 0 | 6 | 1 | +5 | 9 |
+| 2 ✅ | Uruguay | 3 | 2 | 0 | 1 | 5 | 2 | +3 | 6 |
+| 3 🟡 | Saudi Arabia | 3 | 0 | 1 | 2 | 1 | 5 | -4 | 1 |
+| 4 | Cape Verde | 3 | 0 | 1 | 2 | 1 | 5 | -4 | 1 |
 
 ## Group I
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Italy | 2-1 | Wales | Italy |
-| 2 | Qatar | 2-0 | Fiji | Qatar |
-| 3 | Italy | 1-0 | Qatar | Italy |
-| 4 | Wales | 2-0 | Fiji | Wales |
-| 5 | Italy | 2-0 | Fiji | Italy |
-| 6 | Wales | 2-1 | Qatar | Wales |
+| 1 | France | 2-1 | Senegal | France |
+| 2 | Norway | 2-1 | Iraq | Norway |
+| 3 | France | 2-1 | Norway | France |
+| 4 | Senegal | 1-0 | Iraq | Senegal |
+| 5 | France | 2-0 | Iraq | France |
+| 6 | Senegal | 1-1 | Norway | Draw |
 
 ### Group I — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Italy | 3 | 3 | 0 | 0 | 5 | 1 | +4 | 9 |
-| 2 ✅ | Wales | 3 | 2 | 0 | 1 | 5 | 3 | +2 | 6 |
-| 3 🟡 | Qatar | 3 | 1 | 0 | 2 | 3 | 3 | +0 | 3 |
-| 4 | Fiji | 3 | 0 | 0 | 3 | 0 | 6 | -6 | 0 |
+| 1 ✅ | France | 3 | 3 | 0 | 0 | 6 | 2 | +4 | 9 |
+| 2 ✅ | Norway | 3 | 1 | 1 | 1 | 4 | 4 | +0 | 4 |
+| 3 🟡 | Senegal | 3 | 1 | 1 | 1 | 3 | 3 | +0 | 4 |
+| 4 | Iraq | 3 | 0 | 0 | 3 | 1 | 5 | -4 | 0 |
 
 ## Group J
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Senegal | 2-1 | Poland | Senegal |
-| 2 | Costa Rica | 2-1 | New Zealand | Costa Rica |
-| 3 | Senegal | 2-1 | Costa Rica | Senegal |
-| 4 | Poland | 1-0 | New Zealand | Poland |
-| 5 | Senegal | 2-0 | New Zealand | Senegal |
-| 6 | Poland | 2-1 | Costa Rica | Poland |
+| 1 | Argentina | 2-0 | Austria | Argentina |
+| 2 | Algeria | 1-0 | Jordan | Algeria |
+| 3 | Argentina | 2-0 | Algeria | Argentina |
+| 4 | Austria | 2-0 | Jordan | Austria |
+| 5 | Argentina | 2-0 | Jordan | Argentina |
+| 6 | Austria | 1-1 | Algeria | Draw |
 
 ### Group J — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Senegal | 3 | 3 | 0 | 0 | 6 | 2 | +4 | 9 |
-| 2 ✅ | Poland | 3 | 2 | 0 | 1 | 4 | 3 | +1 | 6 |
-| 3 🟡 | Costa Rica | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | New Zealand | 3 | 0 | 0 | 3 | 1 | 5 | -4 | 0 |
+| 1 ✅ | Argentina | 3 | 3 | 0 | 0 | 6 | 0 | +6 | 9 |
+| 2 ✅ | Austria | 3 | 1 | 1 | 1 | 3 | 3 | +0 | 4 |
+| 3 🟡 | Algeria | 3 | 1 | 1 | 1 | 2 | 3 | -1 | 4 |
+| 4 | Jordan | 3 | 0 | 0 | 3 | 0 | 5 | -5 | 0 |
 
 ## Group K
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Iran | 2-1 | Sweden | Iran |
-| 2 | Panama | 2-1 | Bolivia | Panama |
-| 3 | Iran | 2-1 | Panama | Iran |
-| 4 | Sweden | 2-1 | Bolivia | Sweden |
-| 5 | Iran | 2-1 | Bolivia | Iran |
-| 6 | Sweden | 2-1 | Panama | Sweden |
+| 1 | Portugal | 2-1 | Colombia | Portugal |
+| 2 | DR Congo | 1-1 | Uzbekistan | Draw |
+| 3 | Portugal | 2-0 | DR Congo | Portugal |
+| 4 | Colombia | 2-0 | Uzbekistan | Colombia |
+| 5 | Portugal | 2-0 | Uzbekistan | Portugal |
+| 6 | Colombia | 2-0 | DR Congo | Colombia |
 
 ### Group K — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Iran | 3 | 3 | 0 | 0 | 6 | 3 | +3 | 9 |
-| 2 ✅ | Sweden | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
-| 3 🟡 | Panama | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | Bolivia | 3 | 0 | 0 | 3 | 3 | 6 | -3 | 0 |
+| 1 ✅ | Portugal | 3 | 3 | 0 | 0 | 6 | 1 | +5 | 9 |
+| 2 ✅ | Colombia | 3 | 2 | 0 | 1 | 5 | 2 | +3 | 6 |
+| 3 🟡 | DR Congo | 3 | 0 | 1 | 2 | 1 | 5 | -4 | 1 |
+| 4 | Uzbekistan | 3 | 0 | 1 | 2 | 1 | 5 | -4 | 1 |
 
 ## Group L
 
 | # | Home | Score | Away | Winner |
 |---|------|-------|------|--------|
-| 1 | Ukraine | 1-2 | Turkey | Turkey |
-| 2 | South Africa | 2-1 | Guinea | South Africa |
-| 3 | Ukraine | 2-1 | South Africa | Ukraine |
-| 4 | Turkey | 2-1 | Guinea | Turkey |
-| 5 | Ukraine | 2-1 | Guinea | Ukraine |
-| 6 | Turkey | 2-1 | South Africa | Turkey |
+| 1 | England | 1-0 | Croatia | England |
+| 2 | Panama | 0-1 | Ghana | Ghana |
+| 3 | England | 2-0 | Panama | England |
+| 4 | Croatia | 1-0 | Ghana | Croatia |
+| 5 | England | 2-0 | Ghana | England |
+| 6 | Croatia | 1-0 | Panama | Croatia |
 
 ### Group L — Predicted Standings
 
 | Pos | Team | P | W | D | L | GF | GA | GD | Pts |
 |-----|------|---|---|---|---|----|----|----|-----|
-| 1 ✅ | Turkey | 3 | 3 | 0 | 0 | 6 | 3 | +3 | 9 |
-| 2 ✅ | Ukraine | 3 | 2 | 0 | 1 | 5 | 4 | +1 | 6 |
-| 3 🟡 | South Africa | 3 | 1 | 0 | 2 | 4 | 5 | -1 | 3 |
-| 4 | Guinea | 3 | 0 | 0 | 3 | 3 | 6 | -3 | 0 |
+| 1 ✅ | England | 3 | 3 | 0 | 0 | 5 | 0 | +5 | 9 |
+| 2 ✅ | Croatia | 3 | 2 | 0 | 1 | 2 | 1 | +1 | 6 |
+| 3 🟡 | Ghana | 3 | 1 | 0 | 2 | 1 | 3 | -2 | 3 |
+| 4 | Panama | 3 | 0 | 0 | 3 | 0 | 4 | -4 | 0 |
 
