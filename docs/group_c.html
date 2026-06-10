@@ -2,183 +2,214 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="author" content="Yohanes Wahyu Nurcahyo">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Group C | WC2026 AI</title>
 <link rel="stylesheet" href="styles.css">
-<script defer src="app.js"></script>
-<title>Group C | FIFA World Cup 2026 AI Predictions</title>
 </head>
 <body>
-<div class="scroll-progress"></div>
-<header class="site-header">
-  <span class="logo">⚽</span>
-  <div>
-    <h1>FIFA World Cup 2026 — AI Predictions</h1>
-    <div class="subtitle">Elo · Poisson · Dixon-Coles · Monte Carlo · 10,000 simulations</div>
-  </div>
-  <span class="badge gold">Jun 11 – Jul 19, 2026</span>
-</header>
-
-<nav>
-  <a href="index.html">🏠 Home</a>
-  <a href="group_a.html">A</a><a href="group_b.html">B</a>
-  <a href="group_c.html" class="active">C</a><a href="group_d.html">D</a>
-  <a href="group_e.html">E</a><a href="group_f.html">F</a>
-  <a href="group_g.html">G</a><a href="group_h.html">H</a>
-  <a href="group_i.html">I</a><a href="group_j.html">J</a>
-  <a href="group_k.html">K</a><a href="group_l.html">L</a>
-  <a href="knockout.html">🏆 Bracket</a>
+<nav class="nav">
+  <a href="index.html" class="nav-brand">WC2026 <span>AI</span></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li class="nav-dropdown"><a href="#" class="active" onclick="toggleGroupMenu(event)">Groups ▾</a><ul class="group-submenu" id="groupSubmenu"><li><a href="group_a.html">Group A</a></li><li><a href="group_b.html">Group B</a></li><li><a href="group_c.html">Group C</a></li><li><a href="group_d.html">Group D</a></li><li><a href="group_e.html">Group E</a></li><li><a href="group_f.html">Group F</a></li><li><a href="group_g.html">Group G</a></li><li><a href="group_h.html">Group H</a></li><li><a href="group_i.html">Group I</a></li><li><a href="group_j.html">Group J</a></li><li><a href="group_k.html">Group K</a></li><li><a href="group_l.html">Group L</a></li></ul></li><li><a href="knockout.html">Knockout</a></li><li><a href="prediction_method.html">Method</a></li><li><a href="https://github.com/yoyokits/WorldCup26AI" class="github-link" target="_blank" rel="noopener">GitHub</a></li></ul>
 </nav>
-<main>
-
-<div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:1.5rem">
-  <span class="badge" style="font-size:1rem;padding:.3rem .8rem">Group C</span>
-  <span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/brazil.png" alt="brazil" loading="lazy"> <strong>Brazil</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/switzerland.png" alt="switzerland" loading="lazy"> <strong>Switzerland</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/south-korea.png" alt="south-korea" loading="lazy"> <strong>South Korea</strong></span><span style="display:inline-flex;align-items:center;gap:.3rem;margin-right:.8rem"><img class="flag-lg" src="images/cameroon.png" alt="cameroon" loading="lazy"> <strong>Cameroon</strong></span>
-</div>
-
-<h2>📋 Match Schedule & Predictions</h2>
-<div class="card" style="padding:0;overflow:hidden"><table class="match-table">
-<thead><tr>
-  <th>Date</th><th>Home</th><th style="text-align:center">Score</th><th>Away</th><th>Venue</th>
-</tr></thead>
-<tbody><tr>
-  <td class="date-cell">Jun 13</td>
-  <td><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
-  <td class="score-cell"><span class="pred">2–1</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
-  <td class="venue-cell">NRG, Houston</td>
-</tr><tr>
-  <td class="date-cell">Jun 13</td>
-  <td><div class="team-cell"><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> South Korea</div></td>
-  <td class="score-cell"><span class="pred">2–1</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy"> Cameroon</div></td>
-  <td class="venue-cell">Lincoln, Philadelphia</td>
-</tr><tr>
-  <td class="date-cell">Jun 19</td>
-  <td><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
-  <td class="score-cell"><span class="pred">1–0</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> South Korea</div></td>
-  <td class="venue-cell">NRG, Houston</td>
-</tr><tr>
-  <td class="date-cell">Jun 19</td>
-  <td><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
-  <td class="score-cell"><span class="pred">2–1</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy"> Cameroon</div></td>
-  <td class="venue-cell">Arrowhead, KC</td>
-</tr><tr>
-  <td class="date-cell">Jun 26</td>
-  <td><div class="team-cell"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil</div></td>
-  <td class="score-cell"><span class="pred">2–0</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy"> Cameroon</div></td>
-  <td class="venue-cell">AT&T, Dallas</td>
-</tr><tr>
-  <td class="date-cell">Jun 26</td>
-  <td><div class="team-cell"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland</div></td>
-  <td class="score-cell"><span class="pred">2–1</span></td>
-  <td><div class="team-cell"><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> South Korea</div></td>
-  <td class="venue-cell">Gillette, Boston</td>
-</tr></tbody>
-</table></div>
-<p style="font-size:.78rem;color:var(--grey);margin-top:.3rem">
-  Scores shown in <em style="color:var(--grey)">grey italic</em> = AI prediction (not yet played)
-</p>
-
-<h2>📊 Predicted Final Standings</h2>
-<div class="card" style="padding:0;overflow:hidden"><table class="stand-table">
-<thead><tr>
-  <th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th>
-  <th>GF</th><th>GA</th><th>GD</th><th>Pts</th>
-</tr></thead>
-<tbody><tr class="qualify-1">
-  <td>1</td>
-  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/brazil.png" alt="brazil" loading="lazy"> Brazil <span class="section-pill" style="background:var(--blue);font-size:.65rem">✅</span></div></td>
-  <td>3</td><td>3</td><td>0</td><td>0</td>
-  <td>5</td><td>1</td><td>+4</td><td class="pts">9</td>
-</tr><tr class="qualify-2">
-  <td>2</td>
-  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy"> Switzerland <span class="section-pill" style="background:var(--blue);font-size:.65rem">✅</span></div></td>
-  <td>3</td><td>2</td><td>0</td><td>1</td>
-  <td>5</td><td>4</td><td>+1</td><td class="pts">6</td>
-</tr><tr class="qualify-3rd">
-  <td>3</td>
-  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy"> South Korea <span class="section-pill" style="background:var(--gold);font-size:.65rem">🟡</span></div></td>
-  <td>3</td><td>1</td><td>0</td><td>2</td>
-  <td>3</td><td>4</td><td>-1</td><td class="pts">3</td>
-</tr><tr class="">
-  <td>4</td>
-  <td><div style="display:flex;align-items:center;gap:.4rem"><img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy"> Cameroon <span class="section-pill" style="background:#9ca3af;font-size:.65rem">❌</span></div></td>
-  <td>3</td><td>0</td><td>0</td><td>3</td>
-  <td>2</td><td>6</td><td>-4</td><td class="pts">0</td>
-</tr></tbody>
-</table></div>
-<p style="font-size:.8rem;color:var(--grey);margin-top:.5rem">🔵 Qualifies &nbsp; 🟡 Potential best 3rd-place qualifier &nbsp; ❌ Eliminated</p>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
-  <div class="card">
-    <h3>⚡ Elo Strength</h3>
-    <div class="odds-team">
-  <img class="flag" src="images/brazil.png" alt="brazil" loading="lazy">
-  <span class="odds-team-name">Brazil</span>
-  <div class="odds-bar-track"><div class="odds-bar gold" style="width:100%"></div></div>
-  <span class="odds-pct" style="color:var(--grey)">2050</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy">
-  <span class="odds-team-name">Switzerland</span>
-  <div class="odds-bar-track"><div class="odds-bar gold" style="width:82%"></div></div>
-  <span class="odds-pct" style="color:var(--grey)">1860</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy">
-  <span class="odds-team-name">South Korea</span>
-  <div class="odds-bar-track"><div class="odds-bar gold" style="width:75%"></div></div>
-  <span class="odds-pct" style="color:var(--grey)">1790</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy">
-  <span class="odds-team-name">Cameroon</span>
-  <div class="odds-bar-track"><div class="odds-bar gold" style="width:68%"></div></div>
-  <span class="odds-pct" style="color:var(--grey)">1710</span>
-</div>
-  </div>
-  <div class="card">
-    <h3>🏆 Title Odds</h3>
-    <div class="odds-team">
-  <img class="flag" src="images/brazil.png" alt="brazil" loading="lazy">
-  <span class="odds-team-name">Brazil</span>
-  <div class="odds-bar-track"><div class="odds-bar" style="width:100%"></div></div>
-  <span class="odds-pct">6.6%</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/switzerland.png" alt="switzerland" loading="lazy">
-  <span class="odds-team-name">Switzerland</span>
-  <div class="odds-bar-track"><div class="odds-bar" style="width:33%"></div></div>
-  <span class="odds-pct">2.2%</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/south-korea.png" alt="south-korea" loading="lazy">
-  <span class="odds-team-name">South Korea</span>
-  <div class="odds-bar-track"><div class="odds-bar" style="width:15%"></div></div>
-  <span class="odds-pct">1.0%</span>
-</div><div class="odds-team">
-  <img class="flag" src="images/cameroon.png" alt="cameroon" loading="lazy">
-  <span class="odds-team-name">Cameroon</span>
-  <div class="odds-bar-track"><div class="odds-bar" style="width:2%"></div></div>
-  <span class="odds-pct">0.1%</span>
-</div>
-  </div>
-</div>
-
-</main>
-<footer>
-  <div class="foot-inner">
-    <div class="foot-meta">
-      Predictions by Elo + Poisson + Dixon-Coles model (tools/predict.py) &nbsp;·&nbsp;
-      10,000-run Monte Carlo · SEED=2026 &nbsp;·&nbsp;
-      Methods: Dixon &amp; Coles 1997 · Maher 1982 · eloratings.net &nbsp;·&nbsp;
-      <a href="https://github.com/yoyokits/WorldCup26AI">GitHub</a>
+<div class="container"><div class="hero" style="padding:24px 16px"><h1>Group C</h1><div style="margin-top:8px"><img src="images/brazil.png" alt="Brazil" style="width:40px;height:28px;border-radius:3px;margin:0 4px" title="Brazil"><img src="images/morocco.png" alt="Morocco" style="width:40px;height:28px;border-radius:3px;margin:0 4px" title="Morocco"><img src="images/scotland.png" alt="Scotland" style="width:40px;height:28px;border-radius:3px;margin:0 4px" title="Scotland"><img src="images/haiti.png" alt="Haiti" style="width:40px;height:28px;border-radius:3px;margin:0 4px" title="Haiti"></div></div><h2 class="section-title">Matches</h2><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Brazil</span>
+      <img src="images/brazil.png" alt="Brazil">
     </div>
-    <div class="foot-author">Created by <span>Yohanes Wahyu Nurcahyo</span></div>
+    <div class="match-score">2-1</div>
+    <div class="match-team away">
+      <img src="images/morocco.png" alt="Morocco">
+      <span class="team-name">Morocco</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
   </div>
-</footer>
-<button class="to-top" aria-label="Back to top">↑</button>
-</body>
-</html>
+  <div class="match-meta">
+    <span>June 13</span>
+    <span class="local-time" data-utc="2026-06-13T22:00:00Z"></span>
+    <span>MetLife Stadium, East Rutherford</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:43%">BRA 43%</div>
+        <div class="draw" style="width:27%">27%</div>
+        <div class="loss" style="width:30%">MOR 30%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">2020.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1890.0</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#6</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#8</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.53</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.24</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.40</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.50</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">10.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">9.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.10</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">26.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.5</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">22.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.30</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.20</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div></div>
+    </div>
+  </div>
+</div><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Scotland</span>
+      <img src="images/scotland.png" alt="Scotland">
+    </div>
+    <div class="match-score">2-0</div>
+    <div class="match-team away">
+      <img src="images/haiti.png" alt="Haiti">
+      <span class="team-name">Haiti</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
+  </div>
+  <div class="match-meta">
+    <span>June 13</span>
+    <span class="local-time" data-utc="2026-06-13T01:00:00Z"></span>
+    <span>Gillette Stadium, Foxborough</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:58%">SCO 58%</div>
+        <div class="draw" style="width:24%">24%</div>
+        <div class="loss" style="width:18%">HAI 18%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1760.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1510.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#36</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#102</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.91</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">0.98</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.30</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">7.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">5.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">2.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">28.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">8.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">1.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.25</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">6.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div></div>
+    </div>
+  </div>
+</div><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Brazil</span>
+      <img src="images/brazil.png" alt="Brazil">
+    </div>
+    <div class="match-score">2-1</div>
+    <div class="match-team away">
+      <img src="images/scotland.png" alt="Scotland">
+      <span class="team-name">Scotland</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
+  </div>
+  <div class="match-meta">
+    <span>June 24 *(Final Matchday — Groups A, B, C)*</span>
+    <span class="local-time" data-utc="2026-06-24T22:00:00Z"></span>
+    <span>Hard Rock Stadium, Miami</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:61%">BRA 61%</div>
+        <div class="draw" style="width:22%">22%</div>
+        <div class="loss" style="width:17%">SCO 17%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">2020.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1760.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#6</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#36</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">2.13</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.07</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.40</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.30</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">10.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">7.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">9.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.10</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">26.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">28.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">22.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">8.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.30</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.25</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">6.00</div><div class="stat-label">SCO</div></div></div>
+    </div>
+  </div>
+</div><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Morocco</span>
+      <img src="images/morocco.png" alt="Morocco">
+    </div>
+    <div class="match-score">2-0</div>
+    <div class="match-team away">
+      <img src="images/haiti.png" alt="Haiti">
+      <span class="team-name">Haiti</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
+  </div>
+  <div class="match-meta">
+    <span>June 24 *(Final Matchday — Groups A, B, C)*</span>
+    <span class="local-time" data-utc="2026-06-24T22:00:00Z"></span>
+    <span>Mercedes-Benz Stadium, Atlanta</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:71%">MOR 71%</div>
+        <div class="draw" style="width:19%">19%</div>
+        <div class="loss" style="width:10%">HAI 10%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1890.0</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1510.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#8</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#102</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">2.20</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">0.70</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.50</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">5.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">2.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.5</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">1.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.20</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div></div>
+    </div>
+  </div>
+</div><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Brazil</span>
+      <img src="images/brazil.png" alt="Brazil">
+    </div>
+    <div class="match-score">2-0</div>
+    <div class="match-team away">
+      <img src="images/haiti.png" alt="Haiti">
+      <span class="team-name">Haiti</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
+  </div>
+  <div class="match-meta">
+    <span>June 19</span>
+    <span class="local-time" data-utc="2026-06-19T00:30:00Z"></span>
+    <span>Lincoln Financial Field, Philadelphia</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:81%">BRA 81%</div>
+        <div class="draw" style="width:13%">13%</div>
+        <div class="loss" style="width:6%">HAI 6%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">2020.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1510.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#6</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#102</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">2.90</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">0.75</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.40</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">10.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">5.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">9.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">2.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.10</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">26.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.0</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">22.0</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">1.00</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.30</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.10</div><div class="stat-label">HAI</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">7.00</div><div class="stat-label">BRA</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">4.00</div><div class="stat-label">HAI</div></div></div>
+    </div>
+  </div>
+</div><div class="match-card" onclick="this.classList.toggle('expanded')">
+  <div class="match-header">
+    <div class="match-team home">
+      <span class="match-winner-tag tag-win">W</span>
+      <span class="team-name">Morocco</span>
+      <img src="images/morocco.png" alt="Morocco">
+    </div>
+    <div class="match-score">1-0</div>
+    <div class="match-team away">
+      <img src="images/scotland.png" alt="Scotland">
+      <span class="team-name">Scotland</span>
+      <span class="match-winner-tag tag-loss">L</span>
+    </div>
+  </div>
+  <div class="match-meta">
+    <span>June 19</span>
+    <span class="local-time" data-utc="2026-06-19T22:00:00Z"></span>
+    <span>Gillette Stadium, Foxborough</span>
+  </div>
+  <div class="expand-hint">▼</div>
+  <div class="match-details">
+    <div class="match-details-inner">
+      <div class="prob-bar">
+        <div class="win" style="width:51%">MOR 51%</div>
+        <div class="draw" style="width:27%">27%</div>
+        <div class="loss" style="width:23%">SCO 23%</div>
+      </div>
+      <div class="stats-grid"><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1890.0</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Elo</div><div class="stat-value">1760.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#8</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">FIFA Rank</div><div class="stat-value">#36</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.62</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Exp. Goals (λ)</div><div class="stat-value">1.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.50</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Form</div><div class="stat-value">0.30</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Coach</div><div class="stat-value">7.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Squad Depth</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Pressure</div><div class="stat-value">5.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Injury Impact</div><div class="stat-value">0.05</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">27.5</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Avg Age</div><div class="stat-value">28.0</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">6.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">WC Experience</div><div class="stat-value">8.00</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.20</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Fatigue</div><div class="stat-value">0.25</div><div class="stat-label">SCO</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">8.00</div><div class="stat-label">MOR</div></div><div class="stat-item"><div class="stat-label">Set Piece Off</div><div class="stat-value">6.00</div><div class="stat-label">SCO</div></div></div>
+    </div>
+  </div>
+</div><h2 class="section-title">Predicted Standings</h2><div class="card" style="overflow-x:auto"><table class="standings-table"><thead><tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th></tr></thead><tbody><tr class="qualify"><td>1 ✅</td><td><div class="team-cell"><img src="images/brazil.png" alt="">Brazil</div></td><td>3</td><td>3</td><td>0</td><td>0</td><td>6</td><td>2</td><td>+4</td><td><strong>9</strong></td></tr><tr class="qualify"><td>2 ✅</td><td><div class="team-cell"><img src="images/morocco.png" alt="">Morocco</div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>4</td><td>2</td><td>+2</td><td><strong>6</strong></td></tr><tr class="third"><td>3 🟡</td><td><div class="team-cell"><img src="images/scotland.png" alt="">Scotland</div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>3</td><td>+0</td><td><strong>3</strong></td></tr><tr class=""><td>4</td><td><div class="team-cell"><img src="images/haiti.png" alt="">Haiti</div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>6</td><td>-6</td><td><strong>0</strong></td></tr></tbody></table></div><div class="link-row" style="margin-top:20px"><a href="group_a.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group A</a><a href="group_b.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group B</a><a href="group_c.html" class="btn btn-red" style="padding:8px 14px;font-size:0.78rem">Group C</a><a href="group_d.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group D</a><a href="group_e.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group E</a><a href="group_f.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group F</a><a href="group_g.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group G</a><a href="group_h.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group H</a><a href="group_i.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group I</a><a href="group_j.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group J</a><a href="group_k.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group K</a><a href="group_l.html" class="btn btn-outline" style="padding:8px 14px;font-size:0.78rem">Group L</a></div><div class="disclaimer">⚠️ <strong>Disclaimer:</strong> This is a personal AI prediction project — not for gambling. All results are generated by a statistical model for educational and internal use only. Do not use these predictions for real betting or wagering.</div></div><footer class="footer">
+  <p>FIFA World Cup 2026 AI Predictions &middot;
+  <a href="index.html">Home</a> &middot;
+  <a href="https://github.com/yoyokits/WorldCup26AI" target="_blank" rel="noopener">GitHub</a> &middot;
+  <a href="prediction_method.html">Methodology</a></p>
+  <p>Built with Python + Claude AI &middot; Not affiliated with FIFA</p>
+</footer><script>
+function toggleGroupMenu(e){
+  e.preventDefault();
+  var s=document.getElementById('groupSubmenu');
+  s.style.display=s.style.display==='flex'?'none':'flex';
+}
+document.addEventListener('click',function(e){
+  var s=document.getElementById('groupSubmenu');
+  if(s&&!e.target.closest('.nav-dropdown'))s.style.display='none';
+});
+document.querySelectorAll('.local-time').forEach(function(el){
+  var u=el.getAttribute('data-utc');
+  if(u){try{el.textContent=new Date(u).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'})+' local';}catch(e){}}
+});
+</script></body></html>
