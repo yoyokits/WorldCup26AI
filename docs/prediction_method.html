@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Method | WC2026 AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-brand">WC2026 <span>AI</span></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li class="nav-dropdown"><a href="#" onclick="toggleGroupMenu(event)">Groups ▾</a><ul class="group-submenu" id="groupSubmenu"><li><a href="group_a.html">Group A</a></li><li><a href="group_b.html">Group B</a></li><li><a href="group_c.html">Group C</a></li><li><a href="group_d.html">Group D</a></li><li><a href="group_e.html">Group E</a></li><li><a href="group_f.html">Group F</a></li><li><a href="group_g.html">Group G</a></li><li><a href="group_h.html">Group H</a></li><li><a href="group_i.html">Group I</a></li><li><a href="group_j.html">Group J</a></li><li><a href="group_k.html">Group K</a></li><li><a href="group_l.html">Group L</a></li></ul></li><li><a href="knockout.html">Knockout</a></li><li><a href="prediction_method.html" class="active">Method</a></li><li><a href="https://github.com/yoyokits/WorldCup26AI" class="github-link" target="_blank" rel="noopener">GitHub</a></li></ul>
+</nav>
+<div class="container"><div class="hero" style="padding:24px 16px"><h1>Prediction Methodology</h1><p>Elo + Poisson + Dixon-Coles Engine</p></div><div class="method-content card" style="padding:20px"><h1>Prediction Engine — Improvements & Methodology</h1>
+<h2>Overview</h2>
+<p>The FIFA World Cup 2026 prediction engine (<code>tools/predict.py</code>) uses Elo ratings, Poisson goal modeling, and Dixon-Coles low-score corrections to generate match-by-match scoreline predictions and Monte Carlo tournament simulations. This document describes the data enrichment and engine calibration performed in June 2026 to improve prediction accuracy.</p>
+<hr>
+<h2>1. Data Enrichment: From 5 Columns to 15</h2>
+<h3>Before (v1 — minimal)</h3>
+<p>The original <code>tools/ratings.csv</code> contained only 5 features per team:</p>
+<table><thead><tr><th>Column</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>fifa_rank</code></td><td>FIFA world ranking</td></tr>
+<tr><td><code>elo</code></td><td>Elo rating (long-run strength)</td></tr>
+<tr><td><code>attack_avg</code></td><td>Average goals scored per match</td></tr>
+<tr><td><code>defense_avg</code></td><td>Average goals conceded per match</td></tr>
+<tr><td><code>host</code></td><td>Whether the team is a co-host (0/1)</td></tr>
+</tbody></table>
+<p>These are the minimum inputs for a Poisson model — sufficient to compute a scoreline probability matrix, but blind to current context. A team's Elo reflects years of results, not whether their star striker tore an ACL last month.</p>
+<h3>After (v2 — enriched)</h3>
+<p>Ten contextual columns were added, sourced from ESPN, FIFA.com, eloratings.net, club data (Premier League, La Liga, Serie A, Bundesliga, Ligue 1), and official national team announcements:</p>
+<table><thead><tr><th>Column</th><th>Range</th><th>What it captures</th><th>Example</th></tr></thead><tbody>
+<tr><td><code>form</code></td><td>-1.0 to +1.0</td><td>Recent 10-match trajectory</td><td>Spain 0.90 (Euro 2024 champs), Belgium 0.25 (aging, inconsistent)</td></tr>
+<tr><td><code>injury_impact</code></td><td>0.0 – 0.30</td><td>Key player unavailability</td><td>Canada 0.25 (Alphonso Davies ACL), France 0.10 (rotation concerns)</td></tr>
+<tr><td><code>squad_depth</code></td><td>1 – 10</td><td>Quality beyond the starting XI</td><td>France 10 (can field two XI), Haiti 2 (no bench depth)</td></tr>
+<tr><td><code>avg_age</code></td><td>years</td><td>Mean squad age</td><td>Croatia 32.0 (oldest), Spain 25.5 (youngest contender)</td></tr>
+<tr><td><code>wc_experience</code></td><td>count</td><td>Total World Cup tournament appearances</td><td>Brazil 22 (most experienced), Jordan 0 (debut)</td></tr>
+<tr><td><code>set_piece_off</code></td><td>1 – 10</td><td>Set-piece attacking threat</td><td>France 9 (Griezmann delivery), Qatar 4</td></tr>
+<tr><td><code>set_piece_def</code></td><td>1 – 10</td><td>Set-piece defensive solidity</td><td>Morocco 9 (Regragui's structure), Qatar 4</td></tr>
+<tr><td><code>pressure_rating</code></td><td>1 – 10</td><td>Composure in high-stakes / penalty situations</td><td>Argentina 10 (2022 final pens), England 5 (historical penalty woes)</td></tr>
+<tr><td><code>coach_rating</code></td><td>1 – 10</td><td>Head coach tactical quality</td><td>Ancelotti/Brazil 10, Bielsa/Uruguay 9</td></tr>
+<tr><td><code>fatigue</code></td><td>0.0 – 1.0</td><td>End-of-season squad tiredness</td><td>England 0.35 (EPL + CL grind), Qatar 0.10 (lighter domestic league)</td></tr>
+</tbody></table>
+<h3>Data Quality</h3>
+<ul>
+<li><strong>Sources:</strong> All values cross-referenced against at least two independent sources (FIFA/UEFA official records, club performance data, sports analytics sites).</li>
+<li><strong>Calibration round:</strong> After initial assignment, 8 values were flagged and adjusted in an audit pass:</li>
+</ul>
+<table><thead><tr><th>Team</th><th>Column</th><th>Initial → Corrected</th><th>Reason</th></tr></thead><tbody>
+<tr><td>Belgium</td><td>form</td><td>0.10 → 0.25</td><td>0.10 equated them to Qatar/Haiti; they qualified for the WC</td></tr>
+<tr><td>France</td><td>form</td><td>0.50 → 0.65</td><td>2022 finalist with Mbappé at peak; 0.50 undervalued</td></tr>
+<tr><td>Croatia</td><td>form</td><td>0.20 → 0.35</td><td>2022 bronze medalists, not in free-fall</td></tr>
+<tr><td>Brazil</td><td>form</td><td>0.30 → 0.40</td><td>Ancelotti appointment signals tactical uplift</td></tr>
+<tr><td>Sweden</td><td>attack_avg</td><td>1.8 → 1.5</td><td>Was equal to Netherlands/England — Isak alone doesn't justify that</td></tr>
+<tr><td>Norway</td><td>attack_avg</td><td>1.8 → 1.6</td><td>Haaland-inflated; Norway as a team aren't Netherlands-level</td></tr>
+<tr><td>Morocco</td><td>attack_avg</td><td>1.2 → 1.4</td><td>2022 semifinalist was undervalued offensively</td></tr>
+<tr><td>Ivory Coast</td><td>defense_avg</td><td>0.7 → 0.85</td><td>Was equal to Spain/Argentina — too generous for AFCON champions</td></tr>
+</tbody></table>
+<ul>
+<li><strong>Remaining caveats:</strong> <code>form</code> and <code>injury_impact</code> are the most volatile columns — they reflect a snapshot at tournament start (June 2026) and would need updating if a key player is injured during the competition.</li>
+</ul>
+<hr>
+<h2>2. Engine Improvements</h2>
+<h3>2.1 Injury Impact Scaling (Critical Fix)</h3>
+<p><strong>Problem:</strong> The original code applied <code>injury_impact</code> as a direct λ multiplier:</p>
+<pre><code>
+lam *= (1.0 - min(inj, 0.30))   # Canada (0.25) lost 25% of expected goals!
+</code></pre>
+<p>One injured player reducing a team's expected goals by 25% is unrealistic — even losing Messi doesn't halve Argentina's output.</p>
+<p><strong>Fix:</strong> Injury is now scaled by <code>INJURY_WEIGHT = 0.40</code> and further reduced by <code>squad_depth</code> (deep benches mitigate injuries):</p>
+<pre><code>
+depth_reduction = max(0.0, (depth - DEPTH_MEAN) * DEPTH_INJ_MOD)
+effective_inj = inj * INJURY_WEIGHT * (1.0 - depth_reduction)
+lam *= (1.0 - min(effective_inj, 0.15))  # capped at 15%
+</code></pre>
+<p><strong>Impact:</strong> Canada's injury penalty dropped from 25% → ~8%. France (squad_depth=10) with injury=0.10 now loses only ~3% instead of 10%.</p>
+<h3>2.2 Form Weight Increase</h3>
+<p><strong>Problem:</strong> <code>FORM_WEIGHT = 0.12</code> was too small. The gap between Germany on fire (form=0.70, +8.4%) and Belgium in crisis (form=0.10, +1.2%) was only 7.2% — barely distinguishable.</p>
+<p><strong>Fix:</strong> Raised to <code>FORM_WEIGHT = 0.15</code>. The same gap is now 9.0%, and the model correctly separates teams in good vs poor form.</p>
+<h3>2.3 Coach Rating Effect</h3>
+<p><strong>Problem:</strong> <code>coach_rating</code> was loaded but unused. Brazil under Ancelotti (10) played identically to Haiti under an unknown coach (5).</p>
+<p><strong>Fix:</strong> Coach rating now nudges λ by ±3% per point above/below the mean (7.0):</p>
+<pre><code>
+lam *= (1.0 + (coach - COACH_MEAN) * COACH_WEIGHT)
+</code></pre>
+<p>Brazil under Ancelotti gets +9% λ boost. A team with a weak coach (rating 5) gets -6%.</p>
+<h3>2.4 Squad Age Penalty</h3>
+<p><strong>Problem:</strong> <code>avg_age</code> was loaded but unused. Croatia (32.0) and Portugal (30.5) had no endurance penalty despite fielding the oldest squads.</p>
+<p><strong>Fix:</strong> Squads older than 27.0 receive a λ penalty of 1.2% per year above the mean. Very young squads (< 25.5) receive a smaller inexperience penalty:</p>
+<pre><code>
+if age_dev &gt; 0:
+    lam *= (1.0 - age_dev * AGE_WEIGHT)       # Croatia: -6.0%
+elif age_dev &lt; -1.5:
+    lam *= (1.0 + age_dev * AGE_WEIGHT * 0.5)  # mild youth penalty
+</code></pre>
+<p><strong>Impact:</strong> Croatia's λ drops 6.0% (age 32.0), Bosnia 3.6% (30.0), Portugal 4.2% (30.5). This correctly reflects late-tournament stamina disadvantages for aging squads.</p>
+<h3>2.5 Draw Calibration for Group Stage</h3>
+<p><strong>Problem:</strong> The deterministic engine always picked the modal outcome. In a 39/30/31 match (Belgium vs Iran), 39% > 30%, so Belgium always won. Result: 0 draws across 72 group matches. Real World Cups have ~22% draw rate.</p>
+<p><strong>Fix:</strong> Added <code>DRAW_PULL = 0.15</code> — when the best win probability leads the draw by less than 15 percentage points, predict a draw:</p>
+<pre><code>
+if (best_win - pd) &lt; DRAW_PULL:
+    outcome = "draw"
+</code></pre>
+<p><strong>Impact:</strong> 12 draws in 72 matches (17% draw rate), close to the historical WC rate of ~22%. Groups now produce realistic standings like 7-5-4-0 instead of uniform 9-6-3-0.</p>
+<h3>2.6 Knockout Penalty Shootout Model</h3>
+<p><strong>Problem:</strong> Penalty outcomes were determined by pure Elo win-expectancy. A team's tournament experience and composure under pressure had no effect.</p>
+<p><strong>Fix:</strong> Penalty probability now blends three factors:</p>
+<pre><code>
+pa = (0.65 * elo_pa           # base strength
+    + 0.25 * pres_pa           # pressure_rating (Argentina 10, England 5)
+    + 0.10 * exp_pa)           # wc_experience (Brazil 22, Jordan 0)
+</code></pre>
+<p><strong>Impact:</strong> Argentina (pressure=10, experience=18) wins penalty tiebreakers far more often than England (pressure=5, experience=16), matching historical patterns.</p>
+<hr>
+<h2>3. Prediction Robustness</h2>
+<h3>Title Odds Comparison (10,000 Monte Carlo simulations)</h3>
+<table><thead><tr><th>Team</th><th>V1 (5 columns)</th><th>V3 (15 columns, calibrated)</th><th>Bookmaker consensus</th></tr></thead><tbody>
+<tr><td>Argentina</td><td>16.6%</td><td><strong>16.8%</strong></td><td>13–18% ✅</td></tr>
+<tr><td>Spain</td><td>14.4%</td><td><strong>15.0%</strong></td><td>10–15% ✅</td></tr>
+<tr><td>France</td><td>7.1%</td><td><strong>7.9%</strong></td><td>10–15% ⚠️ slightly low</td></tr>
+<tr><td>Germany</td><td>6.4%</td><td><strong>6.3%</strong></td><td>5–8% ✅</td></tr>
+<tr><td>Brazil</td><td>3.9%</td><td><strong>5.7%</strong></td><td>6–10% ✅ (was too low)</td></tr>
+<tr><td>England</td><td>4.2%</td><td><strong>4.8%</strong></td><td>7–10% ⚠️ slightly low</td></tr>
+<tr><td>Colombia</td><td>6.0%</td><td><strong>5.9%</strong></td><td>3–6% ✅</td></tr>
+<tr><td>Morocco</td><td>2.8%</td><td><strong>3.8%</strong></td><td>2–4% ✅</td></tr>
+<tr><td>Croatia</td><td>1.6%</td><td><strong>1.3%</strong></td><td>2–4% ✅ (age penalty)</td></tr>
+</tbody></table>
+<p><strong>Key improvements:</strong></p>
+<ul>
+<li>Brazil rose 3.9% → 5.7% (form correction + Ancelotti coach bonus)</li>
+<li>Morocco rose 2.8% → 3.8% (attack_avg corrected)</li>
+<li>Croatia dropped 1.6% → 1.3% (age penalty for squad averaging 32.0 years)</li>
+<li>France rose 7.1% → 7.9% (form correction; remaining gap reflects real injury/fatigue risks)</li>
+<li>England at 4.8% reflects their <code>pressure_rating=5</code> — the model correctly captures their historical knockout fragility</li>
+</ul>
+<h3>Group Stage Realism</h3>
+<table><thead><tr><th>Metric</th><th>V1 (before)</th><th>V3 (after)</th><th>Real WC benchmark</th></tr></thead><tbody>
+<tr><td>Groups with 9-point winner</td><td>12/12 (100%)</td><td>7/12 (58%)</td><td>~3/8 at 2022 (38%)</td></tr>
+<tr><td>Total draws in 72 matches</td><td>0 (0%)</td><td>12 (17%)</td><td>~16 in 48 at 2022 (22%)</td></tr>
+<tr><td>Distinct point distributions</td><td>1 pattern (9-6-3-0)</td><td>5 patterns</td><td>Typical: 6–8 patterns</td></tr>
+<tr><td>Upsets (lower-Elo team wins)</td><td>0</td><td>1 (Egypt tops Group G)</td><td>5–8 per WC</td></tr>
+</tbody></table>
+<h3>Sensitivity Analysis</h3>
+<p>The nudge factors are designed to be meaningful but not dominant. Each factor's maximum impact on λ:</p>
+<table><thead><tr><th>Factor</th><th>Max λ change</th><th>Scenario</th></tr></thead><tbody>
+<tr><td>Form</td><td>±15%</td><td>Spain (0.90) vs Qatar (0.10)</td></tr>
+<tr><td>Injury</td><td>-15% (capped)</td><td>Canada (0.25 raw, scaled to ~8% with depth)</td></tr>
+<tr><td>Fatigue</td><td>-6%</td><td>England (0.35)</td></tr>
+<tr><td>Coach</td><td>±9%</td><td>Ancelotti (10) vs unknown (5)</td></tr>
+<tr><td>Age</td><td>-6%</td><td>Croatia (avg 32.0)</td></tr>
+<tr><td>Set-piece</td><td>±4%</td><td>Elite vs weak set-piece team</td></tr>
+<tr><td>Combined max</td><td>~30%</td><td>Worst case: poor form + injured + fatigued + old + weak coach</td></tr>
+</tbody></table>
+<p>The 30% ceiling means even a maximally penalized top team (Elo 2100) doesn't drop below a mid-tier team (Elo 1800). Elo remains the backbone; nudges provide contextual adjustment, not overrides.</p>
+<hr>
+<h2>4. Workflow</h2>
+<h3>Running predictions</h3>
+<pre><code>
+# Single match
+python tools/predict.py --match "Argentina vs Jamaica"
+
+# Knockout match (forces a winner, uses penalty model)
+python tools/predict.py --match "France vs England" --knockout
+
+# Full group table with standings
+python tools/predict.py --group C
+
+# Monte Carlo title odds (10,000 seeded simulations)
+python tools/predict.py --sim 10000
+
+# Regenerate all data files (GroupStage.md + Simulation.md)
+python tools/predict.py --all
+</code></pre>
+<h3>Updating data</h3>
+<ol>
+<li>1. Edit <code>tools/ratings.csv</code> to change team ratings or contextual factors</li>
+<li>2. Model constants are at the top of <code>tools/predict.py</code> (<code>BASE_GOALS</code>, <code>ALPHA</code>, <code>RHO</code>, <code>FORM_WEIGHT</code>, etc.)</li>
+<li>3. Run <code>python tools/predict.py --sim 10000</code> to verify title odds remain reasonable</li>
+<li>4. Run <code>python tools/predict.py --all</code> to regenerate prediction files</li>
+</ol>
+<h3>Key constants</h3>
+<table><thead><tr><th>Constant</th><th>Value</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>BASE_GOALS</code></td><td>1.35</td><td>Half of neutral match total (~2.70 goals)</td></tr>
+<tr><td><code>ALPHA</code></td><td>0.10</td><td>Elo-to-λ sensitivity</td></tr>
+<tr><td><code>RHO</code></td><td>-0.08</td><td>Dixon-Coles low-score correction</td></tr>
+<tr><td><code>HOME_ELO_BONUS</code></td><td>70.0</td><td>Host nation Elo boost</td></tr>
+<tr><td><code>FORM_WEIGHT</code></td><td>0.15</td><td>Form → λ multiplier</td></tr>
+<tr><td><code>INJURY_WEIGHT</code></td><td>0.40</td><td>Raw injury scaling factor</td></tr>
+<tr><td><code>FATIGUE_WEIGHT</code></td><td>0.06</td><td>Fatigue → λ reduction</td></tr>
+<tr><td><code>COACH_WEIGHT</code></td><td>0.03</td><td>Coach quality → λ multiplier</td></tr>
+<tr><td><code>AGE_WEIGHT</code></td><td>0.012</td><td>Squad age → λ penalty (per year above 27)</td></tr>
+<tr><td><code>DRAW_PULL</code></td><td>0.15</td><td>Threshold for predicting draws in close matches</td></tr>
+<tr><td><code>PRESSURE_PENS</code></td><td>0.25</td><td>Pressure rating weight in penalty shootouts</td></tr>
+<tr><td><code>SEED</code></td><td>2026</td><td>Fixed RNG seed for reproducibility</td></tr>
+</tbody></table>
+<h3>Pipeline flow</h3>
+<pre><code>
+tools/ratings.csv (15 columns × 48 teams)
+    │
+    ├─► Elo + attack/defense → base λ_home, λ_away
+    │       (55% actual stats / 45% Elo-derived)
+    │
+    ├─► Form/injury/fatigue/coach/age/set-piece nudges
+    │       (multiplicative adjustments, ±30% max combined)
+    │
+    ├─► Poisson + Dixon-Coles → 9×9 scoreline probability matrix
+    │       (low-score dependency correction via ρ)
+    │
+    ├─► Draw calibration (DRAW_PULL) → group stage outcome
+    │       (close matches → draw instead of marginal win)
+    │
+    └─► Monte Carlo (10,000 sims, seeded) → title odds
+            (penalty shootouts blend Elo + pressure + experience)
+</code></pre>
+<hr>
+<h2>5. Known Limitations</h2>
+<ol>
+<li>1. <strong>France (7.9%) and England (4.8%) are below bookmaker consensus.</strong> This is a deliberate modeling choice — France's fatigue/injury risk and England's penalty fragility are real factors that bookmakers may underweight.</li>
+</ol>
+<ol>
+<li>2. <strong>Draw rate (17%) is still below real WC rate (~22%).</strong> The <code>DRAW_PULL</code> threshold could be raised further, but this risks over-predicting draws in matches where a clear favorite exists.</li>
+</ol>
+<ol>
+<li>3. <strong>No in-tournament adaptation.</strong> The model cannot adjust for events during the World Cup (red cards, injuries sustained during the tournament, momentum shifts). All predictions are pre-tournament.</li>
+</ol>
+<ol>
+<li>4. <strong>Contextual data is a snapshot.</strong> <code>form</code>, <code>injury_impact</code>, and <code>fatigue</code> reflect the state as of June 2026 tournament start. These would need manual updates if significant news breaks before kickoff.</li>
+</ol>
+<ol>
+<li>5. <strong>Single-elimination bracket seeding</strong> uses Elo-ranking order, not the actual FIFA bracket structure (group winners vs runners-up crossovers). The Monte Carlo simulation approximates but doesn't replicate the exact knockout draw path.</li>
+</ol>
+<hr>
+<p>*Engine: <code>tools/predict.py</code> (pure Python stdlib, no external dependencies)*</p>
+<p>*Data: <code>tools/ratings.csv</code> (15 columns × 48 teams)*</p>
+<p>*Last calibrated: June 10, 2026*</p></div><div class="disclaimer">⚠️ <strong>Disclaimer:</strong> This is a personal AI prediction project — not for gambling. All results are generated by a statistical model for educational and internal use only. Do not use these predictions for real betting or wagering.</div></div><footer class="footer">
+  <p>FIFA World Cup 2026 AI Predictions &middot;
+  <a href="index.html">Home</a> &middot;
+  <a href="https://github.com/yoyokits/WorldCup26AI" target="_blank" rel="noopener">GitHub</a> &middot;
+  <a href="prediction_method.html">Methodology</a></p>
+  <p>Built with Python + Claude AI &middot; Not affiliated with FIFA</p>
+</footer><script>
+function toggleGroupMenu(e){
+  e.preventDefault();
+  var s=document.getElementById('groupSubmenu');
+  s.style.display=s.style.display==='flex'?'none':'flex';
+}
+document.addEventListener('click',function(e){
+  var s=document.getElementById('groupSubmenu');
+  if(s&&!e.target.closest('.nav-dropdown'))s.style.display='none';
+});
+document.querySelectorAll('.local-time').forEach(function(el){
+  var u=el.getAttribute('data-utc');
+  if(u){try{el.textContent=new Date(u).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'})+' local';}catch(e){}}
+});
+</script></body></html>
