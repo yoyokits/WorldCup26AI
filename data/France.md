@@ -1,34 +1,42 @@
-# France 🇫🇷 — Historical Tournament Analysis & Trends
+# France 🇫🇷 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-France's World Cup history is defined by rapid ascents, tactical modernity, and a consistent ability to peak at the highest level.
-- **1930–1958:** Early era marked by developing infrastructure. Best result: Round of 16 in 1934 & 1954. Known for physical play but lacked technical cohesion.
-- **1978–1986:** Transition period. Reached QF in 1978 (lost to West Germany), Group stage exit 1982/1986. Tactical identity: direct 4-4-2, reliance on wing play and individual brilliance (Platini era).
-- **1998–2006:** Golden generation peak. Won 1998 WC (beat Brazil 3–0 final), reached QF 2002 (group stage shock exit vs Senegal), Semi-finals 2006 (lost to Italy on pens). Identity: Zidane/Deschamps/Henry triangle, tactical flexibility, set-piece mastery.
-- **2014–2022:** Modern dominance era. Reached SF 2014, Final 2018 (beat Croatia 4–2), QF 2022 (lost to Morocco on pens). Pattern: deep squad depth, young talent pipeline, tactical evolution under Deschamps (3-4-2-1/4-3-3 hybrid).
-- **2023–Present:** Post-Deschamps transition. Focus on physicality + technical control. Mbappé core forms terrifying attacking trio with Griezmann/Mbappé/Osman Dembélé. Identity evolved into hybrid possession/transition game with improved defensive solidity.
+## Tournament Position
+**Group I:** France, Senegal, Iraq, Norway
+**Recent Success:** 2022 World Cup runners-up (lost to Argentina in final)
 
-## Statistical Trends (Previous WCs)
-- **Goals Scored/Conceded:** 2018 WC: 14 scored, 5 conceded in 7 matches. Historical average: 2.6 goals/game scored, 1.3 conceded per WC appearance.
-- **Possession Metrics:** Average 54% possession in WC finals (1998–2022). However, pass completion drops from 85% in qualifiers to 76% in knockouts due to increased pressing intensity.
-- **Set-Piece Efficiency:** 38% of goals come from corners/free-kicks historically — among top 3 nations for dead-ball execution. Strong aerial threat (Varane, Upamecano).
-- **Transition Defense:** Concede average 1.5 fast-break goals per WC tournament since 2014. Full-backs pushing high leaves space for pacey wingers; mitigated by Saliba/Konaté recovery speed.
+## Historical Arc
+France has been a World Cup force for three decades: 1998 champions (Zidane), 2006 finalists, 2018 champions (Mbappé's emergence), 2022 finalists. Didier Deschamps' tenure (2012-present) established tactical consistency: defensive solidity with explosive counter-attacking. His final World Cup will frame his legacy.
 
-## Tactical Evolution Over Time
-- **1980s–2000s:** Direct 4-4-2/4-5-1, reliance on wing play and individual brilliance (Platini, Zidane).
-- **2006–2018:** Deschamps' pragmatic 3-4-2-1. Emphasis on defensive solidity + rapid counters. Griezmann/Kante/Mbappé triangle controlled tempo; Varane/Upamecano anchored defense.
-- **Current Identity:** Hybrid 4-3-3/4-2-3-1. Mbappé as false 9/left-winger hybrid; Griezmann provides creative freedom in final third. Full-backs (Hernández, Koundé) stay deeper to prevent counters. High press with immediate counter-pressing triggers.
+## 2026 Squad & Key Players
+- **Didier Deschamps (Coach, Final World Cup)** — Legendary captain turned mastermind; defensive discipline hallmark
+- **Goalkeeper:** Mike Maignan (AC Milan) — consistent performer; replacing Lloris era
+- **Defenders:** William Saliba (Arsenal), Jules Koundé (Barcelona), Dayot Upamecano (Bayern Munich), Lucas Hernández
+- **Midfield:** N'Golo Kanté (Al-Ittihad), Aurélien Tchouaméni (Real Madrid), Eduardo Camavinga (Real Madrid), Ousmane Dembélé (Barcelona)
+- **Forwards:** Kylian Mbappé (Real Madrid, captain, 100th cap incoming, chasing Just Fontaine's 13-goal WC record), Marcus Thuram (Inter Milan), Bradley Barcola (PSG), Michael Olisé (Crystal Palace)
+
+## Recent Form & Qualifying
+- UEFA qualifying: Direct qualification; strong points haul
+- 2024-25 season: Mbappé settled at Real Madrid; club success translates to national confidence
+- Mbappé trajectory: 12 goals from Just Fontaine's 13-goal WC record — added narrative pressure
+
+## Tactical Setup
+**Formation:** 4-2-3-1 defensive-first structure
+- **Defense:** High line protected by Kanté/Tchouaméni shield; disciplined offside trap
+- **Counter:** Mbappé's pace + Thuram's power = lethal transitions
+- **Possession:** 48-52% typically — Deschamps prioritizes shape over possession
+- **Set-pieces:** Competent but not elite
 
 ## Psychological & Narrative Profile
-France carries the "talent factory" identity but faces historical criticism for lacking knockout ruthlessness post-2018. The 2022 Morocco loss exposed psychological fragility when possession is disrupted. Current young squad (avg age 25) plays with freedom and modern physicality, reducing historical "overthinking" tendency in finals. Diaspora support across Europe/Africa creates massive away-day momentum.
+France enters with **Mbappé-centric narrative:** can he finally win a World Cup and break Fontaine's 13-goal record? Deschamps' final tournament adds gravitas. The squad is confident but aware: Mbappé must deliver in knockouts.
 
-## Matchup History & Tendencies
-- **vs Argentina:** 1958 (W), 1978 (L), 1982 (W), 1986 (QF W), 2006 (SF L pens), 2022 (Final W). Pattern: high-intensity tactical battle. France wins when they press high and exploit transitions; Argentina wins when they control tempo and hit on counters.
-- **vs Germany:** 1958 (W), 1982 (L), 1986 (QF L), 2014 (SF W), 2018 (Group F D). Historical trend: France dominates possession; Germany wins via rapid vertical counters.
-- **vs Morocco:** 2022 (SF, L on pens). Historical note: France's possession was neutralized by Moroccan pressing traps and set-piece threat. French technical superiority nullified by physical duels and tactical discipline.
+## Group Stage Outlook
+- **vs Senegal:** France heavily favored. Mbappé pace vs Mané (34 years old). Expect 2-0 or 2-1 France.
+- **vs Iraq:** Dominant expected. 4-0 or 5-0 likely.
+- **vs Norway:** Moderate favorites (Haaland/Sorloth strikers, Odegaard creativity). Expect 2-1 France, contested match.
 
 ## Analyst Verdict for 2026
-France remains a top contender with tournament-winning potential due to Mbappé's world-class pace + Griezmann's creativity + deep squad rotation options. Historical data shows they excel in knockout football but require tactical adaptation for group stages (improved set-piece execution, faster transition defense). Key risk: aging core around Kante/Varane requires youth integration. If Deschamps maintains hybrid possession/transition structure and leverages Mbappé's verticality, France can consistently reach SF/QF. Watch for vulnerability against fast-paced counter-attacking sides (Spain, Brazil, USA) that exploit advanced full-back positioning.
+France are **tournament co-favorites** (Elo-ranked #3). Mbappé's Real Madrid form, defensive discipline, and knockout experience make them lethal. **Key advantage:** Counter-attacking ruthlessness (Mbappé + Thuram). **Key risk:** Over-reliance on Mbappé. **Ceiling:** Final. **Floor:** Quarterfinals. **Verdict:** Built for knockout football; Mbappé at peak creates historic opportunity.
 
 ---
-*Data sources: FIFA archives, UEFA tactical reports, Opta historical metrics (2018–2025)*
+
+*Sources: UEFA qualifying 2024-25, Real Madrid 2024-25 season, eloratings.net, FIFA rankings June 2026*

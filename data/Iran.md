@@ -1,33 +1,42 @@
-# Iran 🇮🇷 — Historical Tournament Analysis & Trends
+# Iran 🇮🇷 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Iran's World Cup history is defined by consistent qualification from Asia but persistent group-stage exits — a pattern of near-misses that has become embedded in Iranian football culture. Despite producing world-class talent at club level, the national team has struggled to translate individual brilliance into tournament breakthroughs.
-- **1978:** The debut. First World Cup appearance in Argentina. Lost all three group matches: 0–1 Scotland, 1–1 Tunisia (draw), 0–1 Peru. Finished bottom of Group 5 with 1 point. The squad was largely domestically based with minimal European experience, but their participation marked Iran's emergence as a serious footballing nation in Asia.
-- **2006:** The breakthrough. Qualified for their fourth consecutive World Cup (2006–2022). Beat Angola 3–1 in the group stage (a stunning upset), drew with Mexico and Portugal, then lost to Portugal on penalties in the Round of 16. Ali Daei emerged as Iran's most celebrated player — all-time leading international goal scorer with 109 goals for Iran across a decade-long career.
-- **2014–Present:** The modern era near-misses. Qualified for five consecutive World Cups (2014, 2018, 2022) — a remarkable achievement for a nation with limited football infrastructure and political instability. Best result: Round of 16 2018 (lost to Spain on penalties). A generation of players based in Europe's top leagues (Taremi, Azmoun, Beiranvand) that produced consistent tournament appearances but fell short in knockout matches against top-tier opposition.
-- **Current Trajectory (2025/26):** A transitional squad blending experienced European-based players with emerging domestic talent developed through the Iranian football system. Mehdi Taremi remains the focal point of attack — one of Asia's most clinical finishers at club level, currently playing for Porto in Portugal. The team's identity is built around physical dominance, set-piece execution, and defensive organization. Coach Amir Ghalenoei brings extensive experience from Asian international football and domestic management, emphasizing defensive solidity and counter-attacking efficiency over open-play dominance.
+## Tournament Position
+**Group G:** Iran, Belgium, Egypt, New Zealand
+**Recent Success:** 4th consecutive World Cup appearance
 
-## Tactical Evolution & Style
-- **1970s–1990s:** Direct 4-4-2 / 3-5-2 hybrid emphasizing physicality, aerial duels, and long balls to target forwards (Ali Daei). Limited tactical sophistication but exceptional physical talent relative to development infrastructure. Relied on individual moments from stars like Ali Karimi (winger) and Mehdi Mahdavikia (right-back).
-- **2000s–2010s:** Shift toward more structured European-influenced systems under coaches like Branko Ivanković and Carlos Queiroz. Attempted to blend Iranian physicality with South American technical flair, though consistency remained elusive against top-tier opposition away from home altitude.
-- **Current Identity:** 4-2-3-1 / 5-4-1 defensive block in matches vs stronger opponents. Iran typically sits deep in two compact banks of four, absorbing pressure and hitting on the break via set-piece execution and counter-attacking transitions. Mehdi Taremi anchors an attack built around clinical finishing and aerial ability — one of Asia's most reliable goal scorers across multiple decades. The double pivot of a defensive midfielder and a ball-winning CM provides structural stability while allowing wide players (Abbasnejad, Jahanbakhsh) freedom to operate as mobile #9s who drop into midfield to link play. Set pieces are heavily rehearsed; Iran consistently ranks among AFC's top teams for goals scored from corners and free-kicks, leveraging their height advantage in the box.
+## Historical Arc
+Iran's World Cup history: 1978 (only appearance before 2018), then missed 40 years, returned 2018, 2022, now 2026 (4th straight). AFC's consistent qualifier. Under Amir Ghalenoei, building experience while aging squad transitions.
+
+## 2026 Squad & Key Players
+- **Amir Ghalenoei (Coach)** — AFC Cup winner; tactical organization
+- **Goalkeeper:** Alireza Beiranvand (Al-Shabab) — experienced GK
+- **Defenders:** Ehsan Hajsafi (veteran, 121 caps), Milad Mohammadi (Lens, left-back), Ali Nemati, Ramin Rezaeian
+- **Midfield:** Shojae Khalilzadeh (Persepolis, 37 years old, oldest squad member), technical players
+- **Forwards:** Mehdi Taremi (Porto, captain, 59 goals in 103 caps, primary threat), Sardar Azmoun (Brentford, striker option)
+
+## Recent Form & Qualifying
+- AFC qualifying: Topped qualifying group with 7 wins from 10 (strong performance)
+- Squad composition: **Oldest squad at tournament** — average age over 30; veterans dominating
+- Taremi: Porto regular, elite set-piece threat (free kicks)
+
+## Tactical Setup
+**Formation:** 4-5-1/4-4-2 defensive-first organization
+- **Attack:** Taremi isolated (strategic positioning), set-piece focus
+- **Midfield:** Veteran control, simple distribution, defensive cover
+- **Defense:** Compact organization, typical AFC defensive approach
+- **Possession:** 45-50% typically
 
 ## Psychological & Narrative Profile
-Iran carries the "so close yet so far" narrative from the Queiroz era — consistent tournament appearances but persistent group-stage exits that have become embedded in Iranian football culture. The psychological barrier of knockout matches finally began to break in 2018 when Iran beat Morocco 1–0 in the group stage (their first win over an African nation at a World Cup). Now, under Ghalenoei's management with young talent emerging from the Iranian football system, there is genuine optimism that Iran can finally break through — but the weight of past disappointments remains. Taremi's emergence as one of Asia's most clinical finishers provides a positive narrative shift — suggesting that under Ghalenoei's management, Iran may be rediscovering the tactical cohesion and collective belief that defined their Queiroz era.
+Iran enters as **4th consecutive World Cup regular with oldest squad in tournament.** Veterans (Taremi 34, Khalilzadeh 37, Hajsafi 33) dominate. The narrative is "Can Iran compete with young squads given age disadvantage?" Consistent qualification proves organizational competence, but physical decline is inevitable. Taremi's elite set-piece threat (free kicks, penalties) is primary advantage.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive in terms of physical dominance but outclassed technically against elite opposition. Iran's strength lies in Taremi's clinical finishing, set-piece execution, and aerial duels — a combination that can trouble even top-tier opponents. However, their technical inferiority in midfield (compared to European/South American sides) means they struggle to maintain possession for extended periods, limiting their ability to control matches against top-tier opponents.
-- **vs Asian rivals:** Dominant over most Asian nations. Japan and South Korea are the exceptions — more developed footballing nations with deeper European-based player pools. Iran consistently dominates Central Asian and Gulf Cooperation Council (GCC) sides through physical superiority and set-piece execution.
-- **Set-piece dynamics:** Iran scores a significant percentage of goals from corners and free-kicks, leveraging their height advantage in the box. Defensively, they are organized on set pieces but occasionally vulnerable to quick short-corner routines and near-post runs by agile attackers.
+## Group Stage Outlook
+- **vs Belgium:** Likely loss (Belgium stronger, Kevin De Bruyne). Expect 0-1 or 0-2 Belgium.
+- **vs Egypt:** Likely draw or slight loss (similar Elo level). Expect 0-1 or 1-1.
+- **vs New Zealand:** Moderate favorites (Asian vs Oceania, Iran favored). Expect 1-0 or 2-0 Iran.
 
-## What to Watch in 2026
-1. **Mehdi Taremi's tournament performance:** At 32+, Taremi remains one of Asia's most clinical finishers — pace, strength, aerial ability, and finishing all at elite level. If he maintains his club form (Porto), he is Iran's most dangerous player and a legitimate Golden Boot contender in Asian qualifiers. However, his physical decline is a genuine concern: watch for whether he can sustain his level across a full tournament.
-2. **The midfield gap:** Iran's greatest weakness is midfield creativity — they lack a world-class playmaker capable of unlocking compact defenses through incisive passing or dribbling. This means Taremi often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Watch for whether the coaching staff deploys a more attacking midfield configuration to provide Taremi with better service.
-3. **Defensive vulnerability to quick transitions:** Iran's low-block system works against teams that struggle to break down compact defenses. Against pacey wingers who can exploit space behind Iran's advanced full-backs (Netherlands, Brazil, Argentina), the challenge is maintaining defensive shape for 90 minutes without conceding from individual moments of brilliance.
-4. **Coach Amir Ghalenoei's pragmatic approach:** The Iranian coach brings extensive experience from Asian international football and domestic management. His tendency toward defensively solid, counter-attacking football could serve Iran well in group-stage matches against stronger opponents — but may limit attacking expression against similarly ranked teams where open-play creativity is essential.
-
-## Analyst Verdict
-Iran is not expected to advance past the group stage, but their physical dominance and Taremi's clinical finishing make them dangerous on any given day — particularly against overconfident opponents who underestimate their set-piece execution and aerial threat. The midfield gap remains a genuine concern: without a world-class creative playmaker to unlock compact defenses, Taremi often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Their best path forward: absorb pressure, hit on counters via Taremi's pace and aerial ability, and rely on set-piece execution when open play breaks down. Against fellow Asian or African rivals, they have a genuine chance to secure points — but against top-tier European sides, the technical gap in midfield is likely decisive unless Iran can maintain flawless defensive discipline for 90 minutes.
+## Analyst Verdict for 2026
+Iran are **tournament participants** (Elo-ranked #24). Oldest squad disadvantage limits ceiling, but Taremi's elite set-piece threat + Ghalenoei's defensive organization provide competitiveness. **Key strength:** Defensive solidity, Taremi set-piece danger. **Key risk:** Age profile (oldest squad), physical decline, limited attacking depth vs young squads. **Ceiling:** Group stage (Round of 16 unlikely). **Floor:** Group stage exit. **Verdict:** Veteran squad punching above weight through organization. Taremi's elite threat (free kicks, penalties) can steal points, but aging body vs young teams is steep disadvantage. Group stage exit likely.
 
 ---
-*Data sources: FIFA archives, AFC qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: AFC qualifying 2024-25, Porto FC data, Taremi career stats, eloratings.net, FIFA rankings June 2026*

@@ -1,49 +1,49 @@
-team,slug,group,confederation,fifa_rank,elo,host
-Argentina,argentina,A,CONMEBOL,1,2140,0
-Jamaica,jamaica,A,CONCACAF,20,1680,0
-Morocco,morocco,A,CAF,18,1870,0
-Egypt,egypt,A,CAF,39,1770,0
-Spain,spain,B,UEFA,2,2080,0
-Japan,japan,B,AFC,13,1850,0
-USA,usa,B,CONCACAF,14,1820,1
-Ghana,ghana,B,CAF,48,1720,0
-Brazil,brazil,C,CONMEBOL,3,2050,0
-South Korea,south-korea,C,AFC,29,1790,0
-Switzerland,switzerland,C,UEFA,10,1860,0
-Cameroon,cameroon,C,CAF,57,1710,0
-France,france,D,UEFA,4,2100,0
-Canada,canada,D,CONCACAF,47,1730,1
-Uruguay,uruguay,D,CONMEBOL,16,1900,0
-Saudi Arabia,saudi-arabia,D,AFC,65,1650,0
-Portugal,portugal,E,UEFA,5,2000,0
-Croatia,croatia,E,UEFA,12,1900,0
-Tunisia,tunisia,E,CAF,44,1700,0
-Ecuador,ecuador,E,CONMEBOL,26,1830,0
-Germany,germany,F,UEFA,6,1965,0
-Colombia,colombia,F,CONMEBOL,15,1880,0
-Nigeria,nigeria,F,CAF,34,1780,0
-Honduras,honduras,F,CONCACAF,85,1600,0
-Netherlands,netherlands,G,UEFA,7,1990,0
-Serbia,serbia,G,UEFA,27,1820,0
-Mexico,mexico,G,CONCACAF,19,1790,1
-Australia,australia,G,AFC,30,1720,0
-England,england,H,UEFA,8,2010,0
-Slovenia,slovenia,H,UEFA,33,1720,0
-Paraguay,paraguay,H,CONMEBOL,35,1760,0
-Tonga,tonga,H,OFC,180,1100,0
-Italy,italy,I,UEFA,9,1950,0
-Wales,wales,I,UEFA,28,1760,0
-Qatar,qatar,I,AFC,36,1680,0
-Fiji,fiji,I,OFC,135,1250,0
-Senegal,senegal,J,CAF,17,1850,0
-Poland,poland,J,UEFA,25,1770,0
-Costa Rica,costa-rica,J,CONCACAF,40,1680,0
-New Zealand,new-zealand,J,OFC,89,1500,0
-Iran,iran,K,AFC,21,1810,0
-Sweden,sweden,K,UEFA,24,1780,0
-Panama,panama,K,CONCACAF,41,1690,0
-Bolivia,bolivia,K,CONMEBOL,75,1620,0
-Ukraine,ukraine,L,UEFA,22,1790,0
-Turkey,turkey,L,UEFA,23,1800,0
-South Africa,south-africa,L,CAF,42,1700,0
-Guinea,guinea,L,CAF,70,1660,0
+team,slug,group,confederation,fifa_rank,elo,attack_avg,defense_avg,host,form,injury_impact,squad_depth,avg_age,wc_experience,set_piece_off,set_piece_def,pressure_rating,coach_rating,fatigue
+Mexico,mexico,A,CONCACAF,15,1830,1.6,1.1,1,0.30,0.05,6,27.0,17,6,6,5,7,0.20
+South Africa,south-africa,A,CAF,60,1700,1.2,1.4,0,0.40,0.00,4,27.0,3,5,5,5,6,0.15
+South Korea,south-korea,A,AFC,25,1790,1.4,1.2,0,0.40,0.10,6,27.0,11,5,6,7,7,0.25
+Czechia,czechia,A,UEFA,41,1760,1.3,1.2,0,0.30,0.05,5,27.5,9,6,6,6,6,0.20
+Canada,canada,B,CONCACAF,30,1750,1.5,1.2,1,0.40,0.25,5,25.5,3,6,5,5,7,0.20
+Bosnia & Herzegovina,bosnia-herzegovina,B,UEFA,65,1680,1.3,1.5,0,0.30,0.05,4,30.0,1,6,5,5,6,0.20
+Qatar,qatar,B,AFC,95,1590,0.9,1.8,0,0.10,0.00,3,26.5,1,4,4,4,6,0.10
+Switzerland,switzerland,B,UEFA,19,1860,1.5,0.9,0,0.40,0.05,6,28.5,12,6,7,7,7,0.25
+Brazil,brazil,C,CONMEBOL,6,2020,2.0,1.0,0,0.40,0.10,9,26.0,22,7,7,7,10,0.30
+Morocco,morocco,C,CAF,8,1890,1.4,0.8,0,0.50,0.05,6,27.5,6,8,9,8,8,0.20
+Haiti,haiti,C,CONCACAF,102,1510,1.0,1.8,0,0.10,0.00,2,27.0,1,4,4,4,5,0.10
+Scotland,scotland,C,UEFA,36,1760,1.4,1.3,0,0.30,0.05,5,28.0,8,6,6,5,7,0.25
+USA,usa,D,CONCACAF,16,1820,1.5,1.2,1,0.40,0.00,6,25.5,11,6,6,5,8,0.20
+Paraguay,paraguay,D,CONMEBOL,40,1740,1.3,1.3,0,0.30,0.00,5,27.5,9,5,6,6,6,0.20
+Australia,australia,D,AFC,27,1760,1.3,1.3,0,0.30,0.10,5,27.5,5,5,6,6,7,0.25
+Türkiye,turkey,D,UEFA,23,1800,1.5,1.2,0,0.30,0.05,5,26.5,3,6,6,6,7,0.25
+Germany,germany,E,UEFA,10,2000,2.0,0.9,0,0.70,0.05,9,26.5,20,8,7,9,8,0.30
+Curaçao,curacao,E,CONCACAF,82,1540,1.1,1.9,0,0.20,0.00,2,27.5,0,4,4,4,5,0.10
+Ivory Coast,ivory-coast,E,CAF,34,1770,1.5,0.85,0,0.60,0.10,6,27.5,3,6,7,7,7,0.20
+Ecuador,ecuador,E,CONMEBOL,23,1810,1.4,0.8,0,0.50,0.05,5,26.5,5,6,6,6,7,0.20
+Netherlands,netherlands,F,UEFA,7,2010,1.8,1.0,0,0.60,0.05,8,27.0,11,8,7,7,8,0.30
+Japan,japan,F,AFC,18,1860,1.5,1.0,0,0.70,0.15,7,27.0,8,6,7,7,8,0.25
+Sweden,sweden,F,UEFA,38,1790,1.5,1.1,0,0.50,0.00,6,28.0,12,7,7,6,7,0.20
+Tunisia,tunisia,F,CAF,44,1700,1.2,1.3,0,0.20,0.00,4,26.5,7,5,6,5,6,0.15
+Belgium,belgium,G,UEFA,9,1940,1.7,1.1,0,0.25,0.15,7,30.0,14,7,7,6,7,0.30
+Egypt,egypt,G,CAF,39,1780,1.5,0.8,0,0.50,0.00,5,27.5,3,7,6,6,7,0.15
+Iran,iran,G,AFC,21,1810,1.2,1.1,0,0.40,0.00,5,28.0,6,5,6,6,7,0.20
+New Zealand,new-zealand,G,OFC,85,1500,0.9,1.6,0,0.20,0.00,2,28.0,2,4,5,4,5,0.10
+Spain,spain,H,UEFA,2,2140,2.1,0.7,0,0.90,0.05,10,25.5,16,8,8,9,8,0.30
+Cape Verde,cape-verde,H,CAF,69,1620,1.1,1.5,0,0.50,0.00,3,28.0,1,5,5,5,6,0.15
+Saudi Arabia,saudi-arabia,H,AFC,61,1640,1.1,1.4,0,0.20,0.00,3,27.5,6,4,5,5,6,0.10
+Uruguay,uruguay,H,CONMEBOL,17,1900,1.5,1.1,0,0.60,0.05,7,27.0,14,6,7,8,9,0.20
+France,france,I,UEFA,3,2080,2.0,0.9,0,0.65,0.10,10,26.5,16,9,8,9,9,0.30
+Senegal,senegal,I,CAF,14,1870,1.4,1.1,0,0.50,0.10,6,28.0,4,7,6,7,7,0.20
+Iraq,iraq,I,AFC,57,1630,1.1,1.4,0,0.40,0.00,3,27.0,1,5,5,5,6,0.15
+Norway,norway,I,UEFA,31,1800,1.6,1.1,0,0.60,0.00,7,26.5,3,8,6,6,8,0.25
+Argentina,argentina,J,CONMEBOL,1,2150,2.2,0.7,0,0.70,0.05,9,27.5,18,8,8,10,9,0.20
+Austria,austria,J,UEFA,24,1800,1.5,1.1,0,0.40,0.00,5,27.0,7,6,6,6,7,0.25
+Jordan,jordan,J,AFC,90,1530,1.0,1.5,0,0.30,0.00,3,27.5,0,4,5,5,6,0.15
+Algeria,algeria,J,CAF,28,1780,1.4,1.2,0,0.40,0.05,5,27.0,4,6,6,6,7,0.20
+Portugal,portugal,K,UEFA,5,2030,2.1,0.8,0,0.60,0.00,8,30.5,9,7,7,6,8,0.30
+DR Congo,dr-congo,K,CAF,56,1620,1.2,1.3,0,0.40,0.00,4,27.0,2,5,5,5,6,0.15
+Uzbekistan,uzbekistan,K,AFC,68,1580,1.1,1.2,0,0.40,0.00,4,26.5,0,5,5,5,6,0.15
+Colombia,colombia,K,CONMEBOL,13,1950,1.8,0.9,0,0.80,0.00,7,26.0,7,7,7,7,8,0.20
+England,england,L,UEFA,4,2040,1.8,0.8,0,0.40,0.10,9,25.8,16,8,7,5,8,0.35
+Croatia,croatia,L,UEFA,11,1900,1.5,1.1,0,0.35,0.10,6,32.0,7,7,6,9,7,0.20
+Ghana,ghana,L,CAF,48,1710,1.3,1.4,0,0.20,0.05,4,27.0,4,5,5,5,6,0.15
+Panama,panama,L,CONCACAF,41,1660,0.9,1.5,0,0.30,0.00,3,28.5,2,5,5,5,6,0.15

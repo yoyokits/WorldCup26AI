@@ -37,6 +37,23 @@ HOME_ELO_BONUS = 70.0  # host-nation advantage when playing in their country
 MAX_GOALS = 8          # scoreline grid upper bound
 SEED = 2026            # fixed seed -> reproducible simulations
 
+# Skill #4 context-nudge weights
+FORM_WEIGHT    = 0.15  # ±15% λ per unit of form (range: -1..+1)
+INJURY_WEIGHT  = 0.40  # scale raw injury_impact → max ~12% λ reduction
+FATIGUE_WEIGHT = 0.06  # up to 6% λ reduction at fatigue=1.0
+SET_PIECE_MEAN = 6.0   # rating scale anchor (1–10)
+SET_PIECE_WGHT = 0.04  # ±4% λ per net set-piece point above/below mean
+COACH_MEAN     = 7.0   # anchor for coach_rating (1–10)
+COACH_WEIGHT   = 0.03  # ±3% λ per coach_rating point above/below mean
+DRAW_PULL      = 0.15  # predict draw when best win prob leads draw by < 15pp
+AGE_MEAN       = 27.0  # neutral squad age; older/younger nudges λ
+AGE_WEIGHT     = 0.012 # ±1.2% λ per year away from mean
+DEPTH_MEAN     = 5.0   # anchor for squad_depth (1–10)
+DEPTH_INJ_MOD  = 0.06  # each depth point above mean reduces injury impact by 6%
+PRESSURE_MEAN  = 6.0   # anchor for pressure_rating (1–10)
+PRESSURE_PENS  = 0.25  # weight of pressure_rating in penalty shoot-out
+EXP_PENS_WGHT  = 0.10  # weight of wc_experience in penalty shoot-out
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, "data")
@@ -54,12 +71,33 @@ def load_ratings(path=DEFAULT_RATINGS):
             row["fifa_rank"] = int(row["fifa_rank"])
             row["elo"] = float(row["elo"])
             row["host"] = bool(int(row["host"]))
+            for col in ("attack_avg", "defense_avg",
+                        "form", "injury_impact", "fatigue"):
+                if row.get(col):
+                    row[col] = float(row[col])
+            for col in ("squad_depth", "wc_experience",
+                        "set_piece_off", "set_piece_def",
+                        "pressure_rating", "coach_rating"):
+                if row.get(col):
+                    row[col] = float(row[col])
+            if row.get("avg_age"):
+                row["avg_age"] = float(row["avg_age"])
             teams[row["team"]] = row
     if not teams:
         raise SystemExit("No teams loaded from %s" % path)
-    mean_elo = sum(t["elo"] for t in teams.values()) / len(teams)
-    for t in teams.values():
+    tlist = list(teams.values())
+    mean_elo = sum(t["elo"] for t in tlist) / len(tlist)
+    # Field-average attack/defence for Dixon-Coles normalisation
+    with_avg = [t for t in tlist if t.get("attack_avg")]
+    if with_avg:
+        mean_atk = sum(t["attack_avg"] for t in with_avg) / len(with_avg)
+        mean_def = sum(t["defense_avg"] for t in with_avg) / len(with_avg)
+    else:
+        mean_atk = mean_def = BASE_GOALS
+    for t in tlist:
         t["mean_elo"] = mean_elo
+        t["mean_attack_avg"] = mean_atk
+        t["mean_defense_avg"] = mean_def
     return teams
 
 
@@ -85,21 +123,69 @@ def resolve_team(teams, name):
 def expected_goals(a, b, host_aware=True):
     """Return (lambda_a, lambda_b): mean goals for each side.
 
-    Attack/defence indices are exponential in the Elo gap to the field mean,
-    so stronger sides both score more and concede less. Host nations receive
-    a temporary Elo bonus when host_aware is set.
+    When attack_avg/defense_avg are present in the ratings (actual goals scored
+    and conceded per game), they are blended with the Elo-derived indices at
+    55/45 weight — giving real historical data priority while Elo corrects for
+    opponent quality. Host nations receive a temporary Elo bonus.
     """
     mean = a["mean_elo"]
     elo_a = a["elo"] + (HOME_ELO_BONUS if (host_aware and a["host"]) else 0.0)
     elo_b = b["elo"] + (HOME_ELO_BONUS if (host_aware and b["host"]) else 0.0)
 
-    atk_a = math.exp(ALPHA * (elo_a - mean) / 100.0)
-    atk_b = math.exp(ALPHA * (elo_b - mean) / 100.0)
-    def_a = math.exp(-ALPHA * (elo_a - mean) / 100.0)  # weaker -> concede more
-    def_b = math.exp(-ALPHA * (elo_b - mean) / 100.0)
+    elo_atk_a = math.exp(ALPHA * (elo_a - mean) / 100.0)
+    elo_atk_b = math.exp(ALPHA * (elo_b - mean) / 100.0)
+    elo_def_a = math.exp(-ALPHA * (elo_a - mean) / 100.0)
+    elo_def_b = math.exp(-ALPHA * (elo_b - mean) / 100.0)
+
+    if a.get("attack_avg") and a.get("mean_attack_avg"):
+        m_atk = a["mean_attack_avg"]
+        m_def = a["mean_defense_avg"]
+        # Normalise actual averages to the same scale as Elo indices (centred at 1.0)
+        # defense_avg = goals conceded; lower is stronger → same direction as Elo def index
+        atk_a = 0.55 * (a["attack_avg"]  / m_atk) + 0.45 * elo_atk_a
+        atk_b = 0.55 * (b["attack_avg"]  / m_atk) + 0.45 * elo_atk_b
+        def_a = 0.55 * (a["defense_avg"] / m_def) + 0.45 * elo_def_a
+        def_b = 0.55 * (b["defense_avg"] / m_def) + 0.45 * elo_def_b
+    else:
+        atk_a, atk_b = elo_atk_a, elo_atk_b
+        def_a, def_b = elo_def_a, elo_def_b
 
     lam_a = BASE_GOALS * atk_a * def_b
     lam_b = BASE_GOALS * atk_b * def_a
+
+    # --- Skill #4: form / injury / fatigue / set-piece / coach nudges ---
+    def _nudge(lam, team, opp):
+        form   = float(team.get("form", 0.0))
+        inj    = float(team.get("injury_impact", 0.0))
+        fat    = float(team.get("fatigue", 0.2))
+        spo    = float(team.get("set_piece_off", SET_PIECE_MEAN))
+        spd_op = float(opp.get("set_piece_def", SET_PIECE_MEAN))
+        coach  = float(team.get("coach_rating", COACH_MEAN))
+        depth  = float(team.get("squad_depth", DEPTH_MEAN))
+
+        lam *= (1.0 + form * FORM_WEIGHT)
+
+        depth_reduction = max(0.0, (depth - DEPTH_MEAN) * DEPTH_INJ_MOD)
+        effective_inj = inj * INJURY_WEIGHT * (1.0 - depth_reduction)
+        lam *= (1.0 - min(effective_inj, 0.15))
+
+        lam *= (1.0 - fat * FATIGUE_WEIGHT)
+
+        sp_net = (spo - spd_op) / SET_PIECE_MEAN
+        lam *= (1.0 + sp_net * SET_PIECE_WGHT)
+
+        lam *= (1.0 + (coach - COACH_MEAN) * COACH_WEIGHT)
+
+        age = float(team.get("avg_age", AGE_MEAN))
+        age_dev = age - AGE_MEAN
+        if age_dev > 0:
+            lam *= (1.0 - age_dev * AGE_WEIGHT)
+        elif age_dev < -1.5:
+            lam *= (1.0 + age_dev * AGE_WEIGHT * 0.5)
+        return lam
+
+    lam_a = _nudge(lam_a, a, b)
+    lam_b = _nudge(lam_b, b, a)
     return max(lam_a, 0.05), max(lam_b, 0.05)
 
 
@@ -186,9 +272,15 @@ def predict_match(a, b, knockout=False):
     }
 
     if not knockout:
-        # modal outcome, then modal score within that outcome
-        outcome = max((("home", ph), ("draw", pd), ("away", pa)),
-                      key=lambda kv: kv[1])[0]
+        best_win = max(ph, pa)
+        if pd >= best_win:
+            outcome = "draw"
+        elif (best_win - pd) < DRAW_PULL:
+            outcome = "draw"
+        elif ph >= pa:
+            outcome = "home"
+        else:
+            outcome = "away"
         gi, gj, _ = most_likely_score(grid, outcome)
         result["score_a"], result["score_b"] = gi, gj
         result["winner"] = (a["team"] if outcome == "home"
@@ -288,8 +380,17 @@ def knockout_winner(rng, a, b):
         return a, b
     if ga > gh:
         return b, a
-    # penalties: weight by neutral win expectancy
-    pa = 1.0 / (1.0 + 10 ** (-(a["elo"] - b["elo"]) / 400.0))
+    # penalties: blend Elo expectancy + pressure_rating + wc_experience
+    elo_pa = 1.0 / (1.0 + 10 ** (-(a["elo"] - b["elo"]) / 400.0))
+    pres_a = float(a.get("pressure_rating", PRESSURE_MEAN))
+    pres_b = float(b.get("pressure_rating", PRESSURE_MEAN))
+    pres_pa = pres_a / (pres_a + pres_b)
+    exp_a = float(a.get("wc_experience", 5))
+    exp_b = float(b.get("wc_experience", 5))
+    exp_pa = exp_a / max(exp_a + exp_b, 1)
+    pa = ((1.0 - PRESSURE_PENS - EXP_PENS_WGHT) * elo_pa
+          + PRESSURE_PENS * pres_pa
+          + EXP_PENS_WGHT * exp_pa)
     return (a, b) if rng.random() < pa else (b, a)
 
 
@@ -450,6 +551,162 @@ def _write(path, text):
 
 
 # --------------------------------------------------------------------------
+# Knockout stage: deterministic bracket from group stage results
+# --------------------------------------------------------------------------
+def _get_group_results(teams):
+    """Replay the deterministic group stage and return qualifiers."""
+    all_standings = {}
+    thirds = []
+    for g in GROUPS:
+        grp = group_of(teams, g)
+        table = {t["team"]: dict(team=t, P=0, W=0, D=0, L=0, GF=0, GA=0, Pts=0)
+                 for t in grp}
+        for home, away in round_robin(grp):
+            r = predict_match(home, away, knockout=False)
+            _apply_result(table, home, away, r["score_a"], r["score_b"])
+        rows = _standings_list(table)
+        all_standings[g] = rows
+        thirds.append(rows[2])
+
+    thirds.sort(key=lambda r: (r["Pts"], r["GD"], r["GF"]), reverse=True)
+    qualifiers = []
+    for g in GROUPS:
+        qualifiers.append(all_standings[g][0]["team"])  # winner
+        qualifiers.append(all_standings[g][1]["team"])  # runner-up
+    qualifiers += [r["team"] for r in thirds[:8]]  # best 8 third-place
+    return qualifiers[:32]
+
+
+def _bracket_pairs(qualifiers):
+    """Seed 32 qualifiers by Elo into a standard single-elimination bracket."""
+    seeds = sorted(qualifiers, key=lambda t: t["elo"], reverse=True)
+    n = len(seeds)
+    return [(seeds[i], seeds[n - 1 - i]) for i in range(n // 2)]
+
+
+def _fmt_knockout_match(num, r):
+    """Format a single knockout match for Markdown output."""
+    score_str = "%d-%d" % (r["score_a"], r["score_b"])
+    if r.get("note"):
+        score_str += " (%s)" % r["note"]
+    lines = [
+        "## Match %d — %s vs %s" % (num, r["home"], r["away"]),
+        "",
+        "- **Prediction:** %s wins %s" % (r["winner"], score_str),
+        "- **Win prob:** %s %.0f%% | Draw %.0f%% | %s %.0f%%" % (
+            r["home"], 100 * r["p_home"], 100 * r["p_draw"],
+            r["away"], 100 * r["p_away"]),
+        "",
+    ]
+    return lines
+
+
+def write_knockout_stage(teams):
+    """Generate RoundOf32.md through Final.md deterministically."""
+    qualifiers = _get_group_results(teams)
+    pairs = _bracket_pairs(qualifiers)
+    paths = []
+
+    round_configs = [
+        ("RoundOf32", "Round of 32", pairs),
+    ]
+
+    # Play Round of 32
+    r32_winners = []
+    lines = ["# World Cup 2026 — Round of 32 Predictions", "",
+             "> Generated by `tools/predict.py`. Knockout mode — every match has a winner.", ""]
+    for i, (a, b) in enumerate(pairs, 1):
+        r = predict_match(a, b, knockout=True)
+        lines.extend(_fmt_knockout_match(i, r))
+        winner = a if r["winner"] == a["team"] else b
+        r32_winners.append(winner)
+    path = os.path.join(DATA, "RoundOf32.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    # Play Round of 16
+    r16_pairs = [(r32_winners[i], r32_winners[i + 1]) for i in range(0, len(r32_winners), 2)]
+    r16_winners = []
+    lines = ["# World Cup 2026 — Round of 16 Predictions", "",
+             "> Generated by `tools/predict.py`. Knockout mode.", ""]
+    for i, (a, b) in enumerate(r16_pairs, 1):
+        r = predict_match(a, b, knockout=True)
+        lines.extend(_fmt_knockout_match(i, r))
+        winner = a if r["winner"] == a["team"] else b
+        r16_winners.append(winner)
+    path = os.path.join(DATA, "RoundOf16.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    # Quarterfinals
+    qf_pairs = [(r16_winners[i], r16_winners[i + 1]) for i in range(0, len(r16_winners), 2)]
+    qf_winners = []
+    qf_losers = []
+    lines = ["# World Cup 2026 — Quarterfinal Predictions", "",
+             "> Generated by `tools/predict.py`. Knockout mode.", ""]
+    for i, (a, b) in enumerate(qf_pairs, 1):
+        r = predict_match(a, b, knockout=True)
+        lines.extend(_fmt_knockout_match(i, r))
+        winner = a if r["winner"] == a["team"] else b
+        loser = b if r["winner"] == a["team"] else a
+        qf_winners.append(winner)
+        qf_losers.append(loser)
+    path = os.path.join(DATA, "Quarterfinals.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    # Semifinals
+    sf_pairs = [(qf_winners[i], qf_winners[i + 1]) for i in range(0, len(qf_winners), 2)]
+    sf_winners = []
+    sf_losers = []
+    lines = ["# World Cup 2026 — Semifinal Predictions", "",
+             "> Generated by `tools/predict.py`. Knockout mode.", ""]
+    for i, (a, b) in enumerate(sf_pairs, 1):
+        r = predict_match(a, b, knockout=True)
+        lines.extend(_fmt_knockout_match(i, r))
+        winner = a if r["winner"] == a["team"] else b
+        loser = b if r["winner"] == a["team"] else a
+        sf_winners.append(winner)
+        sf_losers.append(loser)
+    path = os.path.join(DATA, "Semifinals.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    # Third Place
+    a, b = sf_losers[0], sf_losers[1]
+    r = predict_match(a, b, knockout=True)
+    lines = ["# World Cup 2026 — Third Place Match", "",
+             "> Generated by `tools/predict.py`. Knockout mode.", ""]
+    lines.extend(_fmt_knockout_match(1, r))
+    third_place = a if r["winner"] == a["team"] else b
+    lines.append("**Third place:** %s" % third_place["team"])
+    path = os.path.join(DATA, "ThirdPlace.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    # Final
+    a, b = sf_winners[0], sf_winners[1]
+    r = predict_match(a, b, knockout=True)
+    lines = ["# World Cup 2026 — Final", "",
+             "> Generated by `tools/predict.py`. Knockout mode.", ""]
+    lines.extend(_fmt_knockout_match(1, r))
+    champion = a if r["winner"] == a["team"] else b
+    runner_up = b if r["winner"] == a["team"] else a
+    lines.append("---")
+    lines.append("")
+    lines.append("## Tournament Champion: %s" % champion["team"])
+    lines.append("")
+    lines.append("**Runner-up:** %s" % runner_up["team"])
+    lines.append("")
+    lines.append("**Third place:** %s" % third_place["team"])
+    path = os.path.join(DATA, "Final.md")
+    _write(path, "\n".join(lines))
+    paths.append(path)
+
+    return paths
+
+
+# --------------------------------------------------------------------------
 # CLI
 # --------------------------------------------------------------------------
 def cmd_match(teams, spec, knockout):
@@ -520,6 +777,8 @@ def main():
         print("wrote", p1)
         p2, _ = write_simulation(teams, n=10000)
         print("wrote", p2)
+        for p in write_knockout_stage(teams):
+            print("wrote", p)
     else:
         ap.print_help()
 

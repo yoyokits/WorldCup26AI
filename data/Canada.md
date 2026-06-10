@@ -1,32 +1,42 @@
-# Canada 🇨🇦 — Historical Tournament Analysis & Trends
+# Canada 🇨🇦 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Canada's World Cup history is defined by a long drought between appearances and the emergence of a new generation.
-- **1986:** Only previous appearance (Mexico '86). Lost all three group matches: 0–2 USSR, 1–2 France, 1–4 Hungary. Finished bottom of Group F with zero points. The squad was largely domestic-based with minimal European experience.
-- **1990–2022:** A 36-year absence from the World Cup. Multiple near-misses in CONCACAF qualifying, including dramatic playoff losses. The country's football development infrastructure lagged behind soccer powerhouses like the USA and Mexico.
-- **Current Trajectory (2025/26):** Return after 36 years — one of the longest absences in World Cup history. Driven by a golden generation of players based in Europe's top leagues. Co-host advantage adds massive momentum.
+## Tournament Position
+**Group B:** Canada, Bosnia & Herzegovina, Qatar, Switzerland
+**Recent Success:** Home co-host; CONCACAF runner-up (2022 WC lost to Argentina)
 
-## Tactical Evolution & Style
-- **1980s:** Direct, long-ball approach with limited technical sophistication. Relied on physicality over structure.
-- **2000s–2010s:** Transitional period under various coaches. Attempted to adopt European pressing models but lacked the player base to sustain it consistently.
-- **Current Identity (Vahid Halilhodžić):** 4-3-3 with high pressing and rapid vertical transitions. Alphonso Davies operates as an inverted full-back/winger hybrid, providing pace from deep positions. Jonathan David plays as a mobile #9 who drops into midfield to link play. Full-backs push extremely wide to stretch defenses. The system demands high fitness levels and quick decision-making under pressure.
+## Historical Arc
+Canada's World Cup history: 1986 sole appearance, then 36-year absence, returned 2022 (group stage exit). Home tournaments typically elevate performance. Now enters 2026 as co-host (shared with USA, Mexico) with Jesse Marsch's leadership.
+
+## 2026 Squad & Key Players
+- **Jesse Marsch (Coach)** — MLS Cup winner with LAFC; modern attacking approach
+- **Goalkeeper:** Dayne St. Clair (Minnesota United, MLS) or others competing
+- **Defenders:** Alphonso Davies (Bayern Munich, captain, recovering from ACL injury in March 2025, hamstring concerns), Luca Koleosho (emerging young fullback)
+- **Midfield:** Jonathan Osorio (Toronto FC), Tajon Buchanan (Villarreal, dynamic midfielder)
+- **Forwards:** Jonathan David (Juventus, primary striker, underperforming expectations at Juve), Cyle Larin (Southampton, experienced forward)
+
+## Recent Form & Qualifying
+- CONCACAF qualifying: Qualified as co-hosts; automatic berth
+- Key injury: Alphonso Davies ACL injury (March 2025), current hamstring strain — his fitness for June 2026 is a major question mark
+- Squad composition: 23 outfield players + GK depth
+
+## Tactical Setup
+**Formation:** 4-3-3 attacking width emphasis
+- **Attack:** Davies left-back (creative, pressing), David strikerleading, dynamic pressing from front
+- **Midfield:** Osorio (domestic league), Buchanan providing creativity
+- **Defense:** Depth of defenders to replace Davies if injured
+- **Pressing:** Marsch's aggressive front press
 
 ## Psychological & Narrative Profile
-Canada enters with the "long-awaited return" narrative. After 36 years on the outside looking in, the emotional weight of hosting is immense. The squad carries genuine belief — for the first time, they have multiple players who are regulars at elite European clubs. However, World Cup experience is virtually non-existent beyond goalkeeping. The pressure of being a host nation could cut both ways: massive crowd support vs. the burden of expectation from fans who waited decades.
+Canada enters as **home co-host with high expectations but deep concerns.** Davies' injury status dominates the narrative — without him, Canada loses their best player and creative fullback. Home tournament advantage (crowd, familiarity) is significant but not enough to overcome attacking limitations. The 2022 group-stage exit haunts expectations. Jonathan David's Juventus underperformance (compared to Lille) is a tactical question.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically outclassed in technical battles. However, pace and athleticism on counters can trouble high defensive lines. Vulnerable to sustained possession pressure — Canada's midfield lacks the technical density to compete in prolonged build-up phases.
-- **vs CONCACAF rivals:** Competitive against Mexico but historically overpowered by USA's depth. Central American sides are manageable if Canada controls midfield tempo. Set-piece vulnerability is a recurring issue against physically dominant opponents.
-- **Set-piece dynamics:** Canada scores a notable percentage of goals from dead-ball situations, leveraging Davies' delivery and aerial threats in the box. Defensively, they struggle to organize zonal marking on corners — a weakness that elite sides will exploit.
+## Group Stage Outlook
+- **vs Bosnia & Herzegovina:** Moderate favorites. Expect 1-0 or 2-1 Canada.
+- **vs Qatar:** Moderate favorites (Qatar at home in 2022 but weak internationally). Expect 2-0 or 2-1 Canada.
+- **vs Switzerland:** Likely loss (Switzerland stronger, experienced). Expect 0-1 or 0-2 Switzerland.
 
-## What to Watch in 2026
-1. **Alphonso Davies' role:** Can he balance defensive duties with attacking output? His pace is Canada's greatest weapon but also their biggest tactical liability if caught out of position.
-2. **Jonathan David's service:** David needs quality delivery from wide areas and midfield to thrive. If Canada cannot create chances through play, his movement alone will not be enough against organized defenses.
-3. **Goalkeeping stability:** Maximilian Offereins (Bayern Munich youth) or Milan Borjan — neither has World Cup experience at the senior level. Shot-stopping under pressure will be tested early.
-4. **Host nation factor:** Playing in front of home crowds across multiple venues. The psychological boost is real, but so is the weight of expectation from a nation that waited 36 years.
-
-## Analyst Verdict
-Canada is not expected to advance past the group stage, but their presence as co-hosts and the Davies-David core makes them dangerous on any given day. Their best path forward: sit deep against stronger opponents, hit on counters via Davies' pace, and rely on set-piece execution. Against fellow CONCACAF rivals or similarly ranked teams, they have a genuine chance to secure a knockout berth — but only if their midfield can survive sustained pressure for 90 minutes.
+## Analyst Verdict for 2026
+Canada are **tournament participants** (Elo-ranked #12). Home-field advantage is valuable, but Davies' injury status is critical. **Key strength:** Home crowd, Marsch's attacking philosophy. **Key risk:** Davies injury (irreplaceable creative fullback), David's Juventus struggles raising striker quality concerns. **Ceiling:** Round of 16 (possible with home advantage). **Floor:** Group stage exit. **Verdict:** Home co-hosts with talented squad (Davies if fit, David's potential) but injury concerns and attacking questions limit ceiling. Davies' presence would elevate them to contenders; his absence would relegate to underdogs.
 
 ---
-*Data sources: FIFA archives, CONCACAF qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: CONCACAF qualifying 2024-25, Juventus/Bayern Munich data, Alphonso Davies injury reports, eloratings.net, FIFA rankings June 2026*

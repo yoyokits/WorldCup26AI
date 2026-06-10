@@ -1,35 +1,42 @@
-# Paraguay 🇵🇾 — Historical Tournament Analysis & Trends
+# Paraguay 🇵🇾 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Paraguay's World Cup history is defined by defensive resilience and occasional breakthroughs in knockout matches — a pattern of near-misses that has become embedded in Paraguayan football culture. Despite producing world-class talent at club level, the national team has struggled to translate individual brilliance into tournament breakthroughs.
+## Tournament Position
+**Group D:** Paraguay, France, Canada, Uruguay
+**Historical Context:** CONMEBOL regular; Copa América participant
 
-- **1930:** The debut. First World Cup appearance in Uruguay. Lost all three group matches: 1–3 Bolivia (a controversial defeat), 0–1 Czechoslovakia, 3–3 Romania (draw). Finished bottom of Group 2 with 1 point from 7 goals scored and 5 conceded.
-- **1958:** The breakthrough. Advanced from the group stage for the first time after drawing with USSR, England, and Brazil. Lost to hosts Sweden in the quarter-finals. A generation of players (Carlos Jara Saguier, Roque Santa Cruz) that established Paraguay as a competitive force in South American football.
-- **2010:** The golden era. Quarter-finals (lost to Germany on penalties). Nelson Valdez's stunning volley against Japan in the Round of 16 remains one of the most iconic World Cup goals of the tournament. A generation of world-class talent (Roque Santa Cruz, Vicente Bobadilla) that produced consistent tournament success but fell short in quarter-finals against Germany.
-- **2022:** The modern era near-misses. Qualified for their fifth consecutive World Cup (2010–2022). Best result: Round of 16 2022 (lost to France on penalties). A period of tactical sophistication under coach Hernan Gomez — structured possession-based football with rapid vertical transitions. However, the psychological barrier of knockout matches became a recurring theme that defined Paraguay's tournament identity for two decades.
-- **Current Trajectory (2025/26):** A transitional squad blending experienced veterans with emerging young talent developed through Paraguay's elite youth system. Angel Romero remains one of South America's most clinical finishers — pace, strength, aerial ability, and finishing all at elite level. The team's identity is built around defensive organization, set-piece execution, and tactical discipline. Coach Daniel Carzzo brings extensive experience from South American international football and domestic management, emphasizing defensively solid, counter-attacking football over open-play dominance.
+## Historical Arc
+Paraguay's World Cup history: consistent CONMEBOL qualifier (appeared most years when qualifying). Best results: 2010 quarterfinal, 2014 group stage, 2018 group stage, 2022 failed to qualify (6th place, missed playoffs). Now returning under Gustavo Alfaro with focus on defensive stability.
 
-## Tactical Evolution & Style
-- **1930s–1970s:** Direct 4-4-2 / 3-5-2 hybrid emphasizing physicality, aerial duels, and long balls to target forwards (Santa Cruz, Bobadilla). Limited tactical sophistication but exceptional defensive talent relative to development infrastructure. Relied on individual moments from stars like Carlos Jara Saguier (winger) and Roque Santa Cruz (striker).
-- **1980s–2000s:** Shift toward more structured European-influenced systems under coaches like Cesario Leguizamon and Gerardo Martino. Attempted to blend Paraguayan physicality with South American technical flair, though consistency remained elusive against top-tier opposition away from home altitude.
-- **Current Identity:** 4-4-2 / 5-3-2 defensive block in matches vs stronger opponents. Paraguay typically sits deep in two compact banks of four, absorbing pressure and hitting on the break via set-piece execution and counter-attacking transitions. Angel Romero anchors an attack built around clinical finishing and aerial ability — one of South America's most reliable goal scorers across multiple decades. The double pivot of a defensive midfielder and a ball-winning CM provides structural stability while allowing wide players (Silva, Enciso) freedom to operate as mobile #9s who drop into midfield to link play. Set pieces are heavily rehearsed; Paraguay consistently ranks among CONMEBOL's top teams for goals scored from corners and free-kicks, leveraging their height advantage in the box.
+## 2026 Squad & Key Players
+- **Gustavo Alfaro (Coach)** — Tactical organizer; defensive emphasis
+- **Goalkeeper:** Multiple domestic options
+- **Defenders:** Gustavo Gómez (Palmeiras, captain, center-back, 88+ caps, former AC Milan) — key experienced defender
+- **Midfield:** Diego Gómez (Brighton & Hove Albion, emerging midfielder), Gustavo Caballero (Portsmouth, midfielder), Omar Alderete (Sunderland, defender)
+- **Forwards:** Limited elite strikers; squad composition domestic-heavy
+
+## Recent Form & Qualifying
+- CONMEBOL qualifying: Returned with Alfaro; finished 6th (auto-qualification zone tied with Brazil points-wise — last qualifying playoff battle)
+- Squad announcement: Final squad June 1, 2026 (preliminary 55-man May 12)
+- Notable: Diego Gómez Brighton transfer shows emerging talent; Gómez Palmeiras return provides defensive experience
+
+## Tactical Setup
+**Formation:** 5-3-2/4-4-2 defensive-first organization
+- **Attack:** Direct play, set-piece focus, counter-attacking
+- **Midfield:** Diego Gómez (Brighton) creating technical option, Caballero control
+- **Defense:** Gómez (Palmeiras captain) anchoring defense, Alderete (Sunderland) providing cover
+- **Possession:** 45-50% typically
 
 ## Psychological & Narrative Profile
-Paraguay carries the "so close yet so far" narrative from the Gomez era — consistent tournament appearances but persistent group-stage exits that have become embedded in Paraguayan football culture. The psychological barrier of knockout matches finally began to break in 2010 when Paraguay beat Japan on penalties (their first shootout win at a World Cup). Now, under Carzzo's management with young talent emerging from the Paraguayan football system, there is genuine optimism that Paraguay can finally deliver on their potential — but the weight of past disappointments remains. Romero's emergence as one of South America's most clinical finishers provides a positive narrative shift — suggesting that under Carzzo's management, Paraguay may be rediscovering the tactical cohesion and collective belief that defined their golden era.
+Paraguay enters as **returning squad after missing 2022 World Cup.** The narrative is "redemption after 2022 failure." Gustavo Gómez's return to national team leadership (Palmeiras captain) provides stability. Group is brutal (France, Canada, Uruguay) but Paraguay's CONMEBOL experience means they've faced elite teams. The story: Can Alfaro's defensive system compete vs France?
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive in terms of physical dominance but outclassed technically against elite opposition. Paraguay's strength lies in Romero's clinical finishing, set-piece execution, and aerial duels — a combination that can trouble even top-tier opponents. However, their technical inferiority in midfield (compared to European/South American sides) means they struggle to maintain possession for extended periods, limiting their ability to control matches against top-tier opponents.
-- **vs South American rivals:** Competitive over most CONMEBOL nations except Brazil, Argentina, and Uruguay. Paraguay consistently dominates smaller CONMEBOL sides through physical superiority and set-piece execution.
-- **Set-piece dynamics:** Paraguay scores a significant percentage of goals from corners and free-kicks, leveraging their height advantage in the box. Defensively, they are organized on set pieces but occasionally vulnerable to quick short-corner routines and near-post runs by agile attackers.
+## Group Stage Outlook
+- **vs France:** Likely heavy loss (France much stronger, Mbappé). Expect 0-2 or 0-3 France dominance.
+- **vs Canada:** Likely draw or win (similar Elo level, home co-host advantage Canada). Expect 1-0 Paraguay or 0-1 Canada.
+- **vs Uruguay:** Likely loss (Uruguay stronger, Darwin Núñez, Bielsa coach). Expect 0-1 or 1-2 Uruguay.
 
-## What to Watch in 2026
-1. **Angel Romero's tournament performance:** At 30+, Romero remains one of South America's most clinical finishers — pace, strength, aerial ability, and finishing all at elite level. If he maintains his club form (Fluminense), he is Paraguay's most important player and a legitimate Golden Boot contender in CONMEBOL qualifiers. However, his physical decline is a genuine concern: watch for whether he can sustain his level across a full tournament.
-2. **The midfield gap:** Paraguay's greatest weakness is midfield creativity — they lack a world-class playmaker capable of unlocking compact defenses through incisive passing or dribbling. This means Romero often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Watch for whether the coaching staff deploys a more attacking midfield configuration to provide Romero with better service.
-3. **Defensive vulnerability to quick transitions:** Paraguay's low-block system works against teams that struggle to break down compact defenses. Against pacey wingers who can exploit space behind Paraguay's advanced full-backs (Netherlands, Brazil, Argentina), the challenge is maintaining defensive shape for 90 minutes without conceding from individual moments of brilliance.
-4. **Coach Daniel Carzzo's pragmatic approach:** The Paraguayan coach brings extensive experience from South American international football and domestic management. His tendency toward defensively solid, counter-attacking football could serve Paraguay well in group-stage matches against stronger opponents — but may limit attacking expression against similarly ranked teams where open-play creativity is essential.
-
-## Analyst Verdict
-Paraguay is not expected to advance past the group stage, but their physical dominance and Romero's clinical finishing make them dangerous on any given day — particularly against overconfident opponents who underestimate their set-piece execution and aerial threat. The midfield gap remains a genuine concern: without a world-class creative playmaker to unlock compact defenses, Romero often operates in isolation against organized defensive lines, relying on individual brilliance rather than team-created chances. Their best path forward: absorb pressure, hit on counters via Romero's pace and aerial ability, and rely on set-piece execution when open play breaks down. Against fellow South American or African rivals, they have a genuine chance to secure points — but against top-tier European sides, the technical gap in midfield is likely decisive unless Paraguay can maintain flawless defensive discipline for 90 minutes.
+## Analyst Verdict for 2026
+Paraguay are **tournament participants** (Elo-ranked #16). Returning after 2022 absence; CONMEBOL experience provides baseline competitiveness. **Key strength:** Defensive organization (Gómez, Alfaro's system), CONMEBOL experience. **Key risk:** Limited attacking depth, France dominance (likely heavy loss), aging squad, Gómez (35+) physical decline. **Ceiling:** Round of 16 (unlikely). **Floor:** Group stage exit. **Verdict:** Defensive-organized squad returning from 2022 absence. Group stage likely, but Alfaro's tactical system could generate surprise points vs Canada. France match is heavy loss; draw vs Uruguay/Canada determines group fate.
 
 ---
-*Data sources: FIFA archives, CONMEBOL qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: CONMEBOL qualifying 2024-25, Palmeiras/Brighton data, Gustavo Alfaro coaching records, eloratings.net, FIFA rankings June 2026*

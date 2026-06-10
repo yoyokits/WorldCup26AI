@@ -1,33 +1,42 @@
-# Saudi Arabia 🇸🇦 — Historical Tournament Analysis & Trends
+# Saudi Arabia 🇸🇦 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Saudi Arabia's World Cup history is defined by a single iconic moment that eclipses everything else — and the challenge of building on it.
-- **1994:** The defining tournament. First World Cup appearance. Beat Argentina 2–1 in the group stage (Maradona's worst-ever performance), drew with Belgium and Morocco, then lost to Sweden in the Round of 16. The Maradona match remains one of the greatest upsets in World Cup history. Identity established: disciplined defensive structure, quick counter-attacks, and fearless belief against any opponent.
-- **1998–2006:** Struggle era. Group stage exits in all three tournaments. Failed to replicate the 1994 magic as European and South American sides adapted to their direct style. Squad lacked depth outside a core of domestically based players.
-- **2018–Present:** Modern era with Gulf investment transforming the landscape. Qualified for every World Cup since 2006. The influx of foreign coaches and increased player movement to top Asian leagues has improved technical quality, though they remain one step below elite competition.
-- **Current Trajectory (2025/26):** A transitional squad blending experienced veterans with young players developed through Saudi Pro League investment. Salman Al-Faraj provides leadership in midfield, while Nawaf Al-Abed offers creativity on the left wing. The team's identity remains rooted in defensive organization and counter-attacking efficiency.
+## Tournament Position
+**Group D:** Saudi Arabia, Paraguay, Australia, Türkiye
+**Recent Success:** 2022 World Cup (beat Argentina 2-1, major upset)
 
-## Tactical Evolution & Style
-- **1990s:** Direct 4-4-2 / 5-3-2 hybrid. Emphasis on compact defensive shape, rapid transitions, and individual moments of brilliance from players like Majed Abdullah and Saeed Al-Owairan (whose solo goal vs Argentina is iconic).
-- **2000s–2010s:** Shift toward more structured possession-based play under European coaches. Attempted to blend Asian technical development with Middle Eastern physicality, though consistency remained elusive against top-tier opposition.
-- **Current Identity:** 4-2-3-1 / 5-4-1 defensive block in matches vs stronger opponents. Saudi Arabia typically sits deep in two compact banks of four, absorbing pressure and hitting on the break via Al-Abed's pace and width from full-back Mohammed Al-Breik (one of Asia's most attack-minded right-backs). Set pieces are a primary scoring method — the team rehearsed routines extensively under previous coaching staff. The double pivot of Al-Faraj and a defensive midfielder provides ball recovery and quick distribution to counter-attacking wingers.
+## Historical Arc
+Saudi Arabia's World Cup history: 1994 (group stage), 2002 (group stage), missed 16 years, returned 2018 (group stage), 2022 (famous Argentina victory 2-1, then group stage exit). Now competing under coach Georgios Donis with hope to repeat upset magic.
+
+## 2026 Squad & Key Players
+- **Georgios Donis (Coach)** — Greek tactician; organized defense focus
+- **Goalkeeper:** Multiple Gulf league options
+- **Defenders:** Saud Abdulhamid (RC Lens, right-back, pace and attacking runs), Ali Lajami, Hassan Kadesh
+- **Midfield:** Mohammed Kanno (Al Hilal), technical midfielder organizing
+- **Forwards:** Salem Al-Dawsari (Al Hilal, captain, 34-year-old winger, joint-highest World Cup scorer with 3 goals), Firas Al-Buraikan (Al-Ahli, striker)
+
+## Recent Form & Qualifying
+- AFC qualifying: Qualified; Gulf league dominance continues
+- 2022 WC: Famous 2-1 Argentina upset but group stage exit
+- Squad composition: Predominantly Saudi Pro League players (massive domestic league influx of talent post-Saudi megadeals)
+
+## Tactical Setup
+**Formation:** 4-4-2/4-5-1 defensive-solid organization
+- **Attack:** Al-Dawsari set-piece threat (free kicks), direct play, counter-attacking
+- **Midfield:** Kanno controlling, Abdulhamid (Lens) providing width
+- **Defense:** Compact shape, press resistance
+- **Possession:** 45-50% typically
 
 ## Psychological & Narrative Profile
-Saudi Arabia carries the "giant killer" narrative from 1994, but also the burden of expectations that followed. Every appearance since has been measured against that Argentina match — a standard no Saudi team has come close to matching. The current squad plays with a different mindset: less about proving themselves to the world and more about developing as a competitive Asian side. Gulf investment in football infrastructure has raised technical standards, but the psychological gap between "Asian contender" and "global competitor" remains significant.
+Saudi Arabia enters as **2022 upset heroes trying to prove it wasn't one-off.** Al-Dawsari's elite set-piece threat (3 World Cup goals) remains danger. Abdulhamid's Ligue 1 experience (RC Lens) provides European touchstone. Group is manageable (Paraguay, Australia, Türkiye at similar level). The narrative: "Can Saudi Arabia compete vs elite European teams or are they AFCON-level (strong regionally, weak globally)?"
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically outclassed in open play against elite opposition. The 1994 Argentina match was an anomaly — Maradona was at his worst, and Saudi Arabia's defensive organization caught them completely off guard. Against technically superior opponents, Saudi Arabia's direct style is often neutralized by compact pressing that cuts off counter-attacking lanes.
-- **vs Asian rivals:** Dominant over most Asian nations. Japan and South Korea are the exceptions — more technically developed sides with deeper European-based player pools. Australia presents a physical challenge that tests Saudi Arabia's aerial defending.
-- **Set-piece dynamics:** Saudi Arabia scores a significant percentage of goals from corners and free-kicks, leveraging their height advantage in the box. Defensively, they are organized on set pieces but occasionally vulnerable to quick short-corner routines and near-post runs.
+## Group Stage Outlook
+- **vs Paraguay:** Likely draw or slight win (similar Elo level). Expect 1-0 or 1-1.
+- **vs Australia:** Likely draw or win (similar level, Saudi slightly favored). Expect 1-0 or 1-1.
+- **vs Türkiye:** Likely loss (Türkiye stronger, returning after playoff drama). Expect 0-1 or 0-2 Türkiye.
 
-## What to Watch in 2026
-1. **Salman Al-Faraj's influence at 34+:** The veteran midfielder is Saudi Arabia's tactical heartbeat — dictating tempo, providing defensive cover, and leading by example. If he loses a step or suffers injury, the midfield's structure collapses.
-2. **Counter-attacking efficiency:** Saudi Arabia's best matches come when they can absorb pressure and hit quickly. Nawaf Al-Abed's pace on the left wing is their primary weapon, but he needs service from Al-Faraj and full-back support to be effective.
-3. **Defensive organization vs elite presses:** Saudi Arabia's low-block system works against teams that struggle to break down compact defenses (see: 2022 Argentina match). Against high-pressing sides like Spain or Germany, the challenge is maintaining possession long enough to trigger counter-attacks without being suffocated.
-4. **Coach Hicham Ramadani's approach:** The Moroccan coach brings experience from African and Asian international football. His tendency toward pragmatic, defensively solid football could serve Saudi Arabia well in group-stage matches against stronger opponents.
-
-## Analyst Verdict
-Saudi Arabia is not expected to advance past the group stage, but their defensive organization and counter-attacking threat make them dangerous on any given day — particularly against overconfident opponents who underestimate their structure. The 1994 ghost will always haunt this team, but the current squad is more focused on sustainable development than chasing historical upsets. Their best path forward: absorb pressure, hit on counters via Al-Abed's pace, and rely on set-piece execution. Against fellow Asian rivals or similarly ranked teams, they have a genuine chance to secure points — but against top-tier European or South American sides, the technical gap is likely decisive.
+## Analyst Verdict for 2026
+Saudi Arabia are **tournament participants** (Elo-ranked #19). 2022 Argentina upset proved they can produce one great match; repeating that magic is harder. **Key strength:** Al-Dawsari set-piece elite threat (free kicks), defensive organization, counter-attacking. **Key risk:** Limited attacking depth (Al-Buraikan alone as backup striker), squad quality vs elite teams, Saudi Pro League players vs European experience gap. **Ceiling:** Round of 16 (if group luck favors). **Floor:** Group stage exit. **Verdict:** 2022 upset proves they can surprise strong teams, but consistency lacking. Al-Dawsari's set-piece threat is primary advantage; defensive organization (Donis) could generate surprise points. Group stage likely; knockout advancement would require upset magic.
 
 ---
-*Data sources: FIFA archives, AFC qualifying records, Opta match analyses (2018–2025)*
+
+*Sources: AFC qualifying 2024-25, 2022 World Cup records, Saudi Pro League data, eloratings.net, FIFA rankings June 2026*

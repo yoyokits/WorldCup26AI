@@ -1,27 +1,43 @@
-# Switzerland 🇨🇭 — Historical Tournament Analysis & Trends
+# Switzerland 🇨🇭 — 2026 World Cup Squad & Analysis
 
-## Historical Performance Arc
-Switzerland's World Cup history is defined by tactical discipline, consistent qualification under European coaching models, and a recurring theme of narrowly missing knockout progression.
-- **1934–1962:** Founding era. Best result: Round of 16 in 1950 & 1954. Known for organized defensive structure but lacked attacking firepower against South American/European powerhouses.
-- **1966–2006:** Transition period. Qualified sporadically due to political neutrality limiting football development investment. Best result: Round of 16 in 1966 (lost to Uruguay) & 2006 (lost to Ukraine on penalties). Identity established: pragmatic 3-5-2/4-2-3-1 hybrid, emphasis on defensive solidity and rapid counter-attacks.
-- **2014–Present:** Modern era breakthrough. Reached Round of 16 in 2014 & 2022 (lost to Portugal on penalties). Pattern: strong qualifying campaigns under Vladimir Petković/Pierre Kabasele → tactical rigidity in knockouts vs technically superior opponents.
-- **Current Trajectory:** Murat Yakin era post-Petković departure. Squad blends experienced European-based players with emerging domestic talent. Key figures: Granit Xhaka (Arsenal, captain), Ruben Vargas (Augsburg), Noah Okafor (Milan), Manuel Akanji (Man City), Yann Sommer (Inter Milan).
+## Tournament Position
+**Group B:** Switzerland, Canada, Bosnia & Herzegovina, Qatar
+**Recent Success:** UEFA Nations League regular competitor
 
-## Tactical Evolution & Style
-- **1980s–2000s:** Direct 4-4-2 / 3-5-2 hybrid. Emphasis on physicality, aerial duels, and long balls to target forwards. Reliant on individual moments from stars like Stéphane Chapuisat and Alexander Frei.
-- **2010s–2020s:** Shift toward possession-based build-up under European coaches. Increased emphasis on technical midfielders and inverted wingers. Vulnerable to compact low-block defenses that exploit transition gaps.
-- **Current Identity:** High-intensity pressing 4-3-3 / 4-2-3-1 hybrid. Full-backs push high to create overloads; midfield focuses on ball recovery and rapid vertical distribution to Xhaka/Okafor. Defensive line sits higher than historical Swiss norms, accepting transitional risk for territorial dominance. Set-piece routines heavily utilized given physical advantages in aerial duels.
+## Historical Arc
+Switzerland's World Cup journey: consistent qualifier (1934-present, rare consistency). Best results: 1938 (quarterfinal), 1954 (semifinal). Recent: 2018 (group stage), 2022 (quarterfinal). UEFA regular under coach Murat Yakin; defensive stability + youth development focus.
+
+## 2026 Squad & Key Players
+- **Murat Yakin (Coach)** — Swiss tactician; experience-led approach
+- **Goalkeeper:** Yann Sommer (Inter Milan, elite GK, consistent performer)
+- **Defenders:** Manuel Akanji (Borussia Dortmund, elite center-back), Ricardo Rodriguez (veteran left-back, aiming for 4th World Cup), Silvan Widmer (Mainz, fullback)
+- **Midfield:** Granit Xhaka (Sunderland, captain, 33 years old, 4th consecutive World Cup, 144 caps national record), Remo Freuler (Nottingham Forest), Xeka (technical midfielder)
+- **Forwards:** Breel Embolo (Borussia Mönchengladbach, evolved into elite goalscorer after injury history), Dan Ndoye (Bologna, prolific winger, 10+ goal scorer), Captain options
+
+## Recent Form & Qualifying
+- UEFA qualifying: Direct qualification; strong campaign
+- Squad announcement: May 20, 2026
+- Notable continuity: Xhaka (captain, 144 caps), Sommer (Inter Milan consistency), Akanji (Dortmund elite)
+- Embolo evolution: Historically injury-prone; now goal-scoring threat at club level
+
+## Tactical Setup
+**Formation:** 4-3-3 balanced possession
+- **Attack:** Embolo striker (evolved marksman), Ndoye left winger (10+ goals), direct play options
+- **Midfield:** Xhaka controlling (captain, 144 caps), Freuler defensive cover, possession-centric
+- **Defense:** Akanji elite center-back (Dortmund), Rodriguez veteran left-back experience, Sommer elite GK
+- **Possession:** 52-56% typically
 
 ## Psychological & Narrative Profile
-Switzerland carries the "boring but effective" narrative — repeatedly knocking on the door but lacking knockout experience against elite sides. The 2006/2022 penalty shootout exits created lasting psychological weight in high-stakes moments. Current squad plays with modern tactical discipline, reducing historical "overwhelm" tendency. Diaspora support across Europe creates massive away-day momentum.
+Switzerland enters as **consistent performers with experienced leadership (Xhaka 4th WC, 144 caps, Sommer Inter) and elite defense (Akanji Dortmund).** The narrative is "Can Switzerland advance past quarterfinal (2022) after reaching QF?" Xhaka's national record (144 caps) and Sommer's consistency provide stability. Embolo's goal-scoring evolution (marked by injury overcome) is positive sign.
 
-## Matchup History & Tendencies
-- **vs European/South American sides:** Historically competitive but struggle against technical midfield control. Weakness exposed by quick combination play that bypasses physical pressing traps.
-- **vs CONCACAF rivals:** Strong historical record. Beat USA in 2014 WC; consistently dominate Central American sides via athleticism and set-pieces. Vulnerable to organized counter-attacks from pacey wingers (e.g., Jamaica's wing play).
-- **Set-piece vulnerability:** Concede significant goals from corners/free-kicks against taller European/South American sides. Need improved aerial marking organization in defensive transitions.
+## Group Stage Outlook
+- **vs Canada:** Heavy favorites (Canada co-host, injured Davies). Expect 2-0 or 2-1 Switzerland.
+- **vs Bosnia & Herzegovina:** Moderate favorites (Dzeko veteran, similar level). Expect 1-0 or 1-1.
+- **vs Qatar:** Heavy favorites (Qatar 2022 failure precedent, domestic PSL-dependent). Expect 2-0 or 3-0 Switzerland.
 
-## Analyst Verdict / What to Watch
-Switzerland enters as a dangerous group-stage contender with genuine upset potential, leveraging Xhaka's midfield control and Okafor's pace. Historical data shows Swiss teams excel in knockout football when they sit deep and hit on counters via Vargas' dribbling, but struggle against elite technical sides that control possession. Key risk: midfield creativity gap if Xhaka is marked out of the game. Watch for set-piece execution — Switzerland's physicality gives them a clear advantage in dead-ball situations, which often decide tight group-stage matches. Host-free environment + experienced core = consistent Round of 16 contender, with QF possible if transition defense tightens.
+## Analyst Verdict for 2026
+Switzerland are **tournament contenders** (Elo-ranked #8). Consistent performers with elite center-back (Akanji), elite GK (Sommer), and experienced leadership (Xhaka 144 caps, 4th WC). **Key strength:** Defensive solidity (Akanji, Rodriguez, Sommer), Xhaka leadership, balanced possession approach. **Key risk:** Embolo goal-scoring variability (evolved marksman but unproven at this level), aging squad (Rodriguez, Xhaka 33+), knockout experience gaps. **Ceiling:** Quarterfinal (similar to 2022). **Floor:** Group stage. **Verdict:** Consistent, experienced squad with elite defense + leadership. Xhaka's national record (144 caps) + Akanji's Dortmund form provide baseline quality. Embolo's goal-scoring could elevate if clinical; defensive stability should secure advancement. Semifinal unlikely; quarterfinal ceiling realistic.
 
 ---
-*Data sources: FIFA archives, UEFA tactical reports, Opta match analyses (2018–2025)*
+
+*Sources: UEFA qualifying 2024-25, Borussia Dortmund/Inter Milan data, Xhaka career stats, eloratings.net, FIFA rankings June 2026*
