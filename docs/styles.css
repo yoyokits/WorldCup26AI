@@ -492,3 +492,30 @@ body {
 .btn-outline:hover { background: var(--wc-blue); color: white; }
 
 .link-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+
+/* ── Real Result right-side badge ── */
+.rr-right-badge {
+  display: flex; align-items: center; gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85em;
+  white-space: nowrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.rr-right-badge .rr-icon { font-size: 1em; }
+.rr-right-badge .rr-pred {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+.rr-right-badge .rr-pts {
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.25);
+}
+.rr-right-badge.rr-perfect { background: #d97706; color: #fff; }
+.rr-right-badge.rr-gd { background: #16a34a; color: #fff; }
+.rr-right-badge.rr-winner { background: #65a30d; color: #fff; }
+.rr-right-badge.rr-miss { background: #9ca3af; color: #fff; }
