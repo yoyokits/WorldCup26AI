@@ -519,3 +519,35 @@ body {
 .rr-right-badge.rr-gd { background: #16a34a; color: #fff; }
 .rr-right-badge.rr-winner { background: #65a30d; color: #fff; }
 .rr-right-badge.rr-miss { background: #9ca3af; color: #fff; }
+
+/* ── Team Comparison ── */
+.tc-side { background: #fff; border-radius: 10px; padding: 16px; }
+.tc-empty { display: flex; align-items: center; justify-content: center; min-height: 120px; }
+.tc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.tc-flag { width: 40px; height: 28px; border-radius: 3px; object-fit: cover; }
+.tc-name { font-family: Montserrat, sans-serif; font-weight: 800; font-size: 1.1rem; color: #0a1628; }
+.tc-stats { display: grid; gap: 0; }
+.tc-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+.tc-row:last-child { border-bottom: none; }
+.tc-label { color: #6b7280; font-size: 0.85rem; }
+.tc-val { font-weight: 700; font-size: 0.9rem; color: #0a1628; }
+
+.tc-vs { background: #fff; border-radius: 10px; padding: 16px; }
+.tc-vs-header { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.tc-vs-team { display: flex; align-items: center; gap: 8px; }
+.tc-vs-label { font-family: Montserrat, sans-serif; font-weight: 800; font-size: 1.2rem; color: #002868; }
+.tc-bar-grid { display: grid; gap: 0; }
+.tc-bar-row {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px;
+  align-items: center; padding: 7px 0; border-bottom: 1px solid #f1f5f9;
+}
+.tc-bar-row:last-child { border-bottom: none; }
+.tc-bar-label { font-size: 0.8rem; color: #6b7280; text-align: center; white-space: nowrap; min-width: 110px; }
+.tc-bar-val { font-weight: 700; font-size: 0.9rem; color: #0a1628; }
+.tc-bar-val:first-child { text-align: right; }
+.tc-bar-val:last-child { text-align: left; }
+.tc-bar-val.tc-win { color: #16a34a; font-weight: 800; }
+@media(max-width:600px){
+  .tc-bar-label { font-size: 0.7rem; min-width: 80px; }
+  .tc-bar-val { font-size: 0.8rem; }
+}
