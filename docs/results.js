@@ -4,11 +4,25 @@
  * Key format: "HomeTeam vs AwayTeam" (must match team-name spans exactly)
  */
 var REAL_RESULTS = {
+  // June 11
   "Mexico vs South Africa": { home: 2, away: 0 },
   "South Korea vs Czechia": { home: 2, away: 1 },
+  // June 12
   "Canada vs Bosnia & Herzegovina": { home: 1, away: 1 },
   "USA vs Paraguay": { home: 4, away: 1 },
-  "Switzerland vs Qatar": { home: 1, away: 0 }
+  // June 13
+  "Switzerland vs Qatar": { home: 1, away: 1 },
+  "Brazil vs Morocco": { home: 1, away: 1 },
+  "Scotland vs Haiti": { home: 1, away: 0 },
+  // June 14
+  "Türkiye vs Australia": { home: 0, away: 2 },
+  "Germany vs Curaçao": { home: 7, away: 1 },
+  "Ecuador vs Ivory Coast": { home: 0, away: 1 },
+  "Netherlands vs Japan": { home: 2, away: 2 },
+  "Sweden vs Tunisia": { home: 5, away: 1 },
+  // June 15
+  "Spain vs Cape Verde": { home: 0, away: 0 },
+  "Belgium vs Egypt": { home: 1, away: 1 }
 };
 
 function getOutcome(h, a) {
