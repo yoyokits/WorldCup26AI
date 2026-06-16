@@ -26,11 +26,11 @@
 
 | Date | Home | Pred. | Away |
 |------|------|:-----:|------|
-| Jun 11 | <img src="https://yoyokits.github.io/WorldCup26AI/images/mexico.png" width="18"> Mexico | `2–1` | <img src="https://yoyokits.github.io/WorldCup26AI/images/south-africa.png" width="18"> South Africa |
-| Jun 11 | <img src="https://yoyokits.github.io/WorldCup26AI/images/south-korea.png" width="18"> South Korea | `1–1` | <img src="https://yoyokits.github.io/WorldCup26AI/images/czechia.png" width="18"> Czechia |
-| Jun 12 | <img src="https://yoyokits.github.io/WorldCup26AI/images/argentina.png" width="18"> Argentina | `2–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/austria.png" width="18"> Austria |
-| Jun 12 | <img src="https://yoyokits.github.io/WorldCup26AI/images/brazil.png" width="18"> Brazil | `3–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/haiti.png" width="18"> Haiti |
-| Jun 12 | <img src="https://yoyokits.github.io/WorldCup26AI/images/spain.png" width="18"> Spain | `2–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/saudi-arabia.png" width="18"> Saudi Arabia |
+| Jun 17 | <img src="https://yoyokits.github.io/WorldCup26AI/images/colombia.png" width="18"> Colombia | `2–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/uzbekistan.png" width="18"> Uzbekistan |
+| Jun 17 | <img src="https://yoyokits.github.io/WorldCup26AI/images/portugal.png" width="18"> Portugal | `2–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/dr-congo.png" width="18"> DR Congo |
+| Jun 17 | <img src="https://yoyokits.github.io/WorldCup26AI/images/austria.png" width="18"> Austria | `2–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/jordan.png" width="18"> Jordan |
+| Jun 17 | <img src="https://yoyokits.github.io/WorldCup26AI/images/england.png" width="18"> England | `1–0` | <img src="https://yoyokits.github.io/WorldCup26AI/images/croatia.png" width="18"> Croatia |
+| Jun 17 | <img src="https://yoyokits.github.io/WorldCup26AI/images/panama.png" width="18"> Panama | `0–1` | <img src="https://yoyokits.github.io/WorldCup26AI/images/ghana.png" width="18"> Ghana |
 
 ---
 
