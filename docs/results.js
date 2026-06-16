@@ -22,7 +22,12 @@ var REAL_RESULTS = {
   "Sweden vs Tunisia": { home: 5, away: 1 },
   // June 15
   "Spain vs Cape Verde": { home: 0, away: 0 },
-  "Belgium vs Egypt": { home: 1, away: 1 }
+  "Belgium vs Egypt": { home: 1, away: 1 },
+  "Iran vs New Zealand": { home: 2, away: 2 },
+  "Uruguay vs Saudi Arabia": { home: 1, away: 1 },
+  // June 16
+  "France vs Senegal": { home: 3, away: 1 },
+  "Norway vs Iraq": { home: 0, away: 0 }
 };
 
 function getOutcome(h, a) {

@@ -56,6 +56,15 @@ Each prediction earns points based on accuracy:
 |-------|-----------|--------|--------|-----|
 | Spain vs Cape Verde | 2-0 | 0-0 | ❌ Predicted Spain win, was draw | +0 |
 | Belgium vs Egypt | 1-1 | 1-1 | ⭐ Perfect score | +4 |
+| Iran vs New Zealand | 1-0 | 2-2 | ❌ Predicted Iran win, was draw | +0 |
+| Uruguay vs Saudi Arabia | 2-0 | 1-1 | ❌ Predicted Uruguay win, was draw | +0 |
+
+### June 16, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| France vs Senegal | 2-1 | 3-1 | 🟢 Winner correct | +2 |
+| Norway vs Iraq | 2-1 | 0-0 | ❌ Predicted Norway win, was draw | +0 |
 
 ---
 
@@ -63,10 +72,10 @@ Each prediction earns points based on accuracy:
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 14 |
+| Matches played | 18 |
 | Perfect scores (⭐) | 1 |
 | Winner + GD (✅) | 0 |
-| Winner correct (🟢) | 5 |
-| No match (❌) | 8 |
-| Total points | 14 / 56 |
-| Accuracy (winner) | 43% |
+| Winner correct (🟢) | 6 |
+| No match (❌) | 11 |
+| Total points | 16 / 72 |
+| Accuracy (winner) | 39% |
