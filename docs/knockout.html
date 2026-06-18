@@ -1002,5 +1002,6 @@ document.querySelectorAll('.local-time').forEach(function(el){
   var u=el.getAttribute('data-utc');
   if(u){try{el.textContent=new Date(u).toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'})+' local';}catch(e){}}
 });
-</script><script src="results.js"></script>
+</script><script src="app.js"></script>
+<script src="results.js"></script>
 </body></html>
