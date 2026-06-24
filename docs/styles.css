@@ -520,6 +520,87 @@ body {
 .rr-right-badge.rr-winner { background: #65a30d; color: #fff; }
 .rr-right-badge.rr-miss { background: #9ca3af; color: #fff; }
 
+/* ── Prediction Tracker ── */
+.pt-wrapper {
+  background: #f8fafc; border: 2px solid #002868; border-radius: 12px;
+  margin: 0 0 24px; overflow: hidden;
+}
+.pt-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; cursor: pointer; user-select: none;
+  font-family: Montserrat, sans-serif; font-weight: 800; font-size: 1rem;
+  color: #002868; background: #f0f4ff; transition: background 0.2s;
+}
+.pt-header:hover { background: #e0e8f8; }
+.pt-header .pt-chevron {
+  font-size: 1.2em; transition: transform 0.3s;
+}
+.pt-wrapper.open .pt-chevron { transform: rotate(180deg); }
+.pt-body {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+}
+.pt-wrapper.open .pt-body { max-height: 4000px; }
+.pt-summary {
+  display: flex; flex-wrap: wrap; gap: 12px; padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0; background: #fff;
+}
+.pt-stat {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 64px; flex: 1;
+}
+.pt-stat-val {
+  font-family: Montserrat, sans-serif; font-weight: 800;
+  font-size: 1.5rem; color: #002868; line-height: 1.2;
+}
+.pt-stat-max { font-size: 0.7em; color: #64748b; font-weight: 600; }
+.pt-stat-lbl {
+  font-size: 0.75rem; color: #64748b; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+}
+.pt-legend {
+  padding: 8px 20px; font-size: 0.8rem; color: #64748b;
+  text-align: center; border-bottom: 1px solid #e2e8f0; background: #fafbfc;
+}
+.pt-table-wrap { overflow-x: auto; }
+.pt-table {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem;
+}
+.pt-table thead th {
+  position: sticky; top: 0; background: #002868; color: #fff;
+  padding: 10px 12px; text-align: left; font-weight: 700;
+  font-family: Montserrat, sans-serif; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.pt-table tbody tr {
+  border-bottom: 1px solid #e2e8f0; transition: background 0.15s;
+}
+.pt-table tbody tr:hover { background: #f0f4ff; }
+.pt-table td { padding: 10px 12px; }
+.pt-date { color: #64748b; font-size: 0.85rem; white-space: nowrap; }
+.pt-team { font-weight: 600; color: #0a1628; white-space: nowrap; }
+.pt-score {
+  font-family: Montserrat, sans-serif; font-weight: 800;
+  text-align: center; font-size: 0.95rem;
+}
+.pt-pts { text-align: center; }
+.pt-pts-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  font-weight: 700; font-size: 0.8rem; color: #fff; white-space: nowrap;
+}
+.pt-pts-badge.rr-perfect { background: #d97706; }
+.pt-pts-badge.rr-gd { background: #16a34a; }
+.pt-pts-badge.rr-winner { background: #65a30d; }
+.pt-pts-badge.rr-miss { background: #9ca3af; }
+tr.pt-row.rr-perfect { background: #fffbeb; }
+tr.pt-row.rr-gd { background: #f0fdf4; }
+@media (max-width: 600px) {
+  .pt-summary { gap: 8px; padding: 12px; }
+  .pt-stat-val { font-size: 1.2rem; }
+  .pt-table { font-size: 0.8rem; }
+  .pt-table td, .pt-table th { padding: 8px 6px; }
+  .pt-legend { font-size: 0.7rem; padding: 6px 12px; }
+}
+
 /* ── Team Comparison ── */
 .tc-side { background: #fff; border-radius: 10px; padding: 16px; }
 .tc-empty { display: flex; align-items: center; justify-content: center; min-height: 120px; }
