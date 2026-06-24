@@ -9,8 +9,8 @@ Each prediction earns points based on accuracy:
 
 | Result | Icon | Points | Description |
 |--------|------|--------|-------------|
-| Perfect | ⭐ | +4 | Exact score match |
-| Winner + GD | ✅ | +3 | Correct winner and correct goal difference |
+| Perfect | ⭐ | +6 | Exact score match |
+| Winner + GD | ✅ | +4 | Correct winner and correct goal difference |
 | Winner only | 🟢 | +2 | Correct winner, wrong score |
 | No match | ❌ | +0 | Wrong outcome (wrong winner or wrong W/D/L) |
 
@@ -55,7 +55,7 @@ Each prediction earns points based on accuracy:
 | Match | Predicted | Actual | Result | Pts |
 |-------|-----------|--------|--------|-----|
 | Spain vs Cape Verde | 2-0 | 0-0 | ❌ Predicted Spain win, was draw | +0 |
-| Belgium vs Egypt | 1-1 | 1-1 | ⭐ Perfect score | +4 |
+| Belgium vs Egypt | 1-1 | 1-1 | ⭐ Perfect score | +6 |
 | Iran vs New Zealand | 1-0 | 2-2 | ❌ Predicted Iran win, was draw | +0 |
 | Uruguay vs Saudi Arabia | 2-0 | 1-1 | ❌ Predicted Uruguay win, was draw | +0 |
 
@@ -65,6 +65,78 @@ Each prediction earns points based on accuracy:
 |-------|-----------|--------|--------|-----|
 | France vs Senegal | 2-1 | 3-1 | 🟢 Winner correct | +2 |
 | Norway vs Iraq | 2-1 | 0-0 | ❌ Predicted Norway win, was draw | +0 |
+| Argentina vs Algeria | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+
+### June 17, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Portugal vs DR Congo | 2-0 | 1-1 | ❌ Predicted Portugal win, was draw | +0 |
+| Colombia vs Uzbekistan | 2-0 | 3-1 | 🟢 Winner correct | +2 |
+| Austria vs Jordan | 2-0 | 3-1 | 🟢 Winner correct | +2 |
+| England vs Croatia | 1-0 | 4-2 | 🟢 Winner correct | +2 |
+| Panama vs Ghana | 0-1 | 0-1 | ⭐ Perfect score | +6 |
+
+### June 18, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Mexico vs South Korea | 2-1 | 1-0 | 🟢 Winner correct | +2 |
+| Czechia vs South Africa | 1-1 | 1-1 | ⭐ Perfect score | +6 |
+| Switzerland vs Bosnia & Herzegovina | 1-0 | 4-1 | 🟢 Winner correct | +2 |
+| Canada vs Qatar | 2-0 | 6-0 | 🟢 Winner correct | +2 |
+
+### June 19, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Morocco vs Scotland | 1-0 | 1-0 | ⭐ Perfect score | +6 |
+| Brazil vs Haiti | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+| USA vs Australia | 2-1 | 2-0 | 🟢 Winner correct | +2 |
+| Türkiye vs Paraguay | 2-1 | 0-1 | ❌ Predicted Türkiye win, Paraguay won | +0 |
+
+### June 20, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Germany vs Ivory Coast | 2-1 | 2-1 | ⭐ Perfect score | +6 |
+| Ecuador vs Curaçao | 2-0 | 0-0 | ❌ Predicted Ecuador win, was draw | +0 |
+| Netherlands vs Sweden | 2-1 | 5-1 | 🟢 Winner correct | +2 |
+| Japan vs Tunisia | 1-0 | 4-0 | 🟢 Winner correct | +2 |
+
+### June 21, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Belgium vs Iran | 1-1 | 0-0 | ✅ Correct outcome + goal difference | +4 |
+| Egypt vs New Zealand | 2-0 | 3-1 | 🟢 Winner correct | +2 |
+| Spain vs Saudi Arabia | 2-0 | 4-0 | 🟢 Winner correct | +2 |
+| Uruguay vs Cape Verde | 2-0 | 2-2 | ❌ Predicted Uruguay win, was draw | +0 |
+
+### June 22, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| France vs Iraq | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+| Senegal vs Norway | 1-1 | 2-3 | ❌ Predicted draw, Norway won | +0 |
+| Argentina vs Austria | 2-0 | 2-0 | ⭐ Perfect score | +6 |
+| Algeria vs Jordan | 1-0 | 2-1 | ✅ Correct outcome + goal difference | +4 |
+
+### June 23, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Portugal vs Uzbekistan | 2-0 | 5-0 | 🟢 Winner correct | +2 |
+| Colombia vs DR Congo | 2-0 | 1-0 | 🟢 Winner correct | +2 |
+| England vs Ghana | 2-0 | 0-0 | ❌ Predicted England win, was draw | +0 |
+| Croatia vs Panama | 1-0 | 1-0 | ⭐ Perfect score | +6 |
+
+### June 24, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Switzerland vs Canada | 1-0 | 2-1 | 🟢 Winner correct | +2 |
+| Bosnia & Herzegovina vs Qatar | 2-1 | 3-1 | 🟢 Winner correct | +2 |
 
 ---
 
@@ -72,10 +144,10 @@ Each prediction earns points based on accuracy:
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 18 |
-| Perfect scores (⭐) | 1 |
-| Winner + GD (✅) | 0 |
-| Winner correct (🟢) | 6 |
-| No match (❌) | 11 |
-| Total points | 16 / 72 |
-| Accuracy (winner) | 39% |
+| Matches played | 50 |
+| Perfect scores (⭐) | 7 |
+| Winner + GD (✅) | 2 |
+| Winner correct (🟢) | 24 |
+| No match (❌) | 17 |
+| Total points | 98 / 300 |
+| Accuracy (winner) | 66% |
