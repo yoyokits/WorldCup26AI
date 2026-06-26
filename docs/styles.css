@@ -539,7 +539,7 @@ body {
 .pt-body {
   max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
 }
-.pt-wrapper.open .pt-body { max-height: 4000px; }
+.pt-wrapper.open .pt-body { max-height: 8000px; }
 .pt-summary {
   display: flex; flex-wrap: wrap; gap: 12px; padding: 16px 20px;
   border-bottom: 1px solid #e2e8f0; background: #fff;
@@ -593,6 +593,15 @@ body {
 .pt-pts-badge.rr-miss { background: #9ca3af; }
 tr.pt-row.rr-perfect { background: #fffbeb; }
 tr.pt-row.rr-gd { background: #f0fdf4; }
+tr.pt-row.rr-future { background: #f8fafc; color: #94a3b8; }
+tr.pt-row.rr-future .pt-team { color: #94a3b8; font-weight: 500; }
+tr.pt-row.rr-future .pt-score { color: #94a3b8; }
+.pt-pts-badge.rr-future { background: #cbd5e1; color: #fff; }
+.pt-section-row td {
+  background: #e2e8f0; font-family: Montserrat, sans-serif; font-weight: 700;
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;
+  color: #64748b; padding: 8px 12px; text-align: center;
+}
 @media (max-width: 600px) {
   .pt-summary { gap: 8px; padding: 12px; }
   .pt-stat-val { font-size: 1.2rem; }
