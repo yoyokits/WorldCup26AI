@@ -397,6 +397,169 @@ document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcount
 <script src="app.js"></script>"""
 
 
+def _prediction_tracker_block():
+    """Collapsible accuracy tracker. Body is filled by buildPredictionTracker() in results.js."""
+    return (
+        '<div class="pt-wrapper" id="predictionTrackerWrap">'
+        '  <div class="pt-header" onclick="this.parentElement.classList.toggle(\'open\')">'
+        '    <span>📊 Prediction Accuracy Tracker</span>'
+        '    <span class="pt-chevron">▼</span>'
+        '  </div>'
+        '  <div class="pt-body" id="predictionTracker"></div>'
+        '</div>'
+    )
+
+
+def _round_picker_block():
+    """Dropdown that jumps to a knockout round on knockout.html."""
+    return (
+        '<div style="background:#f0f4ff;border:2px solid #002868;border-radius:12px;'
+        'padding:20px 16px;margin:0 0 24px;display:flex;align-items:center;flex-wrap:wrap;gap:12px;">'
+        '<span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1rem;color:#002868;">'
+        '&#127942; View Predictions by Round</span>'
+        '<select id="roundPicker" onchange="navigateToDay(this.value)" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:200px;max-width:340px;">'
+        '<option value="">-- Select a round --</option>'
+        '<option value="knockout.html#round-of-32">Round of 32 (16 matches)</option>'
+        '<option value="knockout.html#round-of-16">Round of 16 (8 matches)</option>'
+        '<option value="knockout.html#quarterfinals">Quarterfinals (4 matches)</option>'
+        '<option value="knockout.html#semifinals">Semifinals (2 matches)</option>'
+        '<option value="knockout.html#third-place">Third Place Match</option>'
+        '<option value="knockout.html#final">Final &mdash; Predicted Champion</option>'
+        '</select></div>'
+    )
+
+
+def _team_compare_block():
+    """Two team selectors + comparison panel. Populated by renderComparison() in _index_widgets_js."""
+    return (
+        '<div style="background:#f8fafc;border:2px solid #002868;border-radius:12px;padding:20px 16px;margin:0 0 24px;">'
+        '<div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1rem;color:#002868;margin-bottom:12px;">'
+        '⚔️ Team Comparison</div>'
+        '<div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">'
+        '<select id="teamLeft" onchange="renderComparison()" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:140px;max-width:260px;">'
+        '<option value="">-- Select left team --</option></select>'
+        '<span style="font-weight:800;font-size:1.2rem;color:#002868;">VS</span>'
+        '<select id="teamRight" onchange="renderComparison()" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:140px;max-width:260px;">'
+        '<option value="">-- Select right team --</option></select>'
+        '</div>'
+        '<div id="comparisonPanel" style="margin-top:16px;"></div>'
+        '</div>'
+    )
+
+
+def _index_widgets_js(teams):
+    """Inline JS: TEAM_DATA + navigateToDay + renderComparison.
+
+    Required by the three index-only widgets (tracker, round picker, team
+    comparison). Keep in sync with _prediction_tracker_block,
+    _round_picker_block, _team_compare_block.
+    """
+    team_data = {}
+    for t in teams.values():
+        team_data[t["team"]] = {
+            "slug": t.get("slug", get_slug(t["team"])),
+            "group": t.get("group", ""),
+            "conf": t.get("confederation", ""),
+            "rank": int(t["fifa_rank"]),
+            "elo": int(t["elo"]),
+            "atk": float(t.get("attack_avg", 0)),
+            "def": float(t.get("defense_avg", 0)),
+            "host": 1 if t.get("host") else 0,
+            "form": float(t.get("form", 0)),
+            "injury": float(t.get("injury_impact", 0)),
+            "depth": int(t.get("squad_depth", 0)),
+            "age": float(t.get("avg_age", 0)),
+            "wcExp": int(t.get("wc_experience", 0)),
+            "spOff": int(t.get("set_piece_off", 0)),
+            "spDef": int(t.get("set_piece_def", 0)),
+            "pressure": int(t.get("pressure_rating", 0)),
+            "coach": int(t.get("coach_rating", 0)),
+            "fatigue": float(t.get("fatigue", 0)),
+        }
+    return "\nvar TEAM_DATA=" + json.dumps(team_data, ensure_ascii=False) + ";\n" + r"""
+function navigateToDay(url){if(url)window.location.href=url;}
+(function(){
+  var teams=Object.keys(TEAM_DATA).sort();
+  var selL=document.getElementById('teamLeft');
+  var selR=document.getElementById('teamRight');
+  if(!selL||!selR)return;
+  teams.forEach(function(t){
+    var d=TEAM_DATA[t];
+    var label=t+' (Group '+d.group+')';
+    selL.innerHTML+='<option value="'+t+'">'+label+'</option>';
+    selR.innerHTML+='<option value="'+t+'">'+label+'</option>';
+  });
+})();
+function renderComparison(){
+  var panel=document.getElementById('comparisonPanel');
+  if(!panel)return;
+  var lName=document.getElementById('teamLeft').value;
+  var rName=document.getElementById('teamRight').value;
+  if(!lName&&!rName){panel.innerHTML='';return;}
+  var stats=[
+    {key:'rank',label:'FIFA Rank',fmt:function(v){return '#'+v;},better:'low'},
+    {key:'elo',label:'Elo Rating',fmt:null,better:'high'},
+    {key:'group',label:'Group',fmt:null,better:null},
+    {key:'conf',label:'Confederation',fmt:null,better:null},
+    {key:'atk',label:'Attack Index',fmt:null,better:'high'},
+    {key:'def',label:'Defence Index',fmt:null,better:'low'},
+    {key:'form',label:'Form',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'high'},
+    {key:'depth',label:'Squad Depth',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'coach',label:'Coach Rating',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'pressure',label:'Pressure Rating',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'wcExp',label:'WC Experience',fmt:function(v){return v+' apps';},better:'high'},
+    {key:'spOff',label:'Set Piece Off.',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'spDef',label:'Set Piece Def.',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'age',label:'Avg Age',fmt:null,better:null},
+    {key:'injury',label:'Injury Impact',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'low'},
+    {key:'fatigue',label:'Fatigue',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'low'},
+    {key:'host',label:'Host Nation',fmt:function(v){return v?'Yes':'No';},better:null}
+  ];
+  function teamCard(name){
+    if(!name)return'<div class="tc-side tc-empty"><p style="color:#9ca3af;">Select a team</p></div>';
+    var d=TEAM_DATA[name];
+    var h='<div class="tc-side">';
+    h+='<div class="tc-header"><img src="images/'+d.slug+'.png" alt="'+name+'" class="tc-flag"><span class="tc-name">'+name+'</span></div>';
+    h+='<div class="tc-stats">';
+    stats.forEach(function(s){
+      var v=d[s.key]; var display=s.fmt?s.fmt(v):v;
+      h+='<div class="tc-row"><span class="tc-label">'+s.label+'</span><span class="tc-val">'+display+'</span></div>';
+    });
+    h+='</div></div>';
+    return h;
+  }
+  function barRow(s,lVal,rVal){
+    var lDisp=s.fmt?s.fmt(lVal):lVal;
+    var rDisp=s.fmt?s.fmt(rVal):rVal;
+    var lWin='',rWin='';
+    if(s.better==='high'){if(lVal>rVal)lWin=' tc-win';else if(rVal>lVal)rWin=' tc-win';}
+    else if(s.better==='low'){if(lVal<rVal)lWin=' tc-win';else if(rVal<lVal)rWin=' tc-win';}
+    return'<div class="tc-bar-row"><span class="tc-bar-val'+lWin+'">'+lDisp+'</span><span class="tc-bar-label">'+s.label+'</span><span class="tc-bar-val'+rWin+'">'+rDisp+'</span></div>';
+  }
+  var html='';
+  if(lName&&rName){
+    var ld=TEAM_DATA[lName],rd=TEAM_DATA[rName];
+    html='<div class="tc-vs"><div class="tc-vs-header">';
+    html+='<div class="tc-vs-team"><img src="images/'+ld.slug+'.png" class="tc-flag"><span class="tc-name">'+lName+'</span></div>';
+    html+='<span class="tc-vs-label">VS</span>';
+    html+='<div class="tc-vs-team"><img src="images/'+rd.slug+'.png" class="tc-flag"><span class="tc-name">'+rName+'</span></div>';
+    html+='</div><div class="tc-bar-grid">';
+    stats.forEach(function(s){html+=barRow(s,ld[s.key],rd[s.key]);});
+    html+='</div></div>';
+  } else {
+    html=teamCard(lName||rName);
+  }
+  panel.innerHTML=html;
+}
+"""
+
+
 def _shared_js():
     return """
 function toggleGroupMenu(e){
@@ -700,6 +863,15 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
         '<a href="prediction_method.html" class="btn btn-outline" style="border-color:white;color:white">Prediction Method</a>'
         "</div></div>"
     )
+    # ── Three index-only widgets (DO NOT REMOVE) ─────────────────────────────
+    # These three blocks (Prediction Tracker, Round Picker, Team Comparison)
+    # have been silently dropped in past regenerations. They depend on
+    # results.js + the TEAM_DATA payload + navigateToDay/renderComparison
+    # JS at the bottom of the page. If you remove any of them, update this
+    # comment and the matching note in CLAUDE.md "Index page contract".
+    html += _prediction_tracker_block()
+    html += _round_picker_block()
+    html += _team_compare_block()
     html += '<h2 class="section-title">Predicted Knockout Bracket</h2>'
     html += bracket_html
     html += '<h2 class="section-title">Match Calendar</h2>'
@@ -726,6 +898,7 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
     html += f"<script>\nvar calCards={json.dumps(cal_cards_json)};\n"
     html += _calendar_js()
     html += _shared_js()
+    html += _index_widgets_js(teams)
     html += "\n</script></body></html>"
 
     _write_html("index.html", html)
