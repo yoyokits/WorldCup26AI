@@ -95,44 +95,44 @@ var REAL_RESULTS = {
   "DR Congo vs Uzbekistan":                { home: 1, away: 0, ph: 1, pa: 1, d: "Jun 27" },
   "England vs Panama":                     { home: 3, away: 0, ph: 2, pa: 0, d: "Jun 27" },
   "Croatia vs Ghana":                      { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 27" },
-  // Round of 32
+  // Round of 32 (re-seeded after group stage)
   "Argentina vs Bosnia & Herzegovina":     { ph: 2, pa: 0, d: "Jun 29" },
   "Spain vs Ghana":                        { ph: 2, pa: 0, d: "Jun 29" },
   "France vs Canada":                      { ph: 2, pa: 0, d: "Jun 29" },
   "England vs Scotland":                   { ph: 2, pa: 0, d: "Jun 29" },
-  "Portugal vs Ivory Coast":               { ph: 1, pa: 0, d: "Jun 30" },
-  "Brazil vs Algeria":                     { ph: 2, pa: 1, d: "Jun 30" },
+  "Colombia vs Ivory Coast":               { ph: 1, pa: 0, d: "Jun 30" },
+  "Brazil vs Austria":                     { ph: 2, pa: 1, d: "Jun 30" },
   "Netherlands vs Egypt":                  { ph: 2, pa: 1, d: "Jun 30" },
   "Germany vs Sweden":                     { ph: 2, pa: 1, d: "Jun 30" },
-  "Colombia vs South Korea":               { ph: 2, pa: 1, d: "Jul 1" },
-  "Belgium vs Austria":                    { ph: 2, pa: 1, d: "Jul 1" },
-  "Uruguay vs Norway":                     { ph: 2, pa: 1, d: "Jul 1" },
-  "Croatia vs Türkiye":                    { ph: 1, pa: 0, d: "Jul 1" },
-  "Morocco vs Iran":                       { ph: 1, pa: 0, d: "Jul 2" },
-  "Senegal vs Ecuador":                    { ph: 0, pa: 1, d: "Jul 2" },
+  "Portugal vs South Korea":               { ph: 2, pa: 0, d: "Jul 1" },
+  "Belgium vs Algeria":                    { ph: 2, pa: 1, d: "Jul 1" },
+  "Cape Verde vs Norway":                  { ph: 1, pa: 2, d: "Jul 1" },
+  "Croatia vs Paraguay":                   { ph: 1, pa: 0, d: "Jul 1" },
+  "Morocco vs DR Congo":                   { ph: 1, pa: 0, d: "Jul 2" },
+  "Senegal vs Australia":                  { ph: 1, pa: 0, d: "Jul 2" },
   "Switzerland vs USA":                    { ph: 2, pa: 1, d: "Jul 2" },
   "Japan vs Mexico":                       { ph: 2, pa: 1, d: "Jul 2" },
   // Round of 16
   "Argentina vs Spain":                    { ph: 2, pa: 1, d: "Jul 5" },
   "France vs England":                     { ph: 2, pa: 1, d: "Jul 5" },
-  "Portugal vs Brazil":                    { ph: 2, pa: 1, d: "Jul 6" },
+  "Colombia vs Brazil":                    { ph: 1, pa: 2, d: "Jul 6" },
   "Netherlands vs Germany":                { ph: 1, pa: 2, d: "Jul 6" },
-  "Colombia vs Belgium":                   { ph: 2, pa: 1, d: "Jul 7" },
-  "Uruguay vs Croatia":                    { ph: 2, pa: 1, d: "Jul 7" },
-  "Morocco vs Ecuador":                    { ph: 1, pa: 0, d: "Jul 8" },
+  "Portugal vs Belgium":                   { ph: 2, pa: 1, d: "Jul 7" },
+  "Norway vs Croatia":                     { ph: 2, pa: 1, d: "Jul 7" },
+  "Morocco vs Senegal":                    { ph: 1, pa: 0, d: "Jul 8" },
   "Switzerland vs Japan":                  { ph: 1, pa: 0, d: "Jul 8" },
   // Quarterfinals
   "Argentina vs France":                   { ph: 2, pa: 1, d: "Jul 11" },
-  "Portugal vs Germany":                   { ph: 2, pa: 1, d: "Jul 11" },
-  "Colombia vs Uruguay":                   { ph: 2, pa: 1, d: "Jul 12" },
+  "Brazil vs Germany":                     { ph: 1, pa: 2, d: "Jul 11" },
+  "Portugal vs Norway":                    { ph: 2, pa: 1, d: "Jul 12" },
   "Morocco vs Switzerland":                { ph: 1, pa: 0, d: "Jul 12" },
   // Semifinals
-  "Argentina vs Portugal":                 { ph: 2, pa: 1, d: "Jul 15" },
-  "Colombia vs Morocco":                   { ph: 1, pa: 0, d: "Jul 15" },
+  "Argentina vs Germany":                  { ph: 2, pa: 1, d: "Jul 15" },
+  "Portugal vs Morocco":                   { ph: 1, pa: 0, d: "Jul 15" },
   // Third Place
-  "Portugal vs Morocco":                   { ph: 1, pa: 0, d: "Jul 18" },
+  "Germany vs Morocco":                    { ph: 1, pa: 0, d: "Jul 18" },
   // Final
-  "Argentina vs Colombia":                 { ph: 2, pa: 1, d: "Jul 19" }
+  "Argentina vs Portugal":                 { ph: 2, pa: 1, d: "Jul 19" }
 };
 
 function getOutcome(h, a) {
