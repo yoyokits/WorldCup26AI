@@ -1,8 +1,6 @@
 # World Cup 2026 — Third Place Match
 
-> Re-derived after R32 re-seeding. SF losers meet.
+## Match 103 — France vs England
 
-## Match 103 — Germany vs Morocco
-
-- **Prediction:** Germany wins 1-0
-- **Win prob:** Germany 44% | Draw 27% | Morocco 28%
+- **Prediction:** France wins 2-1
+- **Win prob:** France 40% | Draw 27% | England 33%

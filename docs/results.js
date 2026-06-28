@@ -95,44 +95,44 @@ var REAL_RESULTS = {
   "DR Congo vs Uzbekistan":                { home: 1, away: 0, ph: 1, pa: 1, d: "Jun 27" },
   "England vs Panama":                     { home: 3, away: 0, ph: 2, pa: 0, d: "Jun 27" },
   "Croatia vs Ghana":                      { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 27" },
-  // Round of 32 (re-seeded after group stage; FIFA day distribution 1/3/3/3/3/3)
-  "Argentina vs Bosnia & Herzegovina":     { ph: 2, pa: 0, d: "Jun 28" },
-  "Spain vs Ghana":                        { ph: 2, pa: 0, d: "Jun 29" },
-  "France vs Canada":                      { ph: 2, pa: 0, d: "Jun 29" },
-  "England vs Scotland":                   { ph: 2, pa: 0, d: "Jun 29" },
-  "Colombia vs Ivory Coast":               { ph: 1, pa: 0, d: "Jun 30" },
-  "Brazil vs Austria":                     { ph: 2, pa: 1, d: "Jun 30" },
-  "Netherlands vs Egypt":                  { ph: 2, pa: 1, d: "Jun 30" },
-  "Germany vs Sweden":                     { ph: 2, pa: 1, d: "Jul 1" },
-  "Portugal vs South Korea":               { ph: 2, pa: 0, d: "Jul 1" },
-  "Belgium vs Algeria":                    { ph: 2, pa: 1, d: "Jul 1" },
-  "Cape Verde vs Norway":                  { ph: 1, pa: 2, d: "Jul 2" },
-  "Croatia vs Paraguay":                   { ph: 1, pa: 0, d: "Jul 2" },
-  "Morocco vs DR Congo":                   { ph: 1, pa: 0, d: "Jul 2" },
-  "Senegal vs Australia":                  { ph: 1, pa: 0, d: "Jul 3" },
-  "Switzerland vs USA":                    { ph: 2, pa: 1, d: "Jul 3" },
-  "Japan vs Mexico":                       { ph: 2, pa: 1, d: "Jul 3" },
-  // Round of 16
-  "Argentina vs Spain":                    { ph: 2, pa: 1, d: "Jul 5" },
-  "France vs England":                     { ph: 2, pa: 1, d: "Jul 5" },
-  "Colombia vs Brazil":                    { ph: 1, pa: 2, d: "Jul 6" },
-  "Netherlands vs Germany":                { ph: 1, pa: 2, d: "Jul 6" },
-  "Portugal vs Belgium":                   { ph: 2, pa: 1, d: "Jul 7" },
-  "Norway vs Croatia":                     { ph: 2, pa: 1, d: "Jul 7" },
-  "Morocco vs Senegal":                    { ph: 1, pa: 0, d: "Jul 8" },
-  "Switzerland vs Japan":                  { ph: 1, pa: 0, d: "Jul 8" },
-  // Quarterfinals
-  "Argentina vs France":                   { ph: 2, pa: 1, d: "Jul 11" },
-  "Brazil vs Germany":                     { ph: 1, pa: 2, d: "Jul 11" },
-  "Portugal vs Norway":                    { ph: 2, pa: 1, d: "Jul 12" },
-  "Morocco vs Switzerland":                { ph: 1, pa: 0, d: "Jul 12" },
-  // Semifinals
-  "Argentina vs Germany":                  { ph: 2, pa: 1, d: "Jul 15" },
-  "Portugal vs Morocco":                   { ph: 1, pa: 0, d: "Jul 15" },
-  // Third Place
-  "Germany vs Morocco":                    { ph: 1, pa: 0, d: "Jul 18" },
-  // Final
-  "Argentina vs Portugal":                 { ph: 2, pa: 1, d: "Jul 19" }
+  // Round of 32 — official FIFA bracket fixtures (Jun 28 - Jul 3)
+  "South Africa vs Canada":                { ph: 1, pa: 2, d: "Jun 28" },
+  "Brazil vs Japan":                       { ph: 2, pa: 1, d: "Jun 29" },
+  "Germany vs Paraguay":                   { ph: 2, pa: 0, d: "Jun 29" },
+  "Netherlands vs Morocco":                { ph: 1, pa: 0, d: "Jun 29" },
+  "Ivory Coast vs Norway":                 { ph: 1, pa: 2, d: "Jun 30" },
+  "France vs Sweden":                      { ph: 2, pa: 1, d: "Jun 30" },
+  "Mexico vs Ecuador":                     { ph: 0, pa: 1, d: "Jun 30" },
+  "England vs DR Congo":                   { ph: 2, pa: 0, d: "Jul 1" },
+  "Belgium vs Senegal":                    { ph: 1, pa: 0, d: "Jul 1" },
+  "USA vs Bosnia & Herzegovina":           { ph: 2, pa: 1, d: "Jul 1" },
+  "Spain vs Austria":                      { ph: 2, pa: 0, d: "Jul 2" },
+  "Portugal vs Croatia":                   { ph: 1, pa: 0, d: "Jul 2" },
+  "Switzerland vs Algeria":                { ph: 1, pa: 0, d: "Jul 2" },
+  "Australia vs Egypt":                    { ph: 0, pa: 1, d: "Jul 3" },
+  "Argentina vs Cape Verde":               { ph: 2, pa: 0, d: "Jul 3" },
+  "Colombia vs Ghana":                     { ph: 2, pa: 0, d: "Jul 3" },
+  // Round of 16 (Jul 4-7)
+  "Germany vs France":                     { ph: 1, pa: 2, d: "Jul 4" },
+  "Canada vs Netherlands":                 { ph: 1, pa: 2, d: "Jul 4" },
+  "Brazil vs Norway":                      { ph: 2, pa: 1, d: "Jul 5" },
+  "Ecuador vs England":                    { ph: 0, pa: 1, d: "Jul 5" },
+  "Portugal vs Spain":                     { ph: 1, pa: 2, d: "Jul 6" },
+  "USA vs Belgium":                        { ph: 1, pa: 2, d: "Jul 6" },
+  "Argentina vs Egypt":                    { ph: 2, pa: 0, d: "Jul 7" },
+  "Switzerland vs Colombia":               { ph: 0, pa: 1, d: "Jul 7" },
+  // Quarterfinals (Jul 9-11)
+  "France vs Netherlands":                 { ph: 2, pa: 1, d: "Jul 9" },
+  "Spain vs Belgium":                      { ph: 2, pa: 0, d: "Jul 10" },
+  "Brazil vs England":                     { ph: 1, pa: 2, d: "Jul 11" },
+  "Argentina vs Colombia":                 { ph: 2, pa: 1, d: "Jul 11" },
+  // Semifinals (Jul 14-15)
+  "France vs Spain":                       { ph: 1, pa: 2, d: "Jul 14" },
+  "England vs Argentina":                  { ph: 1, pa: 2, d: "Jul 15" },
+  // Third Place (Jul 18)
+  "France vs England":                     { ph: 2, pa: 1, d: "Jul 18" },
+  // Final (Jul 19)
+  "Spain vs Argentina":                    { ph: 1, pa: 2, d: "Jul 19" }
 };
 
 function getOutcome(h, a) {
