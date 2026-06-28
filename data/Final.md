@@ -2,7 +2,7 @@
 
 > Re-derived after R32 re-seeding.
 
-## Argentina vs Portugal
+## Match 104 — Argentina vs Portugal
 
 - **Prediction:** Argentina wins 2-1
 - **Win prob:** Argentina 46% | Draw 26% | Portugal 28%

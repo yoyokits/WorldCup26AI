@@ -55,14 +55,42 @@ def _norm(name):
 
 
 def _date_to_iso(date_str):
-    months = {"january": "01", "february": "02", "march": "03", "april": "04",
-              "may": "05", "june": "06", "july": "07", "august": "08"}
+    months = {"january": "01", "jan": "01", "february": "02", "feb": "02",
+              "march": "03", "mar": "03", "april": "04", "apr": "04",
+              "may": "05", "june": "06", "jun": "06", "july": "07", "jul": "07",
+              "august": "08", "aug": "08"}
     parts = date_str.strip().split()
     if len(parts) >= 2:
-        m = months.get(parts[0].lower(), "06")
+        m = months.get(parts[0].lower().strip("."), "06")
         d = parts[1].strip(",").zfill(2)
         return f"2026-{m}-{d}"
     return "2026-06-11"
+
+
+def _iso_to_date(iso):
+    months = {"06": "June", "07": "July"}
+    parts = iso.split("-")
+    if len(parts) == 3:
+        return f"{months.get(parts[1], 'June')} {int(parts[2])}"
+    return iso
+
+
+def _parse_results_js_dates():
+    """Read docs/results.js and return {frozenset(team_a, team_b): iso_date} for knockout matches."""
+    path = os.path.join(ROOT, "docs", "results.js")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    out = {}
+    for m in re.finditer(
+        r'"([^"]+?)\s+vs\s+([^"]+?)":\s*\{[^}]*?\bd:\s*"([^"]+)"',
+        text,
+    ):
+        home, away, date_str = m.group(1), m.group(2), m.group(3)
+        key = frozenset({_norm(home), _norm(away)})
+        out[key] = _date_to_iso(date_str)
+    return out
 
 
 def _et_to_utc(time_et):
@@ -591,9 +619,13 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
             gs_matches_by_key[key] = m
 
     ko_match_data = {}
+    ko_match_by_key = {}
     for fn in ["RoundOf32.md", "RoundOf16.md", "Quarterfinals.md", "Semifinals.md", "ThirdPlace.md", "Final.md"]:
         for m in parse_knockout_file(fn):
             ko_match_data[m["num"]] = m
+            ko_match_by_key[frozenset({_norm(m["home"]), _norm(m["away"])})] = m
+
+    ko_dates = _parse_results_js_dates()
 
     cal_cards_html = {}
     for date_str, sched_matches in by_date.items():
@@ -609,16 +641,16 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
         if cards:
             cal_cards_html[d] = cards
 
-    for label, matches in ko_schedule.items():
-        for m in matches:
-            d = m["date_iso"]
-            km = ko_match_data.get(m["match_num"])
-            if km:
-                sinfo = {"date": m["date"], "date_iso": m["date_iso"],
-                         "time_utc": m["time_utc"], "venue": m["venue"]}
-                card = match_card_html(km, teams, sinfo)
-                cal_cards_html.setdefault(d, "")
-                cal_cards_html[d] += card
+    for key, km in ko_match_by_key.items():
+        date_iso = ko_dates.get(key)
+        if not date_iso:
+            continue
+        date_str = _iso_to_date(date_iso)
+        sinfo = {"date": date_str, "date_iso": date_iso,
+                 "time_utc": "", "venue": ""}
+        card = match_card_html(km, teams, sinfo)
+        cal_cards_html.setdefault(date_iso, "")
+        cal_cards_html[date_iso] += card
 
     cal_cards_json = {k: v for k, v in cal_cards_html.items()}
 
