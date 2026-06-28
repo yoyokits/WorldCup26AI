@@ -230,7 +230,7 @@ def parse_knockout_file(filename):
     for m in re.finditer(
         r"## Match (\d+) — (.+?) vs (.+?)\n.*?"
         r"\*\*Prediction:\*\*\s*(.+?)\s+wins\s+(\d+)-(\d+)(.*?)\n"
-        r".*?\*\*Win prob:\*\*\s*\S+\s+(\d+)%.*?Draw\s+(\d+)%.*?(\d+)%",
+        r".*?\*\*Win prob:\*\*\s*.+?\s+(\d+)%\s*\|\s*Draw\s+(\d+)%\s*\|\s*.+?\s+(\d+)%",
         text,
         re.DOTALL,
     ):
