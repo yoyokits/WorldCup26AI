@@ -68,7 +68,71 @@ var REAL_RESULTS = {
   "Croatia vs Panama":                   { home: 1, away: 0, ph: 1, pa: 0, d: "Jun 23" },
   // June 24
   "Switzerland vs Canada":                { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 24" },
-  "Bosnia & Herzegovina vs Qatar":        { home: 3, away: 1, ph: 2, pa: 1, d: "Jun 24" }
+  "Bosnia & Herzegovina vs Qatar":        { home: 3, away: 1, ph: 2, pa: 1, d: "Jun 24" },
+  // June 24 (remaining group)
+  "Mexico vs Czechia":                     { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 24" },
+  "South Korea vs South Africa":           { home: 1, away: 1, ph: 2, pa: 1, d: "Jun 24" },
+  "Brazil vs Scotland":                    { home: 3, away: 1, ph: 2, pa: 1, d: "Jun 24" },
+  "Morocco vs Haiti":                      { home: 2, away: 0, ph: 2, pa: 0, d: "Jun 24" },
+  // June 25
+  "USA vs Türkiye":                        { home: 2, away: 1, ph: 2, pa: 1, d: "Jun 25" },
+  "Australia vs Paraguay":                 { home: 1, away: 2, ph: 1, pa: 1, d: "Jun 25" },
+  "Germany vs Ecuador":                    { home: 3, away: 0, ph: 1, pa: 0, d: "Jun 25" },
+  "Ivory Coast vs Curaçao":               { home: 2, away: 0, ph: 2, pa: 0, d: "Jun 25" },
+  "Netherlands vs Tunisia":                { home: 1, away: 0, ph: 2, pa: 0, d: "Jun 25" },
+  "Japan vs Sweden":                       { home: 2, away: 2, ph: 1, pa: 1, d: "Jun 25" },
+  // June 26
+  "Belgium vs New Zealand":                { home: 1, away: 1, ph: 2, pa: 0, d: "Jun 26" },
+  "Iran vs Egypt":                         { home: 0, away: 2, ph: 0, pa: 1, d: "Jun 26" },
+  "Spain vs Uruguay":                      { home: 3, away: 1, ph: 2, pa: 1, d: "Jun 26" },
+  "Saudi Arabia vs Cape Verde":            { home: 0, away: 0, ph: 1, pa: 1, d: "Jun 26" },
+  "France vs Norway":                      { home: 2, away: 1, ph: 2, pa: 1, d: "Jun 26" },
+  "Senegal vs Iraq":                       { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 26" },
+  // June 27
+  "Argentina vs Jordan":                   { home: 3, away: 0, ph: 2, pa: 0, d: "Jun 27" },
+  "Austria vs Algeria":                    { home: 0, away: 1, ph: 1, pa: 1, d: "Jun 27" },
+  "Portugal vs Colombia":                  { home: 1, away: 1, ph: 2, pa: 1, d: "Jun 27" },
+  "DR Congo vs Uzbekistan":                { home: 1, away: 0, ph: 1, pa: 1, d: "Jun 27" },
+  "England vs Panama":                     { home: 3, away: 0, ph: 2, pa: 0, d: "Jun 27" },
+  "Croatia vs Ghana":                      { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 27" },
+  // Round of 32
+  "Argentina vs Bosnia & Herzegovina":     { ph: 2, pa: 0, d: "Jun 29" },
+  "Spain vs Ghana":                        { ph: 2, pa: 0, d: "Jun 29" },
+  "France vs Canada":                      { ph: 2, pa: 0, d: "Jun 29" },
+  "England vs Scotland":                   { ph: 2, pa: 0, d: "Jun 29" },
+  "Portugal vs Ivory Coast":               { ph: 1, pa: 0, d: "Jun 30" },
+  "Brazil vs Algeria":                     { ph: 2, pa: 1, d: "Jun 30" },
+  "Netherlands vs Egypt":                  { ph: 2, pa: 1, d: "Jun 30" },
+  "Germany vs Sweden":                     { ph: 2, pa: 1, d: "Jun 30" },
+  "Colombia vs South Korea":               { ph: 2, pa: 1, d: "Jul 1" },
+  "Belgium vs Austria":                    { ph: 2, pa: 1, d: "Jul 1" },
+  "Uruguay vs Norway":                     { ph: 2, pa: 1, d: "Jul 1" },
+  "Croatia vs Türkiye":                    { ph: 1, pa: 0, d: "Jul 1" },
+  "Morocco vs Iran":                       { ph: 1, pa: 0, d: "Jul 2" },
+  "Senegal vs Ecuador":                    { ph: 0, pa: 1, d: "Jul 2" },
+  "Switzerland vs USA":                    { ph: 2, pa: 1, d: "Jul 2" },
+  "Japan vs Mexico":                       { ph: 2, pa: 1, d: "Jul 2" },
+  // Round of 16
+  "Argentina vs Spain":                    { ph: 2, pa: 1, d: "Jul 5" },
+  "France vs England":                     { ph: 2, pa: 1, d: "Jul 5" },
+  "Portugal vs Brazil":                    { ph: 2, pa: 1, d: "Jul 6" },
+  "Netherlands vs Germany":                { ph: 1, pa: 2, d: "Jul 6" },
+  "Colombia vs Belgium":                   { ph: 2, pa: 1, d: "Jul 7" },
+  "Uruguay vs Croatia":                    { ph: 2, pa: 1, d: "Jul 7" },
+  "Morocco vs Ecuador":                    { ph: 1, pa: 0, d: "Jul 8" },
+  "Switzerland vs Japan":                  { ph: 1, pa: 0, d: "Jul 8" },
+  // Quarterfinals
+  "Argentina vs France":                   { ph: 2, pa: 1, d: "Jul 11" },
+  "Portugal vs Germany":                   { ph: 2, pa: 1, d: "Jul 11" },
+  "Colombia vs Uruguay":                   { ph: 2, pa: 1, d: "Jul 12" },
+  "Morocco vs Switzerland":                { ph: 1, pa: 0, d: "Jul 12" },
+  // Semifinals
+  "Argentina vs Portugal":                 { ph: 2, pa: 1, d: "Jul 15" },
+  "Colombia vs Morocco":                   { ph: 1, pa: 0, d: "Jul 15" },
+  // Third Place
+  "Portugal vs Morocco":                   { ph: 1, pa: 0, d: "Jul 18" },
+  // Final
+  "Argentina vs Colombia":                 { ph: 2, pa: 1, d: "Jul 19" }
 };
 
 function getOutcome(h, a) {
@@ -102,7 +166,7 @@ function injectResultBadges() {
     var away = names[1].textContent.trim();
     var key = home + " vs " + away;
     var real = REAL_RESULTS[key];
-    if (!real) return;
+    if (!real || real.home === undefined) return;
 
     var scoreEl = card.querySelector(".match-score");
     if (!scoreEl) return;
@@ -139,20 +203,26 @@ function buildPredictionTracker() {
   keys.forEach(function(key) {
     var r = REAL_RESULTS[key];
     if (r.ph === undefined) return;
-    var c = classifyPrediction(r.ph, r.pa, r.home, r.away);
-    totalPts += c.pts;
-    maxPts += 6;
-    counts[c.tier]++;
     var parts = key.split(" vs ");
-    rows.push({ date: r.d, home: parts[0], away: parts[1], pred: r.ph + "-" + r.pa, actual: r.home + "-" + r.away, c: c });
+    var played = r.home !== undefined;
+    if (played) {
+      var c = classifyPrediction(r.ph, r.pa, r.home, r.away);
+      totalPts += c.pts;
+      maxPts += 6;
+      counts[c.tier]++;
+      rows.push({ date: r.d, home: parts[0], away: parts[1], pred: r.ph + "-" + r.pa, actual: r.home + "-" + r.away, c: c, future: false });
+    } else {
+      rows.push({ date: r.d, home: parts[0], away: parts[1], pred: r.ph + "-" + r.pa, actual: "—", c: { tier: "future", pts: 0, cls: "rr-future", icon: "🔮", label: "Upcoming" }, future: true });
+    }
   });
 
-  var matchCount = rows.length;
+  var playedCount = rows.filter(function(r) { return !r.future; }).length;
+  var upcomingCount = rows.filter(function(r) { return r.future; }).length;
   var correctOutcomes = counts.perfect + counts.winner_gd + counts.winner;
-  var pct = matchCount > 0 ? Math.round((correctOutcomes / matchCount) * 100) : 0;
+  var pct = playedCount > 0 ? Math.round((correctOutcomes / playedCount) * 100) : 0;
 
   var html = '<div class="pt-summary">';
-  html += '<div class="pt-stat"><span class="pt-stat-val">' + matchCount + '</span><span class="pt-stat-lbl">Matches</span></div>';
+  html += '<div class="pt-stat"><span class="pt-stat-val">' + playedCount + '<span class="pt-stat-max">/' + (playedCount + upcomingCount) + '</span></span><span class="pt-stat-lbl">Played</span></div>';
   html += '<div class="pt-stat"><span class="pt-stat-val">' + totalPts + '<span class="pt-stat-max">/' + maxPts + '</span></span><span class="pt-stat-lbl">Points</span></div>';
   html += '<div class="pt-stat"><span class="pt-stat-val">' + pct + '%</span><span class="pt-stat-lbl">Accuracy</span></div>';
   html += '<div class="pt-stat"><span class="pt-stat-val">' + counts.perfect + '</span><span class="pt-stat-lbl">⭐ Perfect</span></div>';
@@ -167,14 +237,23 @@ function buildPredictionTracker() {
   html += '<thead><tr><th>Date</th><th>Home</th><th>Away</th><th>Pred</th><th>Actual</th><th>Pts</th></tr></thead>';
   html += '<tbody>';
 
+  var shownFutureHeader = false;
   rows.forEach(function(row) {
+    if (row.future && !shownFutureHeader) {
+      shownFutureHeader = true;
+      html += '<tr class="pt-section-row"><td colspan="6">Upcoming Matches (not scored)</td></tr>';
+    }
     html += '<tr class="pt-row ' + row.c.cls + '">';
     html += '<td class="pt-date">' + row.date + '</td>';
     html += '<td class="pt-team">' + row.home + '</td>';
     html += '<td class="pt-team">' + row.away + '</td>';
     html += '<td class="pt-score">' + row.pred + '</td>';
     html += '<td class="pt-score">' + row.actual + '</td>';
-    html += '<td class="pt-pts"><span class="pt-pts-badge ' + row.c.cls + '">' + row.c.icon + ' +' + row.c.pts + '</span></td>';
+    if (row.future) {
+      html += '<td class="pt-pts"><span class="pt-pts-badge rr-future">' + row.c.icon + '</span></td>';
+    } else {
+      html += '<td class="pt-pts"><span class="pt-pts-badge ' + row.c.cls + '">' + row.c.icon + ' +' + row.c.pts + '</span></td>';
+    }
     html += '</tr>';
   });
 

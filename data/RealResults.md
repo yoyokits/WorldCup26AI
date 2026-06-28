@@ -137,6 +137,43 @@ Each prediction earns points based on accuracy:
 |-------|-----------|--------|--------|-----|
 | Switzerland vs Canada | 1-0 | 2-1 | 🟢 Winner correct | +2 |
 | Bosnia & Herzegovina vs Qatar | 2-1 | 3-1 | 🟢 Winner correct | +2 |
+| Mexico vs Czechia | 1-0 | 2-1 | 🟢 Winner correct | +2 |
+| South Korea vs South Africa | 2-1 | 1-1 | ❌ Predicted SK win, was draw | +0 |
+| Brazil vs Scotland | 2-1 | 3-1 | 🟢 Winner correct | +2 |
+| Morocco vs Haiti | 2-0 | 2-0 | ⭐ Perfect score | +6 |
+
+### June 25, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| USA vs Türkiye | 2-1 | 2-1 | ⭐ Perfect score | +6 |
+| Australia vs Paraguay | 1-1 | 1-2 | ❌ Predicted draw, Paraguay won | +0 |
+| Germany vs Ecuador | 1-0 | 3-0 | 🟢 Winner correct | +2 |
+| Ivory Coast vs Curaçao | 2-0 | 2-0 | ⭐ Perfect score | +6 |
+| Netherlands vs Tunisia | 2-0 | 1-0 | 🟢 Winner correct | +2 |
+| Japan vs Sweden | 1-1 | 2-2 | ✅ Correct draw, GD match | +4 |
+
+### June 26, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Belgium vs New Zealand | 2-0 | 1-1 | ❌ Predicted Belgium win, was draw | +0 |
+| Iran vs Egypt | 0-1 | 0-2 | 🟢 Winner correct | +2 |
+| Spain vs Uruguay | 2-1 | 3-1 | 🟢 Winner correct | +2 |
+| Saudi Arabia vs Cape Verde | 1-1 | 0-0 | ✅ Correct draw, GD match | +4 |
+| France vs Norway | 2-1 | 2-1 | ⭐ Perfect score | +6 |
+| Senegal vs Iraq | 1-0 | 2-1 | 🟢 Winner correct | +2 |
+
+### June 27, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Argentina vs Jordan | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+| Austria vs Algeria | 1-1 | 0-1 | ❌ Predicted draw, Algeria won | +0 |
+| Portugal vs Colombia | 2-1 | 1-1 | ❌ Predicted Portugal win, was draw | +0 |
+| DR Congo vs Uzbekistan | 1-1 | 1-0 | ❌ Predicted draw, DR Congo won | +0 |
+| England vs Panama | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+| Croatia vs Ghana | 1-0 | 2-1 | 🟢 Winner correct | +2 |
 
 ---
 
@@ -144,10 +181,12 @@ Each prediction earns points based on accuracy:
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 50 |
-| Perfect scores (⭐) | 7 |
-| Winner + GD (✅) | 2 |
-| Winner correct (🟢) | 24 |
-| No match (❌) | 17 |
-| Total points | 98 / 300 |
-| Accuracy (winner) | 66% |
+| Matches played | 72 |
+| Perfect scores (⭐) | 11 |
+| Winner + GD (✅) | 4 |
+| Winner correct (🟢) | 34 |
+| No match (❌) | 23 |
+| Total points | 150 / 432 |
+| Accuracy (winner) | 68% |
+
+> Group stage complete. Round of 32 begins June 29.
