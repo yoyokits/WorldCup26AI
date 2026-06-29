@@ -131,12 +131,24 @@ Structure per group:
 ```
 
 ### `data/RoundOf32.md` through `data/Final.md`
-Structure:
+Structure (every match — including `ThirdPlace.md` and `Final.md` — must use the `## Match N — A vs B` header, otherwise `parse_knockout_file` silently drops it):
 ```
 ## Match N — [Team A] vs [Team B]
 - **Prediction:** Team A wins 2–1
-- **Reasoning:** ...
+- **Win prob:** Team A 47% | Draw 26% | Team B 27%
 ```
+
+---
+
+## Index page contract (DO NOT silently drop)
+
+`docs/index.html` MUST always include these widgets above the bracket:
+
+1. **Prediction Accuracy Tracker** — `<div class="pt-wrapper" id="predictionTrackerWrap">` (filled by `buildPredictionTracker()` in `results.js`).
+2. **View Predictions by Round** — `<select id="roundPicker">` calling `navigateToDay()`.
+3. **Team Comparison** — `<select id="teamLeft">` + `<select id="teamRight">` + `<div id="comparisonPanel">` driven by `renderComparison()` and `TEAM_DATA`.
+
+These are produced by `_prediction_tracker_block()`, `_round_picker_block()`, `_team_compare_block()` and the inline `_index_widgets_js(teams)` in `tools/generate_html.py`. They depend on `results.js` and `app.js` being loaded — `html_footer()` MUST keep the `<script src="results.js"></script>` and `<script src="app.js"></script>` tags. If you refactor the index template, verify after every regeneration that all three widget IDs are present in `docs/index.html`. **Regression history:** these widgets were silently dropped in commits `cc3c8e9`, `912a254`, `a882a2f` and `92ead9e` (June 2026) because the generator produced the index page without them; restored in the commit following this note.
 
 ---
 

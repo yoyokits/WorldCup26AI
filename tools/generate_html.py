@@ -55,14 +55,42 @@ def _norm(name):
 
 
 def _date_to_iso(date_str):
-    months = {"january": "01", "february": "02", "march": "03", "april": "04",
-              "may": "05", "june": "06", "july": "07", "august": "08"}
+    months = {"january": "01", "jan": "01", "february": "02", "feb": "02",
+              "march": "03", "mar": "03", "april": "04", "apr": "04",
+              "may": "05", "june": "06", "jun": "06", "july": "07", "jul": "07",
+              "august": "08", "aug": "08"}
     parts = date_str.strip().split()
     if len(parts) >= 2:
-        m = months.get(parts[0].lower(), "06")
+        m = months.get(parts[0].lower().strip("."), "06")
         d = parts[1].strip(",").zfill(2)
         return f"2026-{m}-{d}"
     return "2026-06-11"
+
+
+def _iso_to_date(iso):
+    months = {"06": "June", "07": "July"}
+    parts = iso.split("-")
+    if len(parts) == 3:
+        return f"{months.get(parts[1], 'June')} {int(parts[2])}"
+    return iso
+
+
+def _parse_results_js_dates():
+    """Read docs/results.js and return {frozenset(team_a, team_b): iso_date} for knockout matches."""
+    path = os.path.join(ROOT, "docs", "results.js")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    out = {}
+    for m in re.finditer(
+        r'"([^"]+?)\s+vs\s+([^"]+?)":\s*\{[^}]*?\bd:\s*"([^"]+)"',
+        text,
+    ):
+        home, away, date_str = m.group(1), m.group(2), m.group(3)
+        key = frozenset({_norm(home), _norm(away)})
+        out[key] = _date_to_iso(date_str)
+    return out
 
 
 def _et_to_utc(time_et):
@@ -230,7 +258,7 @@ def parse_knockout_file(filename):
     for m in re.finditer(
         r"## Match (\d+) — (.+?) vs (.+?)\n.*?"
         r"\*\*Prediction:\*\*\s*(.+?)\s+wins\s+(\d+)-(\d+)(.*?)\n"
-        r".*?\*\*Win prob:\*\*\s*\S+\s+(\d+)%.*?Draw\s+(\d+)%.*?(\d+)%",
+        r".*?\*\*Win prob:\*\*\s*.+?\s+(\d+)%\s*\|\s*Draw\s+(\d+)%\s*\|\s*.+?\s+(\d+)%",
         text,
         re.DOTALL,
     ):
@@ -364,7 +392,172 @@ var scJsHost = "https://";
 document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
 </script>
 <noscript><div class="statcounter"><a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/13290639/0/f4b5a0b5/0/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->"""
+<!-- End of Statcounter Code -->
+<script src="results.js"></script>
+<script src="app.js"></script>"""
+
+
+def _prediction_tracker_block():
+    """Collapsible accuracy tracker. Body is filled by buildPredictionTracker() in results.js."""
+    return (
+        '<div class="pt-wrapper" id="predictionTrackerWrap">'
+        '  <div class="pt-header" onclick="this.parentElement.classList.toggle(\'open\')">'
+        '    <span>📊 Prediction Accuracy Tracker</span>'
+        '    <span class="pt-chevron">▼</span>'
+        '  </div>'
+        '  <div class="pt-body" id="predictionTracker"></div>'
+        '</div>'
+    )
+
+
+def _round_picker_block():
+    """Dropdown that jumps to a knockout round on knockout.html."""
+    return (
+        '<div style="background:#f0f4ff;border:2px solid #002868;border-radius:12px;'
+        'padding:20px 16px;margin:0 0 24px;display:flex;align-items:center;flex-wrap:wrap;gap:12px;">'
+        '<span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1rem;color:#002868;">'
+        '&#127942; View Predictions by Round</span>'
+        '<select id="roundPicker" onchange="navigateToDay(this.value)" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:200px;max-width:340px;">'
+        '<option value="">-- Select a round --</option>'
+        '<option value="knockout.html#round-of-32">Round of 32 (16 matches)</option>'
+        '<option value="knockout.html#round-of-16">Round of 16 (8 matches)</option>'
+        '<option value="knockout.html#quarterfinals">Quarterfinals (4 matches)</option>'
+        '<option value="knockout.html#semifinals">Semifinals (2 matches)</option>'
+        '<option value="knockout.html#third-place">Third Place Match</option>'
+        '<option value="knockout.html#final">Final &mdash; Predicted Champion</option>'
+        '</select></div>'
+    )
+
+
+def _team_compare_block():
+    """Two team selectors + comparison panel. Populated by renderComparison() in _index_widgets_js."""
+    return (
+        '<div style="background:#f8fafc;border:2px solid #002868;border-radius:12px;padding:20px 16px;margin:0 0 24px;">'
+        '<div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1rem;color:#002868;margin-bottom:12px;">'
+        '⚔️ Team Comparison</div>'
+        '<div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">'
+        '<select id="teamLeft" onchange="renderComparison()" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:140px;max-width:260px;">'
+        '<option value="">-- Select left team --</option></select>'
+        '<span style="font-weight:800;font-size:1.2rem;color:#002868;">VS</span>'
+        '<select id="teamRight" onchange="renderComparison()" '
+        'style="padding:10px 14px;border:2px solid #002868;border-radius:8px;font-size:0.9rem;'
+        'font-weight:600;background:white;color:#0a1628;cursor:pointer;flex:1;min-width:140px;max-width:260px;">'
+        '<option value="">-- Select right team --</option></select>'
+        '</div>'
+        '<div id="comparisonPanel" style="margin-top:16px;"></div>'
+        '</div>'
+    )
+
+
+def _index_widgets_js(teams):
+    """Inline JS: TEAM_DATA + navigateToDay + renderComparison.
+
+    Required by the three index-only widgets (tracker, round picker, team
+    comparison). Keep in sync with _prediction_tracker_block,
+    _round_picker_block, _team_compare_block.
+    """
+    team_data = {}
+    for t in teams.values():
+        team_data[t["team"]] = {
+            "slug": t.get("slug", get_slug(t["team"])),
+            "group": t.get("group", ""),
+            "conf": t.get("confederation", ""),
+            "rank": int(t["fifa_rank"]),
+            "elo": int(t["elo"]),
+            "atk": float(t.get("attack_avg", 0)),
+            "def": float(t.get("defense_avg", 0)),
+            "host": 1 if t.get("host") else 0,
+            "form": float(t.get("form", 0)),
+            "injury": float(t.get("injury_impact", 0)),
+            "depth": int(t.get("squad_depth", 0)),
+            "age": float(t.get("avg_age", 0)),
+            "wcExp": int(t.get("wc_experience", 0)),
+            "spOff": int(t.get("set_piece_off", 0)),
+            "spDef": int(t.get("set_piece_def", 0)),
+            "pressure": int(t.get("pressure_rating", 0)),
+            "coach": int(t.get("coach_rating", 0)),
+            "fatigue": float(t.get("fatigue", 0)),
+        }
+    return "\nvar TEAM_DATA=" + json.dumps(team_data, ensure_ascii=False) + ";\n" + r"""
+function navigateToDay(url){if(url)window.location.href=url;}
+(function(){
+  var teams=Object.keys(TEAM_DATA).sort();
+  var selL=document.getElementById('teamLeft');
+  var selR=document.getElementById('teamRight');
+  if(!selL||!selR)return;
+  teams.forEach(function(t){
+    var d=TEAM_DATA[t];
+    var label=t+' (Group '+d.group+')';
+    selL.innerHTML+='<option value="'+t+'">'+label+'</option>';
+    selR.innerHTML+='<option value="'+t+'">'+label+'</option>';
+  });
+})();
+function renderComparison(){
+  var panel=document.getElementById('comparisonPanel');
+  if(!panel)return;
+  var lName=document.getElementById('teamLeft').value;
+  var rName=document.getElementById('teamRight').value;
+  if(!lName&&!rName){panel.innerHTML='';return;}
+  var stats=[
+    {key:'rank',label:'FIFA Rank',fmt:function(v){return '#'+v;},better:'low'},
+    {key:'elo',label:'Elo Rating',fmt:null,better:'high'},
+    {key:'group',label:'Group',fmt:null,better:null},
+    {key:'conf',label:'Confederation',fmt:null,better:null},
+    {key:'atk',label:'Attack Index',fmt:null,better:'high'},
+    {key:'def',label:'Defence Index',fmt:null,better:'low'},
+    {key:'form',label:'Form',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'high'},
+    {key:'depth',label:'Squad Depth',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'coach',label:'Coach Rating',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'pressure',label:'Pressure Rating',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'wcExp',label:'WC Experience',fmt:function(v){return v+' apps';},better:'high'},
+    {key:'spOff',label:'Set Piece Off.',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'spDef',label:'Set Piece Def.',fmt:function(v){return v+'/10';},better:'high'},
+    {key:'age',label:'Avg Age',fmt:null,better:null},
+    {key:'injury',label:'Injury Impact',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'low'},
+    {key:'fatigue',label:'Fatigue',fmt:function(v){return(v*100).toFixed(0)+'%';},better:'low'},
+    {key:'host',label:'Host Nation',fmt:function(v){return v?'Yes':'No';},better:null}
+  ];
+  function teamCard(name){
+    if(!name)return'<div class="tc-side tc-empty"><p style="color:#9ca3af;">Select a team</p></div>';
+    var d=TEAM_DATA[name];
+    var h='<div class="tc-side">';
+    h+='<div class="tc-header"><img src="images/'+d.slug+'.png" alt="'+name+'" class="tc-flag"><span class="tc-name">'+name+'</span></div>';
+    h+='<div class="tc-stats">';
+    stats.forEach(function(s){
+      var v=d[s.key]; var display=s.fmt?s.fmt(v):v;
+      h+='<div class="tc-row"><span class="tc-label">'+s.label+'</span><span class="tc-val">'+display+'</span></div>';
+    });
+    h+='</div></div>';
+    return h;
+  }
+  function barRow(s,lVal,rVal){
+    var lDisp=s.fmt?s.fmt(lVal):lVal;
+    var rDisp=s.fmt?s.fmt(rVal):rVal;
+    var lWin='',rWin='';
+    if(s.better==='high'){if(lVal>rVal)lWin=' tc-win';else if(rVal>lVal)rWin=' tc-win';}
+    else if(s.better==='low'){if(lVal<rVal)lWin=' tc-win';else if(rVal<lVal)rWin=' tc-win';}
+    return'<div class="tc-bar-row"><span class="tc-bar-val'+lWin+'">'+lDisp+'</span><span class="tc-bar-label">'+s.label+'</span><span class="tc-bar-val'+rWin+'">'+rDisp+'</span></div>';
+  }
+  var html='';
+  if(lName&&rName){
+    var ld=TEAM_DATA[lName],rd=TEAM_DATA[rName];
+    html='<div class="tc-vs"><div class="tc-vs-header">';
+    html+='<div class="tc-vs-team"><img src="images/'+ld.slug+'.png" class="tc-flag"><span class="tc-name">'+lName+'</span></div>';
+    html+='<span class="tc-vs-label">VS</span>';
+    html+='<div class="tc-vs-team"><img src="images/'+rd.slug+'.png" class="tc-flag"><span class="tc-name">'+rName+'</span></div>';
+    html+='</div><div class="tc-bar-grid">';
+    stats.forEach(function(s){html+=barRow(s,ld[s.key],rd[s.key]);});
+    html+='</div></div>';
+  } else {
+    html=teamCard(lName||rName);
+  }
+  panel.innerHTML=html;
+}
+"""
 
 
 def _shared_js():
@@ -591,9 +784,13 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
             gs_matches_by_key[key] = m
 
     ko_match_data = {}
+    ko_match_by_key = {}
     for fn in ["RoundOf32.md", "RoundOf16.md", "Quarterfinals.md", "Semifinals.md", "ThirdPlace.md", "Final.md"]:
         for m in parse_knockout_file(fn):
             ko_match_data[m["num"]] = m
+            ko_match_by_key[frozenset({_norm(m["home"]), _norm(m["away"])})] = m
+
+    ko_dates = _parse_results_js_dates()
 
     cal_cards_html = {}
     for date_str, sched_matches in by_date.items():
@@ -609,16 +806,16 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
         if cards:
             cal_cards_html[d] = cards
 
-    for label, matches in ko_schedule.items():
-        for m in matches:
-            d = m["date_iso"]
-            km = ko_match_data.get(m["match_num"])
-            if km:
-                sinfo = {"date": m["date"], "date_iso": m["date_iso"],
-                         "time_utc": m["time_utc"], "venue": m["venue"]}
-                card = match_card_html(km, teams, sinfo)
-                cal_cards_html.setdefault(d, "")
-                cal_cards_html[d] += card
+    for key, km in ko_match_by_key.items():
+        date_iso = ko_dates.get(key)
+        if not date_iso:
+            continue
+        date_str = _iso_to_date(date_iso)
+        sinfo = {"date": date_str, "date_iso": date_iso,
+                 "time_utc": "", "venue": ""}
+        card = match_card_html(km, teams, sinfo)
+        cal_cards_html.setdefault(date_iso, "")
+        cal_cards_html[date_iso] += card
 
     cal_cards_json = {k: v for k, v in cal_cards_html.items()}
 
@@ -666,6 +863,15 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
         '<a href="prediction_method.html" class="btn btn-outline" style="border-color:white;color:white">Prediction Method</a>'
         "</div></div>"
     )
+    # ── Three index-only widgets (DO NOT REMOVE) ─────────────────────────────
+    # These three blocks (Prediction Tracker, Round Picker, Team Comparison)
+    # have been silently dropped in past regenerations. They depend on
+    # results.js + the TEAM_DATA payload + navigateToDay/renderComparison
+    # JS at the bottom of the page. If you remove any of them, update this
+    # comment and the matching note in CLAUDE.md "Index page contract".
+    html += _prediction_tracker_block()
+    html += _round_picker_block()
+    html += _team_compare_block()
     html += '<h2 class="section-title">Predicted Knockout Bracket</h2>'
     html += bracket_html
     html += '<h2 class="section-title">Match Calendar</h2>'
@@ -692,6 +898,7 @@ def generate_index(teams, groups_data, sim_data, schedule, by_date, ko_schedule)
     html += f"<script>\nvar calCards={json.dumps(cal_cards_json)};\n"
     html += _calendar_js()
     html += _shared_js()
+    html += _index_widgets_js(teams)
     html += "\n</script></body></html>"
 
     _write_html("index.html", html)

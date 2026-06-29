@@ -177,16 +177,24 @@ Each prediction earns points based on accuracy:
 
 ---
 
+## Round of 32 Results
+
+### June 28, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| South Africa vs Canada | 1-2 | 0-1 | ✅ Correct outcome + goal difference | +4 |
+
+---
+
 ## Running Totals
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 72 |
+| Matches played | 73 |
 | Perfect scores (⭐) | 11 |
-| Winner + GD (✅) | 4 |
+| Winner + GD (✅) | 5 |
 | Winner correct (🟢) | 34 |
 | No match (❌) | 23 |
-| Total points | 150 / 432 |
+| Total points | 154 / 438 |
 | Accuracy (winner) | 68% |
-
-> Group stage complete. Round of 32 begins June 29.
