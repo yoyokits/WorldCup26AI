@@ -266,14 +266,25 @@ def parse_knockout_file(filename):
         extra = m.group(7).strip()
         if "aet" in extra or "pens" in extra:
             note = extra.strip("() ")
+        home = m.group(2).strip()
+        away = m.group(3).strip()
+        winner = m.group(4).strip()
+        winner_goals = int(m.group(5))
+        loser_goals = int(m.group(6))
+        # Map "{winner} wins X-Y" (winner-loser scoreline) to home-away scoreline.
+        # Without this swap the score renders backwards whenever the away team wins.
+        if winner == away:
+            score_a, score_b = loser_goals, winner_goals
+        else:
+            score_a, score_b = winner_goals, loser_goals
         matches.append(
             dict(
                 num=int(m.group(1)),
-                home=m.group(2).strip(),
-                away=m.group(3).strip(),
-                winner=m.group(4).strip(),
-                score_a=int(m.group(5)),
-                score_b=int(m.group(6)),
+                home=home,
+                away=away,
+                winner=winner,
+                score_a=score_a,
+                score_b=score_b,
                 note=note,
                 p_home=int(m.group(8)),
                 p_draw=int(m.group(9)),
