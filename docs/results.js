@@ -96,7 +96,7 @@ var REAL_RESULTS = {
   "England vs Panama":                     { home: 3, away: 0, ph: 2, pa: 0, d: "Jun 27" },
   "Croatia vs Ghana":                      { home: 2, away: 1, ph: 1, pa: 0, d: "Jun 27" },
   // Round of 32 — official FIFA bracket fixtures (Jun 28 - Jul 3)
-  "South Africa vs Canada":                { ph: 1, pa: 2, d: "Jun 28" },
+  "South Africa vs Canada":                { home: 0, away: 1, ph: 1, pa: 2, d: "Jun 28" },
   "Brazil vs Japan":                       { ph: 2, pa: 1, d: "Jun 29" },
   "Germany vs Paraguay":                   { ph: 2, pa: 0, d: "Jun 29" },
   "Netherlands vs Morocco":                { ph: 1, pa: 0, d: "Jun 29" },
