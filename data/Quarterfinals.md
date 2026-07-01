@@ -1,9 +1,9 @@
 # World Cup 2026 — Quarterfinal Predictions
 
-## Match 1 — France vs Netherlands
+## Match 1 — France vs Morocco
 
-- **Prediction:** France wins 2-1
-- **Win prob:** France 45% | Draw 25% | Netherlands 30%
+- **Prediction:** France wins 1-0
+- **Win prob:** France 47% | Draw 27% | Morocco 26%
 
 ## Match 2 — Spain vs Belgium
 

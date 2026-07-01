@@ -185,16 +185,40 @@ Each prediction earns points based on accuracy:
 |-------|-----------|--------|--------|-----|
 | South Africa vs Canada | 1-2 | 0-1 | ✅ Correct outcome + goal difference | +4 |
 
+### June 29, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Brazil vs Japan | 2-1 | 2-1 | ⭐ Perfect score | +6 |
+| Germany vs Paraguay | 2-0 | 1-1 (Paraguay 4-3 pens) | ❌ Predicted Germany win, was draw at 90' | +0 |
+| Netherlands vs Morocco | 1-0 | 1-1 (Morocco 3-2 pens) | ❌ Predicted Netherlands win, was draw at 90' | +0 |
+
+### June 30, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Ivory Coast vs Norway | 1-2 | 1-2 | ⭐ Perfect score | +6 |
+| France vs Sweden | 2-1 | 3-0 | 🟢 Winner correct | +2 |
+| Mexico vs Ecuador | 0-1 | 2-0 | ❌ Predicted Ecuador win, Mexico won | +0 |
+
+### July 1, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| England vs DR Congo | 2-0 | 2-1 | 🟢 Winner correct | +2 |
+
 ---
 
 ## Running Totals
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 73 |
-| Perfect scores (⭐) | 11 |
+| Matches played | 80 |
+| Perfect scores (⭐) | 13 |
 | Winner + GD (✅) | 5 |
-| Winner correct (🟢) | 34 |
-| No match (❌) | 23 |
-| Total points | 154 / 438 |
+| Winner correct (🟢) | 36 |
+| No match (❌) | 26 |
+| Total points | 170 / 480 |
 | Accuracy (winner) | 68% |
+
+> Belgium vs Senegal and USA vs Bosnia & Herzegovina scheduled for Jul 1 evening — not yet played.

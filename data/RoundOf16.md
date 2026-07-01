@@ -1,26 +1,27 @@
 # World Cup 2026 — Round of 16 Predictions
 
-> Derived from R32 winners via the FIFA M89–M96 bracket pairing.
+> Pairings derived from actual R32 winners where known; pending R32 matches
+> use the model's predicted winner.
 
-## Match 1 — Germany vs France
+## Match 1 — Paraguay vs France
 
-- **Prediction:** France wins 2-1
-- **Win prob:** Germany 34% | Draw 25% | France 40%
+- **Prediction:** France wins 2-0
+- **Win prob:** Paraguay 13% | Draw 20% | France 67%
 
-## Match 2 — Canada vs Netherlands
+## Match 2 — Canada vs Morocco
 
-- **Prediction:** Netherlands wins 2-1
-- **Win prob:** Canada 21% | Draw 24% | Netherlands 55%
+- **Prediction:** Morocco wins 1-0
+- **Win prob:** Canada 24% | Draw 28% | Morocco 48%
 
 ## Match 3 — Brazil vs Norway
 
 - **Prediction:** Brazil wins 2-1
 - **Win prob:** Brazil 50% | Draw 24% | Norway 26%
 
-## Match 4 — Ecuador vs England
+## Match 4 — Mexico vs England
 
 - **Prediction:** England wins 1-0
-- **Win prob:** Ecuador 25% | Draw 28% | England 47%
+- **Win prob:** Mexico 24% | Draw 26% | England 49%
 
 ## Match 5 — Portugal vs Spain
 
