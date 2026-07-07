@@ -222,6 +222,16 @@ These are produced by `_prediction_tracker_block()`, `_round_picker_block()`, `_
 
 ---
 
+## Updating Real Match Results
+
+When the user asks to record played matches / update the tracker:
+1. **Fetch scores yourself** via WebSearch + WebFetch. Do NOT ask the user to paste them.
+2. Cross-check across at least two sources — prefer **FIFA.com**, **ESPN**, **BBC Sport**, **Wikipedia** (`2026_FIFA_World_Cup_knockout_stage`), **Olympics.com**. Avoid crypto-affiliated aggregators.
+3. Record actuals in **both** `data/RealResults.md` and `docs/results.js` (key format `"Home vs Away"`, matching prediction team-name spans exactly, including diacritics like Türkiye / Curaçao).
+4. After R32/R16 actuals, re-derive next-round pairings from actual winners and re-run `python tools/predict.py` for the next round's file (`data/RoundOf16.md`, `data/Quarterfinals.md`, etc.).
+5. Remove eliminated teams from the calendar / bracket views; update dates for the next round to match `data/WorldCup2026.md`.
+6. Only ask the user if sources disagree or a match genuinely has no reported result.
+
 ## Work Plan
 
 ### Phase 1 — Group Stage Predictions
