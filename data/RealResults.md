@@ -206,6 +206,56 @@ Each prediction earns points based on accuracy:
 | Match | Predicted | Actual | Result | Pts |
 |-------|-----------|--------|--------|-----|
 | England vs DR Congo | 2-0 | 2-1 | 🟢 Winner correct | +2 |
+| Belgium vs Senegal | 1-0 | 3-2 (a.e.t.) | 🟢 Winner correct | +2 |
+| USA vs Bosnia & Herzegovina | 2-1 | 2-0 | 🟢 Winner correct | +2 |
+
+### July 2, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Spain vs Austria | 2-0 | 3-0 | 🟢 Winner correct | +2 |
+| Portugal vs Croatia | 1-0 | 2-1 | 🟢 Winner correct | +2 |
+| Switzerland vs Algeria | 1-0 | 2-0 | 🟢 Winner correct | +2 |
+
+### July 3, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Australia vs Egypt | 0-1 | 1-1 (Egypt 4-2 pens) | 🟢 Egypt advanced (predicted winner) | +2 |
+| Argentina vs Cape Verde | 2-0 | 3-2 | 🟢 Winner correct | +2 |
+| Colombia vs Ghana | 2-0 | 1-0 | 🟢 Winner correct | +2 |
+
+---
+
+## Round of 16 Results
+
+### July 4, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Paraguay vs France | 0-2 | 0-1 | 🟢 Winner correct | +2 |
+| Canada vs Morocco | 0-1 | 0-3 | 🟢 Winner correct | +2 |
+
+### July 5, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Brazil vs Norway | 2-1 | 1-2 | ❌ Predicted Brazil win, Norway won (Haaland brace) | +0 |
+| Mexico vs England | 0-1 | 2-3 | 🟢 Winner correct | +2 |
+
+### July 6, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Portugal vs Spain | 1-2 | 0-1 | 🟢 Winner correct | +2 |
+| USA vs Belgium | 1-2 | 1-4 | 🟢 Winner correct | +2 |
+
+### July 7, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Argentina vs Egypt | 2-0 | 3-2 | 🟢 Winner correct (Argentina back from 2-0 down) | +2 |
+| Switzerland vs Colombia | 0-1 | *pending* | — | — |
 
 ---
 
@@ -213,12 +263,21 @@ Each prediction earns points based on accuracy:
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 80 |
+| Matches played | 95 |
 | Perfect scores (⭐) | 13 |
 | Winner + GD (✅) | 5 |
-| Winner correct (🟢) | 36 |
-| No match (❌) | 26 |
-| Total points | 170 / 480 |
-| Accuracy (winner) | 68% |
+| Winner correct (🟢) | 50 |
+| No match (❌) | 27 |
+| Total points | 198 / 570 |
+| Accuracy (winner) | 72% |
 
-> Belgium vs Senegal and USA vs Bosnia & Herzegovina scheduled for Jul 1 evening — not yet played.
+> Switzerland vs Colombia (Jul 7, 4 PM ET, BC Place Vancouver) played but result not yet mirrored in indexed public sources at time of update. Update when confirmed.
+
+## Sources
+
+- FIFA official: https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026
+- ESPN R32 recap (Jul 1): https://www.espn.com/espn/story/_/id/49242118/2026-fifa-world-cup-recap-england-congo-dr-senegal-belgium-usa-bosnia-herzegovina
+- ESPN Brazil 1-2 Norway: https://www.espn.com/soccer/story/_/id/49278406/brazil-vs-norway-live-world-cup-2026-updates-score-commentary-result
+- Yahoo R16 bracket recap: https://sports.yahoo.com/articles/world-cup-round-16-bracket-125306612.html
+- Wikipedia (2026 knockout stage): https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage
+- FOX Sports QF live update: https://www.foxsports.com/stories/soccer/world-cup-bracket-live-quarterfinals-update-standings
