@@ -355,26 +355,6 @@ body {
   background: rgba(220,38,38,0.14); color: #b91c1c;
 }
 .bracket-badge-fail .bracket-badge-text { text-decoration: line-through; text-decoration-thickness: 1.5px; }
-.bracket-pred-marker {
-  display: inline-flex; align-items: center; gap: 3px;
-  margin-left: 6px; padding: 1px 4px;
-  background: rgba(220,38,38,0.10);
-  border: 1px dashed rgba(220,38,38,0.55);
-  border-radius: 4px;
-  font-size: 0.55rem; font-weight: 700;
-  color: #b91c1c;
-  opacity: 0.85;
-}
-.bracket-pred-marker img {
-  width: 12px; height: 8px; object-fit: cover; border-radius: 1px;
-  filter: grayscale(0.4);
-}
-.bracket-pred-x { font-weight: 900; font-size: 0.65rem; }
-.bracket-pred-name {
-  text-decoration: line-through;
-  text-decoration-thickness: 1px;
-  max-width: 48px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
 .bracket-champion { align-items: center; justify-content: center; }
 .champion-match {
   text-align: center; padding: 10px; display: flex; flex-direction: column;

@@ -298,8 +298,8 @@ def parse_group_stage():
     return groups
 
 
-def parse_knockout_file(filename):
-    path = os.path.join(DATA, filename)
+def parse_knockout_file(filename, subdir=""):
+    path = os.path.join(DATA, subdir, filename) if subdir else os.path.join(DATA, filename)
     if not os.path.exists(path):
         return []
     with open(path, encoding="utf-8") as f:
@@ -787,6 +787,9 @@ def standings_html(standings):
 
 
 def _build_bracket_tree():
+    """Render the ORIGINAL pre-tournament predicted bracket (data/original/*.md).
+    That baseline never changes; actual match results (from docs/results.js) are
+    overlaid only where the original predicted pairing actually occurred."""
     rounds = [
         ("R32", "Round of 32", "RoundOf32.md"),
         ("R16", "Round of 16", "RoundOf16.md"),
@@ -796,7 +799,7 @@ def _build_bracket_tree():
     ]
     bracket_data = {}
     for key, label, fn in rounds:
-        matches = parse_knockout_file(fn)
+        matches = parse_knockout_file(fn, subdir="original")
         bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in matches]
 
     actuals = _parse_results_js_scores()
@@ -834,33 +837,14 @@ def _build_bracket_tree():
                     f'{extra}'
                     f'</div>'
                 )
-                # On wrong predictions, render a ghost marker of the team we
-                # predicted to advance, tucked on the right of the actual winner.
-                h_marker, a_marker = "", ""
-                if not pred_correct and act_winner is not None:
-                    pred_slug = get_slug(winner)
-                    marker = (
-                        f'<span class="bracket-pred-marker" '
-                        f'title="Predicted {winner} to advance">'
-                        f'<span class="bracket-pred-x">✗</span>'
-                        f'<img src="images/{pred_slug}.png" alt="">'
-                        f'<span class="bracket-pred-name">{winner}</span>'
-                        f'</span>'
-                    )
-                    if act_winner == home:
-                        h_marker = marker
-                    else:
-                        a_marker = marker
                 html += (
                     f'<div class="bracket-match played">'
                     f'<div class="bracket-team{h_cls}">'
                     f'<img src="images/{h_slug}.png" alt="">'
-                    f'<span>{home}</span>'
-                    f'<span class="bracket-score">{ah}</span>{h_marker}</div>'
+                    f'<span>{home}</span><span class="bracket-score">{ah}</span></div>'
                     f'<div class="bracket-team{a_cls}">'
                     f'<img src="images/{a_slug}.png" alt="">'
-                    f'<span>{away}</span>'
-                    f'<span class="bracket-score">{aa}</span>{a_marker}</div>'
+                    f'<span>{away}</span><span class="bracket-score">{aa}</span></div>'
                     f'{footer}'
                     f'</div>'
                 )
