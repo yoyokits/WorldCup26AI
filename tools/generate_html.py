@@ -834,14 +834,33 @@ def _build_bracket_tree():
                     f'{extra}'
                     f'</div>'
                 )
+                # On wrong predictions, render a ghost marker of the team we
+                # predicted to advance, tucked on the right of the actual winner.
+                h_marker, a_marker = "", ""
+                if not pred_correct and act_winner is not None:
+                    pred_slug = get_slug(winner)
+                    marker = (
+                        f'<span class="bracket-pred-marker" '
+                        f'title="Predicted {winner} to advance">'
+                        f'<span class="bracket-pred-x">✗</span>'
+                        f'<img src="images/{pred_slug}.png" alt="">'
+                        f'<span class="bracket-pred-name">{winner}</span>'
+                        f'</span>'
+                    )
+                    if act_winner == home:
+                        h_marker = marker
+                    else:
+                        a_marker = marker
                 html += (
                     f'<div class="bracket-match played">'
                     f'<div class="bracket-team{h_cls}">'
                     f'<img src="images/{h_slug}.png" alt="">'
-                    f'<span>{home}</span><span class="bracket-score">{ah}</span></div>'
+                    f'<span>{home}</span>'
+                    f'<span class="bracket-score">{ah}</span>{h_marker}</div>'
                     f'<div class="bracket-team{a_cls}">'
                     f'<img src="images/{a_slug}.png" alt="">'
-                    f'<span>{away}</span><span class="bracket-score">{aa}</span></div>'
+                    f'<span>{away}</span>'
+                    f'<span class="bracket-score">{aa}</span>{a_marker}</div>'
                     f'{footer}'
                     f'</div>'
                 )
