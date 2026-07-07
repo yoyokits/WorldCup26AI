@@ -93,6 +93,57 @@ def _parse_results_js_dates():
     return out
 
 
+def _parse_results_js_scores():
+    """Read docs/results.js and return {frozenset: {home_name, away_name, home, away, ph, pa, note}}.
+    Only entries with a numeric `home:` field (actual result recorded) are included."""
+    path = os.path.join(ROOT, "docs", "results.js")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    out = {}
+    for m in re.finditer(r'"([^"]+?)\s+vs\s+([^"]+?)":\s*\{([^}]+)\}', text):
+        home_name, away_name, body = m.group(1), m.group(2), m.group(3)
+        def _num(k):
+            mm = re.search(rf'\b{k}:\s*(-?\d+)', body)
+            return int(mm.group(1)) if mm else None
+        h_actual = _num("home")
+        if h_actual is None:
+            continue
+        note_m = re.search(r'note:\s*"([^"]+)"', body)
+        out[frozenset({_norm(home_name), _norm(away_name)})] = {
+            "home_name": home_name,
+            "away_name": away_name,
+            "home": h_actual,
+            "away": _num("away"),
+            "ph": _num("ph"),
+            "pa": _num("pa"),
+            "note": note_m.group(1) if note_m else "",
+        }
+    return out
+
+
+def _actual_winner(home, away, act):
+    """Return the actual winner name for a played match, or None if genuine draw."""
+    if _norm(act["home_name"]) == _norm(home):
+        ah, aa = act["home"], act["away"]
+    else:
+        ah, aa = act["away"], act["home"]
+    if ah > aa:
+        return home
+    if aa > ah:
+        return away
+    note = (act.get("note") or "").lower()
+    pens = re.match(r'^([a-z .&-]+?)\s+\d+-\d+\s+pens', note)
+    if pens:
+        w = pens.group(1).strip()
+        if w in _norm(home):
+            return home
+        if w in _norm(away):
+            return away
+    return None
+
+
 def _et_to_utc(time_et):
     m = re.match(r"(\d+):(\d+)\s*(AM|PM)", time_et, re.I)
     if not m:
@@ -748,27 +799,65 @@ def _build_bracket_tree():
         matches = parse_knockout_file(fn)
         bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in matches]
 
+    actuals = _parse_results_js_scores()
+
     html = '<div class="bracket-wrap"><div class="bracket">'
     for key, label, _ in rounds:
         matches = bracket_data.get(key, [])
         html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
         for home, away, sa, sb, winner, note in matches:
             h_slug, a_slug = get_slug(home), get_slug(away)
-            score = f"{sa}-{sb}"
-            if note:
-                score += f" ({note})"
-            h_cls = " bracket-winner" if winner == home else ""
-            a_cls = " bracket-winner" if winner == away else ""
-            html += (
-                f'<div class="bracket-match">'
-                f'<div class="bracket-team{h_cls}">'
-                f'<img src="images/{h_slug}.png" alt="">'
-                f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
-                f'<div class="bracket-team{a_cls}">'
-                f'<img src="images/{a_slug}.png" alt="">'
-                f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
-                f'</div>'
-            )
+            act = actuals.get(frozenset({_norm(home), _norm(away)}))
+
+            if act:
+                # Reorient actual scores to (home, away) predicted orientation.
+                if _norm(act["home_name"]) == _norm(home):
+                    ah, aa = act["home"], act["away"]
+                else:
+                    ah, aa = act["away"], act["home"]
+                act_winner = _actual_winner(home, away, act)
+                h_cls = " bracket-winner" if act_winner == home else ""
+                a_cls = " bracket-winner" if act_winner == away else ""
+                pred_correct = (act_winner is not None and winner == act_winner)
+                is_perfect = pred_correct and sa == ah and sb == aa
+                if is_perfect:
+                    badge_cls, icon, label_txt = "bracket-badge-perfect", "★", "Perfect"
+                elif pred_correct:
+                    badge_cls, icon, label_txt = "bracket-badge-ok", "✓", f"Predicted {sa}-{sb}"
+                else:
+                    badge_cls, icon, label_txt = "bracket-badge-fail", "✗", f"Predicted {sa}-{sb}"
+                extra = f' <span class="bracket-badge-note">({act["note"]})</span>' if act.get("note") else ""
+                footer = (
+                    f'<div class="bracket-footer {badge_cls}">'
+                    f'<span class="bracket-badge-icon">{icon}</span>'
+                    f'<span class="bracket-badge-text">{label_txt}</span>'
+                    f'{extra}'
+                    f'</div>'
+                )
+                html += (
+                    f'<div class="bracket-match played">'
+                    f'<div class="bracket-team{h_cls}">'
+                    f'<img src="images/{h_slug}.png" alt="">'
+                    f'<span>{home}</span><span class="bracket-score">{ah}</span></div>'
+                    f'<div class="bracket-team{a_cls}">'
+                    f'<img src="images/{a_slug}.png" alt="">'
+                    f'<span>{away}</span><span class="bracket-score">{aa}</span></div>'
+                    f'{footer}'
+                    f'</div>'
+                )
+            else:
+                h_cls = " bracket-winner" if winner == home else ""
+                a_cls = " bracket-winner" if winner == away else ""
+                html += (
+                    f'<div class="bracket-match">'
+                    f'<div class="bracket-team{h_cls}">'
+                    f'<img src="images/{h_slug}.png" alt="">'
+                    f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
+                    f'<div class="bracket-team{a_cls}">'
+                    f'<img src="images/{a_slug}.png" alt="">'
+                    f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
+                    f'</div>'
+                )
         html += '</div>'
 
     final = bracket_data.get("Final", [])
