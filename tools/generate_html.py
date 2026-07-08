@@ -786,10 +786,62 @@ def standings_html(standings):
 # ── Page generators ───────────────────────────────────────────────────────
 
 
+def _build_actuals_by_round(actuals, ko_dates):
+    """Return {round_key: {norm(team): act_entry}} where act_entry is the
+    actual match info from docs/results.js for that team at that round."""
+    round_by_date = {}
+    for d in (28, 29, 30):
+        round_by_date[f"2026-06-{d}"] = "R32"
+    for d in (1, 2, 3):
+        round_by_date[f"2026-07-0{d}"] = "R32"
+    for d in (4, 5, 6, 7):
+        round_by_date[f"2026-07-0{d}"] = "R16"
+    for d in (9, 10, 11):
+        round_by_date[f"2026-07-{d:02d}"] = "QF"
+    for d in (14, 15):
+        round_by_date[f"2026-07-{d}"] = "SF"
+    round_by_date["2026-07-19"] = "Final"
+    by_round = {}
+    for key, act in actuals.items():
+        iso = ko_dates.get(key)
+        if not iso:
+            continue
+        rk = round_by_date.get(iso)
+        if not rk:
+            continue
+        by_round.setdefault(rk, {})[_norm(act["home_name"])] = act
+        by_round.setdefault(rk, {})[_norm(act["away_name"])] = act
+    return by_round
+
+
+def _bracket_team_row(team, score, is_winner, ghost_of=None):
+    """Render one team row inside a bracket-match card."""
+    slug = get_slug(team)
+    cls = " bracket-winner" if is_winner else ""
+    ghost = ""
+    if ghost_of:
+        g_slug = get_slug(ghost_of)
+        ghost = (
+            f'<span class="bracket-pred-marker" '
+            f'title="Predicted {ghost_of} here">'
+            f'<span class="bracket-pred-x">✗</span>'
+            f'<img src="images/{g_slug}.png" alt="">'
+            f'<span class="bracket-pred-name">{ghost_of}</span>'
+            f'</span>'
+        )
+    score_html = f'<span class="bracket-score">{score}</span>' if score != "" else ""
+    return (
+        f'<div class="bracket-team{cls}">'
+        f'<img src="images/{slug}.png" alt="">'
+        f'<span>{team}</span>{score_html}{ghost}</div>'
+    )
+
+
 def _build_bracket_tree():
-    """Render the ORIGINAL pre-tournament predicted bracket (data/original/*.md).
-    That baseline never changes; actual match results (from docs/results.js) are
-    overlaid only where the original predicted pairing actually occurred."""
+    """Render the ORIGINAL pre-tournament predicted bracket structure
+    (data/original/*.md) with real match results overlaid. Where the
+    prediction and the actual pairing diverge, the wrongly-predicted team
+    is shown as a ghost badge on the team that actually filled the slot."""
     rounds = [
         ("R32", "Round of 32", "RoundOf32.md"),
         ("R16", "Round of 16", "RoundOf16.md"),
@@ -803,64 +855,129 @@ def _build_bracket_tree():
         bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in matches]
 
     actuals = _parse_results_js_scores()
+    ko_dates = _parse_results_js_dates()
+    actuals_by_round = _build_actuals_by_round(actuals, ko_dates)
+
+    def _opp_of(act, team):
+        """Return (opponent_name, my_score, opp_score) for `team` in match `act`."""
+        if _norm(act["home_name"]) == _norm(team):
+            return act["away_name"], act["home"], act["away"]
+        return act["home_name"], act["away"], act["home"]
+
+    def _act_winner_teams(act):
+        aw = _actual_winner(act["home_name"], act["away_name"], act)
+        return aw
 
     html = '<div class="bracket-wrap"><div class="bracket">'
-    for key, label, _ in rounds:
-        matches = bracket_data.get(key, [])
+    for round_key, label, _ in rounds:
+        matches = bracket_data.get(round_key, [])
+        round_actuals = actuals_by_round.get(round_key, {})
         html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
         for home, away, sa, sb, winner, note in matches:
-            h_slug, a_slug = get_slug(home), get_slug(away)
-            act = actuals.get(frozenset({_norm(home), _norm(away)}))
+            act_h = round_actuals.get(_norm(home))
+            act_a = round_actuals.get(_norm(away))
 
-            if act:
-                # Reorient actual scores to (home, away) predicted orientation.
-                if _norm(act["home_name"]) == _norm(home):
-                    ah, aa = act["home"], act["away"]
-                else:
-                    ah, aa = act["away"], act["home"]
-                act_winner = _actual_winner(home, away, act)
-                h_cls = " bracket-winner" if act_winner == home else ""
-                a_cls = " bracket-winner" if act_winner == away else ""
+            # Case A: predicted pair actually met — overlay perfect/ok/fail badge.
+            if act_h and act_a and act_h is act_a:
+                act = act_h
+                _, ah, aa = _opp_of(act, home)
+                act_winner = _act_winner_teams(act)
                 pred_correct = (act_winner is not None and winner == act_winner)
                 is_perfect = pred_correct and sa == ah and sb == aa
                 if is_perfect:
-                    badge_cls, icon, label_txt = "bracket-badge-perfect", "★", "Perfect"
+                    b_cls, icon, b_txt = "bracket-badge-perfect", "★", "Perfect"
                 elif pred_correct:
-                    badge_cls, icon, label_txt = "bracket-badge-ok", "✓", f"Predicted {sa}-{sb}"
+                    b_cls, icon, b_txt = "bracket-badge-ok", "✓", f"Predicted {sa}-{sb}"
                 else:
-                    badge_cls, icon, label_txt = "bracket-badge-fail", "✗", f"Predicted {sa}-{sb}"
+                    b_cls, icon, b_txt = "bracket-badge-fail", "✗", f"Predicted {sa}-{sb}"
                 extra = f' <span class="bracket-badge-note">({act["note"]})</span>' if act.get("note") else ""
                 footer = (
-                    f'<div class="bracket-footer {badge_cls}">'
+                    f'<div class="bracket-footer {b_cls}">'
                     f'<span class="bracket-badge-icon">{icon}</span>'
-                    f'<span class="bracket-badge-text">{label_txt}</span>'
-                    f'{extra}'
-                    f'</div>'
+                    f'<span class="bracket-badge-text">{b_txt}</span>{extra}</div>'
                 )
                 html += (
                     f'<div class="bracket-match played">'
-                    f'<div class="bracket-team{h_cls}">'
-                    f'<img src="images/{h_slug}.png" alt="">'
-                    f'<span>{home}</span><span class="bracket-score">{ah}</span></div>'
-                    f'<div class="bracket-team{a_cls}">'
-                    f'<img src="images/{a_slug}.png" alt="">'
-                    f'<span>{away}</span><span class="bracket-score">{aa}</span></div>'
-                    f'{footer}'
-                    f'</div>'
+                    + _bracket_team_row(home, ah, act_winner == home)
+                    + _bracket_team_row(away, aa, act_winner == away)
+                    + footer
+                    + "</div>"
                 )
-            else:
-                h_cls = " bracket-winner" if winner == home else ""
-                a_cls = " bracket-winner" if winner == away else ""
+                continue
+
+            # Case B: home advanced (as expected) but opponent was different.
+            if act_h and not act_a:
+                real_opp, my_score, opp_score = _opp_of(act_h, home)
+                aw = _act_winner_teams(act_h)
+                footer = (
+                    f'<div class="bracket-footer bracket-badge-fail">'
+                    f'<span class="bracket-badge-icon">✗</span>'
+                    f'<span class="bracket-badge-text">'
+                    f'Predicted {home} vs {away} ({sa}-{sb})</span></div>'
+                )
                 html += (
-                    f'<div class="bracket-match">'
-                    f'<div class="bracket-team{h_cls}">'
-                    f'<img src="images/{h_slug}.png" alt="">'
-                    f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
-                    f'<div class="bracket-team{a_cls}">'
-                    f'<img src="images/{a_slug}.png" alt="">'
-                    f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
-                    f'</div>'
+                    f'<div class="bracket-match played">'
+                    + _bracket_team_row(home, my_score, aw == home)
+                    + _bracket_team_row(real_opp, opp_score, aw == real_opp, ghost_of=away)
+                    + footer
+                    + "</div>"
                 )
+                continue
+
+            # Case C: away advanced but home didn't (mirror of B).
+            if act_a and not act_h:
+                real_opp, my_score, opp_score = _opp_of(act_a, away)
+                aw = _act_winner_teams(act_a)
+                footer = (
+                    f'<div class="bracket-footer bracket-badge-fail">'
+                    f'<span class="bracket-badge-icon">✗</span>'
+                    f'<span class="bracket-badge-text">'
+                    f'Predicted {home} vs {away} ({sa}-{sb})</span></div>'
+                )
+                html += (
+                    f'<div class="bracket-match played">'
+                    + _bracket_team_row(real_opp, opp_score, aw == real_opp, ghost_of=home)
+                    + _bracket_team_row(away, my_score, aw == away)
+                    + footer
+                    + "</div>"
+                )
+                continue
+
+            # Case D: both predicted teams played but against different opponents.
+            if act_h and act_a and act_h is not act_a:
+                r_opp_h, sc_h, sc_oh = _opp_of(act_h, home)
+                r_opp_a, sc_a, sc_oa = _opp_of(act_a, away)
+                aw_h = _act_winner_teams(act_h)
+                # We only have room for two rows in a bracket cell, so show the
+                # home leg (home + real opponent) with both away-side ghosts.
+                footer = (
+                    f'<div class="bracket-footer bracket-badge-fail">'
+                    f'<span class="bracket-badge-icon">✗</span>'
+                    f'<span class="bracket-badge-text">'
+                    f'Predicted {home} vs {away} ({sa}-{sb})</span></div>'
+                )
+                html += (
+                    f'<div class="bracket-match played">'
+                    + _bracket_team_row(home, sc_h, aw_h == home)
+                    + _bracket_team_row(r_opp_h, sc_oh, aw_h == r_opp_h, ghost_of=away)
+                    + footer
+                    + "</div>"
+                )
+                continue
+
+            # Case E: neither predicted team reached this round — pure prediction.
+            h_cls = " bracket-winner" if winner == home else ""
+            a_cls = " bracket-winner" if winner == away else ""
+            html += (
+                f'<div class="bracket-match">'
+                f'<div class="bracket-team{h_cls}">'
+                f'<img src="images/{get_slug(home)}.png" alt="">'
+                f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
+                f'<div class="bracket-team{a_cls}">'
+                f'<img src="images/{get_slug(away)}.png" alt="">'
+                f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
+                f'</div>'
+            )
         html += '</div>'
 
     final = bracket_data.get("Final", [])

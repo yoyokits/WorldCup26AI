@@ -306,15 +306,26 @@ body {
 }
 .bracket {
   display: flex; gap: 6px; align-items: stretch;
-  min-width: 820px; padding: 12px 0;
-  min-height: 960px;
+  min-width: 900px; padding: 12px 0;
+  min-height: 1120px;
 }
 .bracket-round {
   display: flex; flex-direction: column;
   justify-content: space-around;
-  flex: 1; min-width: 128px;
+  flex: 1; min-width: 140px;
 }
-.bracket-round .bracket-match { flex-shrink: 0; }
+.bracket-round-title {
+  position: absolute; top: 0; left: 0; right: 0;
+}
+.bracket-round { position: relative; padding-top: 20px; }
+/* Uniform match-card height per round so space-around gives exact
+   vertical centering: R16 match sits between two R32 midpoints, QF
+   between two R16, etc. */
+.bracket-round .bracket-match {
+  flex-shrink: 0;
+  min-height: 56px;
+  display: flex; flex-direction: column; justify-content: center;
+}
 .bracket-round-title {
   font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-size: 0.65rem; text-transform: uppercase; color: var(--wc-gray);
@@ -355,6 +366,25 @@ body {
   background: rgba(220,38,38,0.14); color: #b91c1c;
 }
 .bracket-badge-fail .bracket-badge-text { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.bracket-pred-marker {
+  display: inline-flex; align-items: center; gap: 3px;
+  margin-left: 6px; padding: 1px 4px;
+  background: rgba(220,38,38,0.10);
+  border: 1px dashed rgba(220,38,38,0.55);
+  border-radius: 4px;
+  font-size: 0.55rem; font-weight: 700;
+  color: #b91c1c;
+}
+.bracket-pred-marker img {
+  width: 12px; height: 8px; object-fit: cover; border-radius: 1px;
+  filter: grayscale(0.5);
+}
+.bracket-pred-x { font-weight: 900; font-size: 0.65rem; }
+.bracket-pred-name {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 .bracket-champion { align-items: center; justify-content: center; }
 .champion-match {
   text-align: center; padding: 10px; display: flex; flex-direction: column;
