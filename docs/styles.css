@@ -305,10 +305,27 @@ body {
   margin-bottom: 24px; padding-bottom: 8px;
 }
 .bracket {
-  display: flex; gap: 4px; align-items: stretch;
-  min-width: 700px; padding: 12px 0;
+  display: flex; gap: 6px; align-items: stretch;
+  min-width: 900px; padding: 12px 0;
+  min-height: 1120px;
 }
-.bracket-round { display: flex; flex-direction: column; justify-content: space-around; gap: 6px; flex: 1; min-width: 110px; }
+.bracket-round {
+  display: flex; flex-direction: column;
+  justify-content: space-around;
+  flex: 1; min-width: 140px;
+}
+.bracket-round-title {
+  position: absolute; top: 0; left: 0; right: 0;
+}
+.bracket-round { position: relative; padding-top: 20px; }
+/* Uniform match-card height per round so space-around gives exact
+   vertical centering: R16 match sits between two R32 midpoints, QF
+   between two R16, etc. */
+.bracket-round .bracket-match {
+  flex-shrink: 0;
+  min-height: 56px;
+  display: flex; flex-direction: column; justify-content: center;
+}
 .bracket-round-title {
   font-family: 'Montserrat', sans-serif; font-weight: 800;
   font-size: 0.65rem; text-transform: uppercase; color: var(--wc-gray);
@@ -330,6 +347,44 @@ body {
   font-weight: 800; font-size: 0.7rem; color: var(--wc-dark);
 }
 .bracket-winner { background: rgba(22, 163, 74, 0.1); font-weight: 700; }
+.bracket-match.played { border-color: #cbd5e1; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.bracket-footer {
+  display: flex; align-items: center; gap: 4px;
+  padding: 3px 6px; font-size: 0.6rem; line-height: 1.1;
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  border-top: 1px solid var(--wc-border);
+}
+.bracket-badge-icon { font-weight: 900; font-size: 0.75rem; flex-shrink: 0; }
+.bracket-badge-text { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bracket-badge-note { font-weight: 500; opacity: 0.75; font-size: 0.55rem; white-space: nowrap; }
+.bracket-badge-ok { background: rgba(22,163,74,0.14); color: #15803d; }
+.bracket-badge-perfect {
+  background: linear-gradient(135deg, rgba(250,204,21,0.35) 0%, rgba(245,158,11,0.25) 100%);
+  color: #92400e;
+}
+.bracket-badge-fail {
+  background: rgba(220,38,38,0.14); color: #b91c1c;
+}
+.bracket-badge-fail .bracket-badge-text { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.bracket-pred-marker {
+  display: inline-flex; align-items: center; gap: 3px;
+  margin-left: 6px; padding: 1px 4px;
+  background: rgba(220,38,38,0.10);
+  border: 1px dashed rgba(220,38,38,0.55);
+  border-radius: 4px;
+  font-size: 0.55rem; font-weight: 700;
+  color: #b91c1c;
+}
+.bracket-pred-marker img {
+  width: 12px; height: 8px; object-fit: cover; border-radius: 1px;
+  filter: grayscale(0.5);
+}
+.bracket-pred-x { font-weight: 900; font-size: 0.65rem; }
+.bracket-pred-name {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 .bracket-champion { align-items: center; justify-content: center; }
 .champion-match {
   text-align: center; padding: 10px; display: flex; flex-direction: column;
