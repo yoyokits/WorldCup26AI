@@ -120,12 +120,12 @@ var REAL_RESULTS = {
   "Portugal vs Spain":                     { home: 0, away: 1, ph: 1, pa: 2, d: "Jul 6", note: "90+1' winner" },
   "USA vs Belgium":                        { home: 1, away: 4, ph: 1, pa: 2, d: "Jul 6" },
   "Argentina vs Egypt":                    { home: 3, away: 2, ph: 2, pa: 0, d: "Jul 7", note: "Argentina came back from 2-0 down" },
-  "Switzerland vs Colombia":               { ph: 0, pa: 1, d: "Jul 7" },
+  "Switzerland vs Colombia":               { home: 0, away: 0, ph: 0, pa: 1, d: "Jul 7", note: "Switzerland 4-3 pens" },
   // Quarterfinals (Jul 9-11) — bracket updated after actuals (Norway replaces Brazil in QF3)
   "France vs Morocco":                     { ph: 1, pa: 0, d: "Jul 9" },
   "Spain vs Belgium":                      { ph: 2, pa: 0, d: "Jul 10" },
   "Norway vs England":                     { ph: 1, pa: 2, d: "Jul 11" },
-  "Argentina vs Colombia":                 { ph: 2, pa: 1, d: "Jul 11" },
+  "Argentina vs Switzerland":              { ph: 2, pa: 0, d: "Jul 11" },
   // Semifinals (Jul 14-15)
   "France vs Spain":                       { ph: 1, pa: 2, d: "Jul 14" },
   "England vs Argentina":                  { ph: 1, pa: 2, d: "Jul 15" },
