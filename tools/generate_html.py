@@ -850,9 +850,12 @@ def _build_bracket_tree():
         ("Final", "Final", "Final.md"),
     ]
     bracket_data = {}
+    current_bracket_data = {}
     for key, label, fn in rounds:
         matches = parse_knockout_file(fn, subdir="original")
         bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in matches]
+        cur_matches = parse_knockout_file(fn)
+        current_bracket_data[key] = [(m["home"], m["away"], m["score_a"], m["score_b"], m["winner"], m.get("note", "")) for m in cur_matches]
 
     actuals = _parse_results_js_scores()
     ko_dates = _parse_results_js_dates()
@@ -873,7 +876,8 @@ def _build_bracket_tree():
         matches = bracket_data.get(round_key, [])
         round_actuals = actuals_by_round.get(round_key, {})
         html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
-        for home, away, sa, sb, winner, note in matches:
+        cur_matches = current_bracket_data.get(round_key, [])
+        for idx, (home, away, sa, sb, winner, note) in enumerate(matches):
             act_h = round_actuals.get(_norm(home))
             act_a = round_actuals.get(_norm(away))
 
@@ -966,17 +970,24 @@ def _build_bracket_tree():
                 continue
 
             # Case E: neither predicted team reached this round — pure prediction.
-            h_cls = " bracket-winner" if winner == home else ""
-            a_cls = " bracket-winner" if winner == away else ""
+            # If the current (post-R16) prediction differs, use that pairing and
+            # overlay ghost markers for the originally-predicted teams that
+            # were eliminated in an earlier round.
+            d_home, d_away, d_sa, d_sb, d_winner = home, away, sa, sb, winner
+            ghost_home = ghost_away = None
+            if idx < len(cur_matches):
+                c_home, c_away, c_sa, c_sb, c_winner, _c_note = cur_matches[idx]
+                if _norm(c_home) != _norm(home) or _norm(c_away) != _norm(away):
+                    d_home, d_away, d_sa, d_sb, d_winner = c_home, c_away, c_sa, c_sb, c_winner
+                    if _norm(c_home) != _norm(home):
+                        ghost_home = home
+                    if _norm(c_away) != _norm(away):
+                        ghost_away = away
             html += (
                 f'<div class="bracket-match">'
-                f'<div class="bracket-team{h_cls}">'
-                f'<img src="images/{get_slug(home)}.png" alt="">'
-                f'<span>{home}</span><span class="bracket-score">{sa}</span></div>'
-                f'<div class="bracket-team{a_cls}">'
-                f'<img src="images/{get_slug(away)}.png" alt="">'
-                f'<span>{away}</span><span class="bracket-score">{sb}</span></div>'
-                f'</div>'
+                + _bracket_team_row(d_home, d_sa, d_winner == d_home, ghost_of=ghost_home)
+                + _bracket_team_row(d_away, d_sb, d_winner == d_away, ghost_of=ghost_away)
+                + '</div>'
             )
         html += '</div>'
 
