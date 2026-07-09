@@ -255,7 +255,7 @@ Each prediction earns points based on accuracy:
 | Match | Predicted | Actual | Result | Pts |
 |-------|-----------|--------|--------|-----|
 | Argentina vs Egypt | 2-0 | 3-2 | 🟢 Winner correct (Argentina back from 2-0 down) | +2 |
-| Switzerland vs Colombia | 0-1 | *pending* | — | — |
+| Switzerland vs Colombia | 0-1 | 0-0 (Switzerland 4-3 pens) | ❌ Predicted Colombia win, Switzerland advanced | +0 |
 
 ---
 
@@ -263,15 +263,15 @@ Each prediction earns points based on accuracy:
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 95 |
+| Matches played | 96 |
 | Perfect scores (⭐) | 13 |
 | Winner + GD (✅) | 5 |
 | Winner correct (🟢) | 50 |
-| No match (❌) | 27 |
-| Total points | 198 / 570 |
-| Accuracy (winner) | 72% |
+| No match (❌) | 28 |
+| Total points | 198 / 576 |
+| Accuracy (winner) | 71% |
 
-> Switzerland vs Colombia (Jul 7, 4 PM ET, BC Place Vancouver) played but result not yet mirrored in indexed public sources at time of update. Update when confirmed.
+> Switzerland vs Colombia (Jul 7, BC Place Vancouver): 0-0 after extra time, Switzerland won 4-3 on penalties. Colombia (predicted winner) eliminated — Switzerland now faces Argentina in QF.
 
 ## Sources
 

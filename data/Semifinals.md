@@ -1,6 +1,6 @@
 # World Cup 2026 — Semifinal Predictions
 
-> Assuming predicted QF winners hold (France, Spain, England, Argentina).
+> Pairings assume predicted QF winners hold: France, Spain, England, Argentina.
 
 ## Match 1 — France vs Spain
 

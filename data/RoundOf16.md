@@ -49,4 +49,4 @@
 
 - **Prediction:** Colombia wins 1-0
 - **Win prob:** Switzerland 27% | Draw 27% | Colombia 46%
-- **Actual (Jul 7):** _result pending_
+- **Actual (Jul 7):** Switzerland 0-0 Colombia (a.e.t.), Switzerland won 4-3 on penalties — Switzerland advance
