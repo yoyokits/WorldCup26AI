@@ -121,14 +121,14 @@ var REAL_RESULTS = {
   "USA vs Belgium":                        { home: 1, away: 4, ph: 1, pa: 2, d: "Jul 6" },
   "Argentina vs Egypt":                    { home: 3, away: 2, ph: 2, pa: 0, d: "Jul 7", note: "Argentina came back from 2-0 down" },
   "Switzerland vs Colombia":               { home: 0, away: 0, ph: 0, pa: 1, d: "Jul 7", note: "Switzerland 4-3 pens" },
-  // Quarterfinals (Jul 9-11) — bracket updated after actuals (Norway replaces Brazil in QF3)
-  "France vs Morocco":                     { ph: 1, pa: 0, d: "Jul 9" },
-  "Spain vs Belgium":                      { ph: 2, pa: 0, d: "Jul 10" },
-  "Norway vs England":                     { ph: 1, pa: 2, d: "Jul 11" },
-  "Argentina vs Switzerland":              { ph: 2, pa: 0, d: "Jul 11" },
-  // Semifinals (Jul 14-15)
-  "France vs Spain":                       { ph: 1, pa: 2, d: "Jul 14" },
-  "England vs Argentina":                  { ph: 1, pa: 2, d: "Jul 15" },
+  // Quarterfinals (Jul 9-11) — actuals recorded
+  "France vs Morocco":                     { home: 2, away: 0, ph: 1, pa: 0, d: "Jul 9",  note: "Mbappé opener; repeat of 2022 QF" },
+  "Spain vs Belgium":                      { home: 2, away: 1, ph: 2, pa: 0, d: "Jul 10", note: "Merino 2nd-half winner" },
+  "Norway vs England":                     { home: 1, away: 2, ph: 1, pa: 2, d: "Jul 11", note: "a.e.t. — Bellingham 6th of tournament" },
+  "Argentina vs Switzerland":              { home: 3, away: 1, ph: 2, pa: 0, d: "Jul 11", note: "Messi assist; late Álvarez & Martínez" },
+  // Semifinals (Jul 14-15) — actuals recorded
+  "France vs Spain":                       { home: 0, away: 2, ph: 1, pa: 2, d: "Jul 14", note: "Oyarzabal 22' pen, Porro 58'" },
+  "England vs Argentina":                  { home: 1, away: 2, ph: 1, pa: 2, d: "Jul 15", note: "Two late Argentina goals" },
   // Third Place (Jul 18)
   "France vs England":                     { ph: 2, pa: 1, d: "Jul 18" },
   // Final (Jul 19)
