@@ -259,25 +259,80 @@ Each prediction earns points based on accuracy:
 
 ---
 
+## Quarterfinal Results
+
+### July 9, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| France vs Morocco | 1-0 | 2-0 | 🟢 Winner correct (Mbappé opener) | +2 |
+
+### July 10, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Spain vs Belgium | 2-0 | 2-1 | 🟢 Winner correct (Merino winner) | +2 |
+
+### July 11, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| Norway vs England | 1-2 | 1-2 (a.e.t.) | ⭐ Perfect score (Bellingham extra-time winner) | +6 |
+| Argentina vs Switzerland | 2-0 | 3-1 | 🟢 Winner correct (late Álvarez & Martínez) | +2 |
+
+---
+
+## Semifinal Results
+
+### July 14, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| France vs Spain | 1-2 | 0-2 | 🟢 Winner correct (Oyarzabal pen, Porro) | +2 |
+
+### July 15, 2026
+
+| Match | Predicted | Actual | Result | Pts |
+|-------|-----------|--------|--------|-----|
+| England vs Argentina | 1-2 | 1-2 | ⭐ Perfect score (two late Argentina goals) | +6 |
+
+---
+
+## Upcoming Matches
+
+- **Third Place (Jul 18, Hard Rock Stadium, Miami):** France vs England — predicted France 2-1
+- **Final (Jul 19, MetLife Stadium, New Jersey):** Spain vs Argentina — predicted Argentina 2-1
+
+---
+
 ## Running Totals
 
 | Metric | Value |
 |--------|-------|
-| Matches played | 96 |
-| Perfect scores (⭐) | 13 |
+| Matches played | 102 |
+| Perfect scores (⭐) | 15 |
 | Winner + GD (✅) | 5 |
-| Winner correct (🟢) | 50 |
+| Winner correct (🟢) | 54 |
 | No match (❌) | 28 |
-| Total points | 198 / 576 |
-| Accuracy (winner) | 71% |
+| Total points | 218 / 612 |
+| Accuracy (winner) | 73% |
 
-> Switzerland vs Colombia (Jul 7, BC Place Vancouver): 0-0 after extra time, Switzerland won 4-3 on penalties. Colombia (predicted winner) eliminated — Switzerland now faces Argentina in QF.
+> Predicted semifinal pairings (France, Spain, England, Argentina) all held — model correctly identified all four semifinalists.
+> Final matchup Spain vs Argentina matches pre-tournament prediction; third-place France vs England also as predicted.
 
 ## Sources
 
 - FIFA official: https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026
+- FIFA match centre (Spain 2-1 Belgium QF): https://www.fifa.com/en/match-centre/match/17/285023/289289/400021538
+- FIFA match centre (France vs Spain SF): https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541
 - ESPN R32 recap (Jul 1): https://www.espn.com/espn/story/_/id/49242118/2026-fifa-world-cup-recap-england-congo-dr-senegal-belgium-usa-bosnia-herzegovina
 - ESPN Brazil 1-2 Norway: https://www.espn.com/soccer/story/_/id/49278406/brazil-vs-norway-live-world-cup-2026-updates-score-commentary-result
+- ESPN schedule/results: https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket
 - Yahoo R16 bracket recap: https://sports.yahoo.com/articles/world-cup-round-16-bracket-125306612.html
+- Yahoo final bracket (Spain vs Argentina): https://sports.yahoo.com/soccer/article/world-cup-semifinals-bracket-full-schedule-matchups-and-path-to-the-final-164942403.html
+- Al Jazeera Spain defeats France: https://www.aljazeera.com/video/2026/7/15/video-world-cup-2026-highlights
+- NBC News Spain 2-0 France: https://www.nbcnews.com/sports/soccer/live-blog/spain-france-world-cup-2026-july-14-live-updates-rcna587324
+- GMA News semifinal recap: https://www.gmanetwork.com/news/sports/football/994893/fifa-world-cup-semifinal-results-spain-vs-france-bracket-schedule-july-14-2026/story/
+- CBS Sports bracket: https://www.cbssports.com/soccer/news/2026-fifa-world-cup-bracket-round-of-32-results-round-of-16-matchups-final/
 - Wikipedia (2026 knockout stage): https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage
 - FOX Sports QF live update: https://www.foxsports.com/stories/soccer/world-cup-bracket-live-quarterfinals-update-standings
