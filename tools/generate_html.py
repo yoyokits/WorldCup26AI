@@ -877,9 +877,32 @@ def _build_bracket_tree():
         round_actuals = actuals_by_round.get(round_key, {})
         html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
         cur_matches = current_bracket_data.get(round_key, [])
+        # Track which current-round predictions have been "consumed" by
+        # earlier Case A-D matches so that a Case E fallback doesn't re-show
+        # a pairing whose team is already displayed in this round.
+        used_cur = set()
+        def _consume_cur(*teams):
+            names = {_norm(t) for t in teams if t}
+            for ci, (ch, ca, _sa, _sb, _w, _n) in enumerate(cur_matches):
+                if ci in used_cur:
+                    continue
+                if _norm(ch) in names or _norm(ca) in names:
+                    used_cur.add(ci)
+                    return
         for idx, (home, away, sa, sb, winner, note) in enumerate(matches):
             act_h = round_actuals.get(_norm(home))
             act_a = round_actuals.get(_norm(away))
+
+            # Consume the current-round match slot corresponding to the actual
+            # team(s) that played in this bracket cell, so later Case E fallbacks
+            # skip a pairing already visualized here.
+            act_teams = []
+            if act_h:
+                act_teams.extend([act_h["home_name"], act_h["away_name"]])
+            if act_a and act_a is not act_h:
+                act_teams.extend([act_a["home_name"], act_a["away_name"]])
+            if act_teams:
+                _consume_cur(*act_teams)
 
             # Case A: predicted pair actually met — overlay perfect/ok/fail badge.
             if act_h and act_a and act_h is act_a:
@@ -975,8 +998,19 @@ def _build_bracket_tree():
             # were eliminated in an earlier round.
             d_home, d_away, d_sa, d_sb, d_winner = home, away, sa, sb, winner
             ghost_home = ghost_away = None
-            if idx < len(cur_matches):
-                c_home, c_away, c_sa, c_sb, c_winner, _c_note = cur_matches[idx]
+            # Prefer the same slot index if not already consumed, otherwise
+            # the first unused current-round prediction.
+            pick = None
+            if idx < len(cur_matches) and idx not in used_cur:
+                pick = idx
+            else:
+                for ci in range(len(cur_matches)):
+                    if ci not in used_cur:
+                        pick = ci
+                        break
+            if pick is not None:
+                used_cur.add(pick)
+                c_home, c_away, c_sa, c_sb, c_winner, _c_note = cur_matches[pick]
                 if _norm(c_home) != _norm(home) or _norm(c_away) != _norm(away):
                     d_home, d_away, d_sa, d_sb, d_winner = c_home, c_away, c_sa, c_sb, c_winner
                     if _norm(c_home) != _norm(home):
