@@ -872,11 +872,107 @@ def _build_bracket_tree():
         return aw
 
     html = '<div class="bracket-wrap"><div class="bracket">'
+    # Advancers rendered per slot per round, so SF/Final can follow the
+    # real bracket tree (QF slot 2i & 2i+1 feed SF slot i) instead of the
+    # original prediction's slot ordering.
+    slot_advancers = {}
     for round_key, label, _ in rounds:
         matches = bracket_data.get(round_key, [])
         round_actuals = actuals_by_round.get(round_key, {})
         html += f'<div class="bracket-round"><div class="bracket-round-title">{label}</div>'
         cur_matches = current_bracket_data.get(round_key, [])
+        slot_advancers[round_key] = []
+
+        # ── QF, SF, Final: render bracket in the real (post-R16) path
+        # order taken from the current-prediction files. Pairings for SF and
+        # Final follow the actual QF/SF slot order (2i & 2i+1 feed slot i);
+        # QF uses the current-prediction sequence directly.
+        if round_key in ("QF", "SF", "Final"):
+            pairings = []
+            if round_key == "QF":
+                for ch, ca, _csa, _csb, _cw, _cn in cur_matches:
+                    pairings.append((ch, ca))
+            else:
+                prior_key = "QF" if round_key == "SF" else "SF"
+                prior = slot_advancers.get(prior_key, [])
+                for i in range(len(prior) // 2):
+                    if 2 * i + 1 >= len(prior):
+                        break
+                    pairings.append((prior[2 * i], prior[2 * i + 1]))
+
+            for th, ta in pairings:
+                # Try to find the actual match containing both teams.
+                act = None
+                a1 = round_actuals.get(_norm(th))
+                a2 = round_actuals.get(_norm(ta))
+                if a1 and a2 and a1 is a2:
+                    act = a1
+                if act:
+                    _, sh, sa_ = _opp_of(act, th)
+                    aw = _act_winner_teams(act)
+                    # Look up predicted score for this pairing from current predictions.
+                    p_sa = p_sb = ""
+                    for ch, ca, csa, csb, _cw, _cn in cur_matches:
+                        if {_norm(ch), _norm(ca)} == {_norm(th), _norm(ta)}:
+                            if _norm(ch) == _norm(th):
+                                p_sa, p_sb = csa, csb
+                            else:
+                                p_sa, p_sb = csb, csa
+                            break
+                    if p_sa != "" and aw is not None:
+                        pred_out_h = 1 if p_sa > p_sb else (-1 if p_sa < p_sb else 0)
+                        real_out_h = 1 if sh > sa_ else (-1 if sh < sa_ else 0)
+                        pred_correct = (pred_out_h == real_out_h and pred_out_h != 0 and aw == th) or \
+                                       (pred_out_h == real_out_h and pred_out_h != 0 and aw == ta) or \
+                                       (pred_out_h == 0 and real_out_h == 0)
+                        # winner-based check: predicted winner matches actual winner
+                        pred_winner = th if pred_out_h > 0 else (ta if pred_out_h < 0 else None)
+                        pred_correct = (pred_winner is not None and pred_winner == aw)
+                        is_perfect = pred_correct and p_sa == sh and p_sb == sa_
+                        if is_perfect:
+                            b_cls, icon, b_txt = "bracket-badge-perfect", "★", "Perfect"
+                        elif pred_correct:
+                            b_cls, icon, b_txt = "bracket-badge-ok", "✓", f"Predicted {p_sa}-{p_sb}"
+                        else:
+                            b_cls, icon, b_txt = "bracket-badge-fail", "✗", f"Predicted {p_sa}-{p_sb}"
+                    else:
+                        b_cls, icon, b_txt = "bracket-badge-ok", "✓", "Actual result"
+                    extra = f' <span class="bracket-badge-note">({act["note"]})</span>' if act.get("note") else ""
+                    footer = (
+                        f'<div class="bracket-footer {b_cls}">'
+                        f'<span class="bracket-badge-icon">{icon}</span>'
+                        f'<span class="bracket-badge-text">{b_txt}</span>{extra}</div>'
+                    )
+                    html += (
+                        f'<div class="bracket-match played">'
+                        + _bracket_team_row(th, sh, aw == th)
+                        + _bracket_team_row(ta, sa_, aw == ta)
+                        + footer
+                        + "</div>"
+                    )
+                    slot_advancers[round_key].append(aw if aw else th)
+                else:
+                    # Unplayed: use current-round prediction scores if the pairing matches, else blank.
+                    p_sa = p_sb = ""
+                    p_winner = None
+                    for ch, ca, csa, csb, cw, _cn in cur_matches:
+                        if {_norm(ch), _norm(ca)} == {_norm(th), _norm(ta)}:
+                            if _norm(ch) == _norm(th):
+                                p_sa, p_sb = csa, csb
+                            else:
+                                p_sa, p_sb = csb, csa
+                            p_winner = cw
+                            break
+                    html += (
+                        f'<div class="bracket-match">'
+                        + _bracket_team_row(th, p_sa, p_winner == th)
+                        + _bracket_team_row(ta, p_sb, p_winner == ta)
+                        + "</div>"
+                    )
+                    slot_advancers[round_key].append(p_winner if p_winner else th)
+            html += '</div>'
+            continue
+
         # Track which current-round predictions have been "consumed" by
         # earlier Case A-D matches so that a Case E fallback doesn't re-show
         # a pairing whose team is already displayed in this round.
@@ -904,6 +1000,10 @@ def _build_bracket_tree():
             if act_teams:
                 _consume_cur(*act_teams)
 
+            # Helper: record who advances from this rendered slot.
+            def _record(team):
+                slot_advancers[round_key].append(team)
+
             # Case A: predicted pair actually met — overlay perfect/ok/fail badge.
             if act_h and act_a and act_h is act_a:
                 act = act_h
@@ -930,6 +1030,7 @@ def _build_bracket_tree():
                     + footer
                     + "</div>"
                 )
+                _record(act_winner if act_winner else home)
                 continue
 
             # Case B: home advanced (as expected) but opponent was different.
@@ -949,6 +1050,7 @@ def _build_bracket_tree():
                     + footer
                     + "</div>"
                 )
+                _record(aw if aw else home)
                 continue
 
             # Case C: away advanced but home didn't (mirror of B).
@@ -968,6 +1070,7 @@ def _build_bracket_tree():
                     + footer
                     + "</div>"
                 )
+                _record(aw if aw else away)
                 continue
 
             # Case D: both predicted teams played but against different opponents.
@@ -990,6 +1093,7 @@ def _build_bracket_tree():
                     + footer
                     + "</div>"
                 )
+                _record(aw_h if aw_h else home)
                 continue
 
             # Case E: neither predicted team reached this round — pure prediction.
@@ -1023,6 +1127,7 @@ def _build_bracket_tree():
                 + _bracket_team_row(d_away, d_sb, d_winner == d_away, ghost_of=ghost_away)
                 + '</div>'
             )
+            _record(d_winner if d_winner else d_home)
         html += '</div>'
 
     final = bracket_data.get("Final", [])
